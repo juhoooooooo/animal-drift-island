@@ -3,71 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f7f6ef">
-  <meta name="description" content="合并一片陆地，接一个朋友回家。动物漂流岛十关试玩版。">
-  <title>动物漂流岛 · 海风来信</title>
+  <meta name="theme-color" content="#9ed9ed">
+  <meta name="description" content="修复八级遗迹，接小动物平安回家。动物漂流岛二十关试玩版。">
+  <title>动物漂流岛 · 遗迹新生</title>
   <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTgiIGZpbGw9IiNkY2ViZDgiLz48ZyBzdHJva2U9IiMzYTYwNTUiIHN0cm9rZS13aWR0aD0iMiI+PGVsbGlwc2UgY3g9IjI0IiBjeT0iMjIiIHJ4PSI3IiByeT0iMTYiIGZpbGw9IiNmZmY2ZTUiLz48ZWxsaXBzZSBjeD0iNDEiIGN5PSIyMiIgcng9IjciIHJ5PSIxNiIgZmlsbD0iI2ZmZjZlNSIvPjxlbGxpcHNlIGN4PSIzMiIgY3k9IjQwIiByeD0iMjQiIHJ5PSIxOSIgZmlsbD0iI2ZmZjZlNSIvPjwvZz48ZyBmaWxsPSIjM2E2MDU1Ij48Y2lyY2xlIGN4PSIyMyIgY3k9IjM5IiByPSIyIi8+PGNpcmNsZSBjeD0iNDEiIGN5PSIzOSIgcj0iMiIvPjxwYXRoIGQ9Im0yOSA0NSAzIDMgMy0zeiIvPjwvZz48L3N2Zz4K" type="image/svg+xml">
   <style>@charset "UTF-8";
-:root{--paper:#f8f7f0;--card:#fffdf6;--ink:#31574e;--muted:#829188;--line:#e1e6d8;--green:#5b8067;--green-light:#e3ebda;--ocean:#c4e2df;--orange:#e5b078;--shadow:0 8px 30px #47665707;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none}
-*{box-sizing:border-box}body{margin:0}button{font:inherit;color:inherit;cursor:pointer;border:0}button:disabled{cursor:default;opacity:.45}button,input{ -webkit-tap-highlight-color:transparent}button:focus-visible{outline:3px solid #d89e60;outline-offset:4px}svg{display:block}button svg{pointer-events:none}.icon{width:24px;height:24px;flex-shrink:0}.shell{min-height:100dvh;display:grid;grid-template-columns:100px 1fr}.rail{position:fixed;inset:0 auto 0 0;width:100px;z-index:10;background:var(--card);border-right:1px solid var(--line);display:flex;align-items:center;flex-direction:column;padding:30px 12px;gap:12px}.brand-mark{width:58px;height:58px;background:#dce8d3;border-radius:21px;display:grid;place-items:center;margin-bottom:38px}.brand-mark svg{width:40px;height:40px}.nav-item{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;background:transparent;border-radius:18px;width:74px;height:78px;color:#8e9c90;font-size:12px;transition:.2s}.nav-item .icon{width:25px;height:25px}.nav-item.active{background:var(--green-light);color:#456b55;font-weight:600}.nav-item:hover{background:#edf1e7}.rail-bottom{margin-top:auto;font-size:10px;letter-spacing:2px;writing-mode:vertical-rl;color:#a4ada0}.workspace{grid-column:2;max-width:1520px;width:100%;margin:auto;padding:0 46px 35px}.topbar{height:112px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:23px;letter-spacing:3px;font-weight:650}.brand small{display:block;font-size:9px;letter-spacing:3px;color:#92a08d;margin-top:7px;font-weight:500}.resources{display:flex;align-items:center;gap:12px}.resource{border:1px solid var(--line);border-radius:30px;background:var(--card);min-width:92px;display:flex;align-items:center;gap:10px;padding:9px 16px;font-size:15px;font-weight:600;font-variant-numeric:tabular-nums}.resource .icon{width:22px;height:22px}.resource.gold .icon{color:#c7a055}.resource.timber .icon{color:#ae8d67}.resource.food .icon{color:#85a26a}.round-button{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);background:var(--card);color:#829384}.eyebrow{font-size:11px;letter-spacing:2px;color:#839c88;display:flex;align-items:center;gap:10px}.eyebrow:before{content:"";width:21px;height:1px;background:currentColor}.page-title{font-size:29px;font-weight:600;letter-spacing:1px;margin:12px 0 9px}.subtext{font-size:13px;color:var(--muted);line-height:1.8;margin:0}.home-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:26px;align-items:start}.island-header{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:7px 0 25px}.weather{font-size:12px;white-space:nowrap;color:#93a28c;display:flex;align-items:center;gap:8px}.sun{width:16px;height:16px;border-radius:50%;background:#e5c489;box-shadow:0 0 0 4px #f0e7cc}.island-view{position:relative;border-radius:26px;background:var(--ocean);overflow:hidden;border:1px solid #bcdad2;isolation:isolate}.island-illustration{width:100%;aspect-ratio:800/550}.island-caption{position:absolute;left:23px;top:22px;display:flex;align-items:center;gap:9px;font-size:12px;color:#567f71;letter-spacing:1px}.island-caption .icon{width:18px;height:18px}.island-tag{position:absolute;left:50%;top:41%;transform:translate(-50%,0);background:#fff8e7;padding:6px 12px;border-radius:20px;border:1px solid #8caa87;color:#648160;font-size:10px;white-space:nowrap;pointer-events:none}.island-tag:before{content:"";position:absolute;width:5px;height:5px;border-right:1px solid #8caa87;border-bottom:1px solid #8caa87;bottom:-4px;left:calc(50% - 3px);transform:rotate(45deg);background:#fff8e7}.island-count{position:absolute;bottom:20px;left:22px;padding:8px 12px;border:1px solid #c1d6bc;background:#f5f5dfc9;border-radius:22px;font-size:11px;display:flex;align-items:center;gap:7px}.island-count .icon{width:16px;height:16px}.sea-note{position:absolute;right:20px;bottom:24px;color:#648e82;letter-spacing:3px;font-size:9px}.journey-strip{margin-top:17px;border:1px solid var(--line);border-radius:20px;padding:19px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;background:#fffdf7}.journey-copy{display:flex;align-items:center;gap:13px}.journey-icon{width:40px;height:40px;border-radius:14px;background:#e5ecd9;display:grid;place-items:center;color:#7a9571}.journey-copy strong{font-size:13px;display:block;margin-bottom:6px;font-weight:600}.journey-copy small{font-size:11px;color:#909b89}.primary{background:var(--green);color:#fffaf0;border-radius:14px;padding:14px 24px;font-size:13px;display:flex;align-items:center;justify-content:center;gap:17px;transition:transform .2s,background .2s;white-space:nowrap}.primary:hover{background:#4f735b;transform:translateY(-1px)}.primary .icon{width:18px;height:18px}.primary.warm{background:var(--orange);color:#5c533c}.primary.warm:hover{background:#dca46b}.secondary{background:#edf0e5;border:1px solid #dee4d4;padding:11px 18px;border-radius:12px;font-size:12px}.text-button{background:none;color:#86977f;font-size:11px;display:flex;align-items:center;gap:4px;padding:5px 0}.text-button .icon{width:14px;height:14px}.side-panel{padding-top:7px}.card{border:1px solid var(--line);background:var(--card);border-radius:22px;padding:23px;margin-bottom:18px;box-shadow:var(--shadow)}.card h2{font-size:16px;font-weight:600;letter-spacing:1px;margin:0}.card-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:23px}.card-heading>span{font-size:10px;color:#9aab8d}.task{margin:20px 0 23px}.task-title{display:flex;justify-content:space-between;font-size:12px;align-items:center}.task-title strong{font-variant-numeric:tabular-nums;font-size:12px;font-weight:500;color:#8d9e85}.task-title strong b{color:#4e785c;font-size:15px}.progress{height:6px;background:#ebeee1;border-radius:6px;overflow:hidden;margin-top:12px}.progress>span{display:block;height:100%;background:#9ab786;border-radius:inherit;transition:width .5s}.task-reward{font-size:10px;color:#9c9f86;display:flex;justify-content:space-between;align-items:center;margin-top:10px}.claim-button{padding:4px 10px;border-radius:15px;background:#e6bd85;font-size:10px;color:#675b42}.card-foot{border-top:1px dashed #e0e5d4;padding-top:16px;margin:0;font-size:10px;line-height:1.8;color:#9da591}.friend-note{display:flex;align-items:center;gap:14px;margin:19px 0}.portrait{width:51px;height:51px;display:grid;place-items:center;border-radius:18px;background:#f1e5cf;flex-shrink:0}.portrait svg{width:40px;height:40px}.friend-note strong{font-size:13px;font-weight:500}.friend-note p{font-size:11px;color:#8e9d86;margin:6px 0 0}.small-empty{border:1px dashed #dbe1cc;padding:16px 10px;border-radius:13px;color:#8b9b80;font-size:11px;text-align:center;line-height:1.9}.production-button{width:100%;display:flex;justify-content:space-between;align-items:center;font-size:11px;border-radius:13px;background:#edf0e3;padding:13px}.production-button .icon{width:17px;height:17px}.footer-note{display:flex;align-items:center;justify-content:center;gap:10px;color:#acb5a4;letter-spacing:2px;font-size:10px;margin-top:28px}.footer-note .icon{width:16px;height:16px}.island-animal>g{animation:bob 4s ease-in-out infinite}.animal-1>g{animation-delay:-1s}.animal-2>g{animation-delay:-2s}.animal-3>g{animation-delay:-3s}@keyframes bob{50%{transform:translateY(-4px)}}
-/* 海上救援 */
-.play-header{display:flex;align-items:center;gap:15px;margin:8px 0 25px}.play-header h1{font-size:24px;margin:0 0 7px;font-weight:600}.play-header p{margin:0;font-size:12px;color:var(--muted)}.play-header .round-button{flex-shrink:0}.play-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:30px;align-items:start}.game-sea{border-radius:27px;border:1px solid #bcd9d4;background:#c4e1db;position:relative;overflow:hidden;min-height:520px;padding:24px;display:flex;align-items:center;flex-direction:column}.game-sea:before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='80'%3E%3Cpath d='M10 40q7 4 14 0m36-20q7 4 14 0' fill='none' stroke='%23b0d4ce' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");pointer-events:none}.board-top{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:470px;margin-bottom:18px;font-size:12px;color:#668c7c}.chapter-label{letter-spacing:2px;font-size:10px}.move-label{background:#e1eee0;border:1px solid #b7d0bb;border-radius:20px;padding:7px 13px;font-size:11px}.move-label.urgent{background:#f2dcc1;color:#9f6b45;border-color:#ddb493}.board{position:relative;display:grid;grid-template-columns:repeat(var(--n),1fr);width:min(100%,470px);gap:5px;padding:8px;border:1px solid #92bbac;border-radius:21px;background:#91b9aa;touch-action:none;user-select:none;-webkit-user-select:none}.tile{aspect-ratio:1;border-radius:12px;border:1.5px solid transparent;position:relative;display:grid;place-items:center;min-width:0;box-shadow:0 3px 0 #4e82723d;padding:0;transition:filter .2s,box-shadow .2s;touch-action:none;overflow:visible}.tile:hover{filter:brightness(1.06)}.tile>svg{width:83%;height:83%;pointer-events:none}.tile.level-0{background:#538b9b;border-color:#4d8293}.tile.level-1{background:#87bdba;border-color:#76aaa7}.tile.level-2{background:#b2cbbb;border-color:#94b7a4}.tile.level-3{background:#ecd5a0;border-color:#d2bc8c}.tile.level-4{background:#aac98b;border-color:#90b274}.tile.level-5{background:#94b982;border-color:#80a66f}.tile.level-6{background:#b4ca91;border-color:#91b177}.tile.level--1{background:#b4bfb0;border-color:#9ba998;cursor:default}.tile.blank{background:#7da99c;box-shadow:none}.tile.selected{border-color:#fff8dc;box-shadow:0 0 0 3px #e4bd77,0 3px 0 #4e82723d;z-index:2;transform:translateY(-2px)}.tile.hinted{animation:hint-breathe 3.6s ease-in-out infinite;z-index:2}.tile.hinted:after{content:"";position:absolute;inset:-2px;border:2px solid #f9e6a8;border-radius:inherit;pointer-events:none;animation:hint-ring 3.6s ease-in-out infinite}.tile-animal{position:absolute;width:62%;height:62%;left:19%;top:3%;pointer-events:none;filter:drop-shadow(0 2px 0 #6b7e5b33)}.tile-animal svg{position:relative;width:100%;height:100%;z-index:2}.tile-animal.raft:after{content:"";position:absolute;width:86%;height:13%;background:#bc9068;border:1px solid #8a8062;border-radius:2px;bottom:0;left:7%;transform:rotate(-6deg);z-index:1}.animal-count{position:absolute;bottom:4px;right:4px;width:17px;height:17px;border-radius:50%;font-size:10px;background:#fff6dc;color:#5d7859;display:grid;place-items:center;z-index:3}.timer-badge{position:absolute;top:-5px;right:-4px;background:#d9956a;color:#fff9e7;font-size:10px;min-width:21px;border-radius:8px;padding:3px 4px;z-index:3;border:1.5px solid #fff0d0}.capacity{position:absolute;bottom:2px;right:4px;font-size:9px;background:#fff8decc;border-radius:5px;padding:1px 4px;color:#5d7758}.game-feedback{height:36px;position:relative;display:flex;align-items:center;justify-content:center;font-size:12px;letter-spacing:1px;color:#527c68;margin:8px 0 0}.board-tools{position:relative;display:flex;justify-content:center;gap:12px;margin:0 0 2px}.tool-button{display:flex;align-items:center;gap:6px;padding:9px 17px;background:#e2ecdc;border:1px solid #b7cdb5;border-radius:12px;color:#668268;font-size:11px}.tool-button .icon{width:18px;height:18px}.rescue-goal{padding:22px}.goal-label{font-size:10px;letter-spacing:2px;color:#92a086}.goal-number{font-size:35px;margin:14px 0 6px;font-weight:600;font-variant-numeric:tabular-nums}.goal-number span{font-size:17px;color:#99a58c;font-weight:400}.goal-title{font-size:12px;margin:0;color:#7e9176}.animal-goals{display:flex;gap:9px;margin-top:20px;flex-wrap:wrap}.animal-goal{width:44px;height:44px;border-radius:15px;background:#f1ead9;position:relative;display:grid;place-items:center}.animal-goal>svg{width:35px;height:35px}.animal-goal.saved{background:#e0ebd5}.animal-goal.saved:after{content:"✓";position:absolute;right:-3px;bottom:-3px;border-radius:50%;background:#6f956a;color:white;font-size:9px;padding:2px 4px;border:2px solid #fffdf6}.tip-card{font-size:12px;line-height:1.9;color:#8c997f}.tip-card strong{font-size:13px;color:#658163;font-weight:500;display:block;margin-bottom:8px}.terrain-legend{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:13px;position:relative;max-width:490px;width:100%;flex-wrap:wrap}.legend-item{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:9px;color:#6c917d}.legend-tile{width:31px;height:31px;border-radius:9px;background:#edf1d9;border:1px solid #b1c8ac}.legend-tile svg{width:100%;height:100%}.legend-arrow{font-size:12px;color:#8bb09a;margin:0 2px 15px}.control-help{text-align:center;margin:15px 0 0;font-size:10px;color:#8da088;letter-spacing:1px}.status-card{display:flex;align-items:center;gap:12px;padding:17px 20px;background:#f3efdd;border-radius:16px;font-size:11px;line-height:1.8;color:#8f8e70}.status-card .icon{width:27px;height:27px;color:#b3ab80;flex-shrink:0}@keyframes hint-breathe{0%,25%,100%{filter:brightness(1)}55%{filter:brightness(1.075)}}@keyframes hint-ring{0%,25%,100%{opacity:.12;box-shadow:0 0 0 1px #fff0bd00}55%{opacity:.78;box-shadow:0 0 10px 2px #fff0bd70}}
-/* 航线、玩伴与建设 */
-.section-heading{margin:8px 0 30px}.map-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:26px}.map-sea{border-radius:26px;background:#d7e5da;min-height:550px;position:relative;overflow:hidden;border:1px solid #c5d7c1;padding:30px}.map-region{text-align:center;font-size:10px;color:#8aa182;letter-spacing:3px;margin:4px 0 25px}.level-route{max-width:540px;margin:auto;position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:27px 15px;padding:10px}.level-route:before{content:"";position:absolute;left:16%;right:16%;top:20px;bottom:60px;border:2px dashed #b0c5a8;border-radius:45%}.level-node{position:relative;background:transparent;display:flex;flex-direction:column;align-items:center;padding:0;gap:9px}.level-islet{width:72px;height:72px;background:#ecdfb8;border:5px solid #eaf0d6;box-shadow:0 4px 0 #aec3a3;border-radius:46% 49% 42% 44%;display:grid;place-items:center;color:#759464;position:relative;transition:.2s}.level-node:hover:not(:disabled) .level-islet{transform:translateY(-3px)}.level-node.current .level-islet{background:#91b682;border-color:#fbefd1;color:#fff7e3;box-shadow:0 0 0 3px #9db694,0 5px 0 #99b195}.level-node.completed .level-islet{background:#b5cd91}.level-node .node-number{font-size:22px;font-weight:600}.level-node .icon{width:23px;height:23px}.level-node small{font-size:10px;color:#6f8967}.node-stars{position:absolute;bottom:-7px;color:#d7ac5f;font-size:12px;letter-spacing:0}.route-counter{margin-top:25px;text-align:center;font-size:11px;color:#83997a}.residents-summary{display:flex;align-items:center;gap:22px;margin:15px 0 25px}.summary-number{font-size:25px;color:#527653}.summary-number small{display:block;font-size:10px;color:#9aa78c;font-weight:400;margin-top:7px}.summary-divider{height:35px;width:1px;background:#dee5d3}.species-row{display:flex;gap:12px;margin-bottom:25px}.species-button{border:1px solid var(--line);padding:10px 17px;border-radius:30px;background:var(--card);font-size:11px;display:flex;align-items:center;gap:8px}.species-button.active{background:#e0e9d6;border-color:#b5c9a3}.species-button svg{width:23px;height:23px}.residents-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.resident-card{border-radius:22px;border:1px solid var(--line);background:var(--card);padding:23px 18px;text-align:center}.resident-card .portrait{width:82px;height:82px;margin:0 auto 14px;border-radius:29px}.resident-card .portrait svg{width:65px;height:65px}.resident-card h2{font-size:15px;margin:10px 0 7px;font-weight:600}.resident-card p{font-size:10px;color:#92a080;margin:0 0 17px}.job-select{display:flex;justify-content:center;gap:5px}.job-select button{font-size:10px;border-radius:8px;background:#f0f1e7;padding:7px 8px;color:#8c9a7e}.job-select button.chosen{background:#dce8cf;color:#5e8058}.residents-empty{grid-column:1/-1;min-height:360px;display:flex;align-items:center;justify-content:center;flex-direction:column;border:1px dashed #d9e0cd;border-radius:25px;background:#f3f4e9}.empty-animal{width:100px;height:100px;opacity:.75}.residents-empty h2{font-size:18px;font-weight:500;margin:20px 0 10px}.residents-empty p{font-size:12px;color:#91a182;line-height:1.8;margin-bottom:25px}.build-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}.building-card{border:1px solid var(--line);border-radius:24px;background:var(--card);overflow:hidden}.building-art{height:190px;background:#e3ebd7;display:grid;place-items:center}.building-art>svg{width:200px;height:160px}.building-body{padding:23px}.building-level{font-size:10px;color:#94a183;float:right;margin-top:3px}.building-body h2{font-size:17px;margin:0 0 12px;font-weight:600}.building-body p{font-size:11px;color:#8f9c83;line-height:1.9;min-height:43px;margin:0 0 22px}.build-cost{display:flex;gap:16px;font-size:11px;color:#8d967b;margin-bottom:18px}.build-cost span{display:flex;align-items:center;gap:6px}.build-cost .icon{width:18px;height:18px;color:#b59d70}.building-body>.primary{width:100%}.build-info{margin-top:25px;max-width:780px;font-size:11px;color:#97a18d;line-height:1.9}
-/* 弹窗与提示 */
-.modal-backdrop{position:fixed;inset:0;background:#34544b65;backdrop-filter:blur(5px);z-index:50;display:flex;align-items:center;justify-content:center;padding:24px}.modal{background:#fffaf0;border:1px solid #e5e2cb;border-radius:28px;width:430px;max-width:100%;max-height:90dvh;overflow:auto;box-shadow:0 25px 80px #1a493527;padding:34px;position:relative;text-align:center;animation:modal-in .25s ease-out}.modal>.round-button{position:absolute;top:14px;right:14px;background:transparent;border:none}.modal .modal-animal{width:100px;height:100px;background:#e4ecd5;border-radius:36px;margin:3px auto 23px;padding:12px}.modal h2{font-size:25px;font-weight:600;letter-spacing:1px;margin:10px 0 12px}.modal p{font-size:12px;color:#8b9b7e;line-height:1.9;margin:10px 0 24px}.modal .primary,.modal .secondary{width:100%;margin-top:11px}.modal-eyebrow{font-size:10px;letter-spacing:3px;color:#9fa685}.star-row{font-size:28px;letter-spacing:9px;color:#d6ac66;margin:7px 0 19px;padding-left:9px}.win-animals{display:flex;justify-content:center;gap:10px;margin:20px 0}.win-animals svg{width:48px;height:48px;padding:5px;background:#f0e7d1;border-radius:16px}.reward-row{display:flex;gap:30px;justify-content:center;background:#f2efde;border-radius:15px;padding:17px;margin:20px 0;font-size:14px;color:#8e865d}.reward-row span{display:flex;gap:6px;align-items:center}.reward-row .icon{width:20px;height:20px}.rules-list{text-align:left;font-size:12px;line-height:2;color:#88967d;padding-left:22px}.rules-list li{padding-left:4px;margin:9px 0}.rules-list b{color:#5c7b5a;font-weight:600}.tutorial-demo{display:flex;align-items:center;justify-content:center;gap:8px;margin:23px 0}.tutorial-demo>div{width:53px;height:53px;border-radius:13px;background:#b2cbbb;border:1px solid #94b7a4;display:grid;place-items:center}.tutorial-demo>div:last-child{background:#ecd5a0}.tutorial-demo svg{width:43px;height:43px}.modal-small{font-size:10px!important;color:#a3aa95!important;margin-bottom:5px!important}#toast{position:fixed;left:50%;bottom:36px;transform:translate(-50%,15px);background:#35574dec;color:#fff8e6;padding:12px 22px;border-radius:14px;font-size:12px;z-index:100;pointer-events:none;opacity:0;transition:.25s;max-width:90vw;text-align:center;line-height:1.7}#toast.show{transform:translate(-50%,0);opacity:1}@keyframes modal-in{from{opacity:0;transform:translateY(15px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-.island-illustration{height:min(510px,calc(100dvh - 405px));min-height:300px;aspect-ratio:auto}
-.board{max-width:min(470px,calc(100dvh - 460px))}
-@media(min-width:1450px){.workspace{padding:0 65px 40px}.topbar{height:110px}.home-grid{grid-template-columns:minmax(0,1fr) 320px;gap:35px}.side-panel{padding-top:13px}.card{padding:27px}.island-header{margin-bottom:25px}.game-sea{padding:30px}}
-@media(max-width:1130px){.workspace{padding:0 27px 30px}.home-grid{grid-template-columns:minmax(0,1fr) 260px;gap:19px}.card{padding:20px}.topbar{height:100px}.journey-strip{padding:15px}.journey-copy small{font-size:10px}.primary{padding:13px 17px}.play-layout{grid-template-columns:minmax(0,1fr) 245px;gap:20px}.residents-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.build-grid{gap:16px}.building-body{padding:18px}.building-art{height:165px}}
-@media(max-width:940px){.shell{grid-template-columns:80px 1fr}.rail{width:80px;padding:25px 6px}.nav-item{width:65px}.brand-mark{width:50px;height:50px;margin-bottom:25px}.resources{gap:6px}.resource{min-width:72px;padding:8px 11px;gap:6px;font-size:13px}.resource .icon{width:19px;height:19px}.brand{font-size:21px}.workspace{padding:0 22px 28px}.home-grid{grid-template-columns:1fr}.side-panel{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-top:0}.side-panel>.card{margin-bottom:0}.side-panel>.card:first-child{grid-row:span 2}.card-heading{margin-bottom:15px}.friend-note{margin:15px 0}.page-title{font-size:26px}.island-header{margin-bottom:20px}.play-layout{grid-template-columns:minmax(0,1fr) 225px;gap:17px}.game-sea{padding:20px 15px;min-height:auto}.play-layout .card{padding:19px}.residents-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.build-grid{grid-template-columns:1fr;gap:18px}.building-card{display:grid;grid-template-columns:220px 1fr}.building-art{height:100%}.building-body p{min-height:0;margin-bottom:15px}.building-body>.primary{width:fit-content}.map-layout{grid-template-columns:1fr}.map-layout>.card{display:none}.map-sea{min-height:auto}}
-@media(max-width:700px){.shell{display:block}.rail{inset:auto 0 0;width:100%;height:76px;padding:7px 12px calc(7px + env(safe-area-inset-bottom));display:flex;flex-direction:row;justify-content:space-around;border-right:0;border-top:1px solid #dfe6d6;background:#fffdf7f5;backdrop-filter:blur(12px)}.brand-mark,.rail-bottom{display:none}.nav-item{height:57px;width:67px;gap:4px;font-size:10px;border-radius:14px}.nav-item .icon{width:22px;height:22px}.workspace{padding:0 18px 103px}.topbar{height:93px;gap:7px;align-items:center}.brand{font-size:19px;letter-spacing:2px}.brand small{font-size:7px;letter-spacing:1.5px;margin-top:6px}.resources{gap:5px;flex-wrap:nowrap}.resource{min-width:0;padding:6px 8px;font-size:11px;gap:4px}.resource .icon{width:17px;height:17px}.resource.food{display:none}.topbar .round-button{width:30px;height:30px;border:0;background:transparent}.topbar .round-button .icon{width:19px;height:19px}.eyebrow{font-size:9px;letter-spacing:1.5px}.eyebrow:before{width:15px}.page-title{font-size:23px;line-height:1.5;letter-spacing:0;margin-top:9px;margin-bottom:7px}.subtext{font-size:11px}.island-header{align-items:start;margin-top:5px;margin-bottom:20px}.weather{font-size:10px;margin-top:4px;gap:6px}.sun{width:12px;height:12px;box-shadow:0 0 0 3px #f0e7cc}.island-view{border-radius:22px;margin:0 -1px}.island-illustration{aspect-ratio:800/610;object-fit:cover;transform:scale(1.08)}.island-caption{left:16px;top:16px;font-size:9px;gap:6px}.island-caption .icon{width:14px;height:14px}.island-count{bottom:13px;left:13px;font-size:9px;padding:6px 9px}.sea-note{bottom:20px;right:12px;font-size:7px;letter-spacing:1.5px}.island-tag{top:39%;font-size:8px;padding:4px 8px}.journey-strip{padding:15px 13px;border-radius:16px;margin-top:14px;gap:10px}.journey-icon{width:32px;height:32px;border-radius:11px}.journey-icon .icon{width:19px;height:19px}.journey-copy{gap:8px}.journey-copy strong{font-size:11px;margin-bottom:5px}.journey-copy small{font-size:9px}.journey-strip .primary{padding:13px 14px;font-size:11px;gap:8px;border-radius:12px}.journey-strip .primary .icon{width:15px;height:15px}.home-grid{gap:20px}.side-panel{display:block}.card{border-radius:19px;padding:20px;margin-bottom:15px!important}.side-panel>.card:first-child{padding-bottom:17px}.card h2{font-size:14px}.card-heading{margin-bottom:13px}.task{margin:17px 0}.task-title{font-size:11px}.card-foot{font-size:9px;padding-top:12px}.side-panel .small-empty{display:none}.friend-note{margin:14px 0}.footer-note{margin-top:19px;font-size:8px;letter-spacing:1px}.play-header{margin:1px 0 16px;gap:11px}.play-header .round-button{width:34px;height:34px}.play-header .round-button .icon{width:20px;height:20px}.play-header h1{font-size:20px;margin-bottom:6px}.play-header p{font-size:10px}.play-layout{display:flex;flex-direction:column;gap:0}.play-aside{display:contents}.rescue-goal{order:-1;width:100%;padding:14px 17px!important;display:grid;grid-template-columns:1fr auto;align-items:center;margin-bottom:13px!important}.goal-label{font-size:9px;letter-spacing:1px}.goal-number{font-size:24px;margin:5px 0 3px}.goal-number span{font-size:13px}.goal-title{font-size:10px}.animal-goals{grid-column:2;grid-row:1/4;margin:0;gap:7px;max-width:175px}.animal-goal{width:35px;height:35px;border-radius:12px}.animal-goal>svg{width:29px;height:29px}.game-sea{order:0;padding:16px 12px 13px;width:100%;border-radius:22px}.board-top{margin-bottom:13px}.board{gap:4px;padding:6px;border-radius:16px}.tile{border-radius:9px}.tile>svg{width:88%;height:88%}.board-tools{gap:9px}.tool-button{padding:8px 13px;font-size:10px;border-radius:11px}.tool-button .icon{width:15px;height:15px}.game-feedback{font-size:10px;height:29px;margin-top:6px;letter-spacing:0}.terrain-legend{gap:3px;margin-top:10px}.legend-tile{width:26px;height:26px;border-radius:7px}.legend-item{font-size:8px;gap:4px}.legend-arrow{font-size:10px;margin:0 1px 11px}.control-help{font-size:9px;margin-top:10px;letter-spacing:0}.tip-card{order:1;width:100%;font-size:11px;padding:15px 17px!important;margin-top:14px!important}.tip-card strong{font-size:11px;margin-bottom:4px}.play-aside .status-card{display:none}.play-aside .text-button{display:none}.chapter-label{font-size:9px}.move-label{font-size:10px;padding:6px 10px}.section-heading{margin:2px 0 23px}.species-row{gap:6px;margin:20px 0;overflow:auto}.species-button{padding:8px 12px;font-size:10px;gap:4px;white-space:nowrap}.species-button svg{width:19px;height:19px}.residents-grid{gap:12px}.resident-card{padding:18px 9px;border-radius:18px}.resident-card .portrait{width:68px;height:68px;border-radius:23px}.resident-card .portrait svg{width:54px;height:54px}.resident-card h2{font-size:13px}.job-select{gap:3px}.job-select button{padding:6px;font-size:9px}.resident-card p{font-size:9px;margin-bottom:13px}.residents-summary{gap:20px}.summary-number{font-size:23px}.summary-number small{font-size:9px}.building-card{grid-template-columns:110px 1fr;border-radius:19px}.building-art>svg{width:125px;height:120px}.building-body{padding:18px 15px}.building-body h2{font-size:15px;margin-bottom:8px}.building-body p{font-size:10px;margin-bottom:12px}.build-cost{font-size:10px;gap:14px;margin-bottom:12px}.building-body>.primary{font-size:11px;padding:10px 16px;width:100%}.build-info{font-size:10px}.map-sea{padding:24px 12px;border-radius:21px}.level-route{gap:23px 7px;padding:5px}.level-islet{width:65px;height:65px;border-width:4px}.level-node small{font-size:9px}.level-node .node-number{font-size:20px}.map-region{font-size:9px}.modal-backdrop{padding:20px}.modal{padding:29px 24px;border-radius:25px}.modal h2{font-size:23px}.modal p{font-size:11px}.modal .modal-animal{width:85px;height:85px;border-radius:30px}.rules-list{font-size:11px}.modal .primary{font-size:12px}#toast{bottom:100px;font-size:11px;min-width:220px;padding:11px 16px}.residents-empty{min-height:340px;text-align:center;padding:15px}.residents-empty h2{font-size:16px}.residents-empty p{font-size:11px}.timer-badge{font-size:9px;min-width:19px;padding:2px 3px}.capacity{font-size:8px}}
-@media(max-width:700px){.island-illustration{height:auto;min-height:0;aspect-ratio:800/610}.board{max-width:470px}.topbar{height:82px}.play-header{margin-bottom:13px}.rescue-goal{padding-top:12px!important;padding-bottom:12px!important}.game-sea{padding-top:13px}.board-top{margin-bottom:10px}}
-@media(max-width:370px){.workspace{padding-left:12px;padding-right:12px}.brand{font-size:17px}.resource{padding:6px}.topbar{gap:4px}.topbar .round-button{display:none}.journey-copy small{max-width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.weather{display:none}.tile{border-radius:7px}.animal-goals{gap:5px}.animal-goal{width:31px;height:31px}.terrain-legend{gap:1px}.legend-tile{width:25px;height:25px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-
-/* Stable slots keep the sea and stationary tiles still throughout a cascade. */
-.board{isolation:isolate;overflow:hidden}.board-cell{position:relative;aspect-ratio:1;min-width:0;min-height:0}.board-cell>.tile{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}.tile.selected{transform:none}.tile.tile-in-flight,.tile.tile-dragging{z-index:5;will-change:transform;transition:none}.tile.tile-dragging{cursor:grabbing}.rescue-spark{position:absolute;left:36%;top:0;color:#fff1c6;font-size:22px;pointer-events:none;z-index:8;text-shadow:0 2px 8px #799b6b80}
-@media(prefers-reduced-motion:reduce){.tile.hinted{filter:brightness(1.04)}.tile.hinted:after{opacity:.65}}
-
-/* An occupied camp remains on the terrain after a rescue. */
-.tile.camp-tent>svg{opacity:.28}.camp-art{position:absolute;inset:2% 3% 8%;pointer-events:none;transform-origin:50% 85%;z-index:1}.camp-art svg{width:100%;height:100%}.camp-residents{position:absolute;left:2%;right:2%;bottom:1%;display:flex;align-items:end;justify-content:center;gap:1%;pointer-events:none;z-index:3}.camp-residents>span{width:30%;max-width:28px;aspect-ratio:1}.camp-residents svg{width:100%;height:100%;filter:drop-shadow(0 1px 0 #58745c40)}.camp-count{position:absolute;right:2px;top:2px;font-size:8px;line-height:1.4;padding:1px 4px;border-radius:7px;background:#fff5d9e8;color:#577550;z-index:4}.tile.has-camp .tile-animal{width:44%;height:44%;left:0;top:5%;z-index:4}.camp-visitor{position:absolute;pointer-events:none;z-index:12}.camp-visitor svg{width:100%;height:100%;filter:drop-shadow(0 2px 2px #4d70504d)}.shuffle-notice{position:absolute;left:9%;right:9%;top:26%;padding:17px 10px;background:#fff9eaf5;border:1px solid #b4c7a2;border-radius:18px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px;box-shadow:0 8px 24px #365b4b20;pointer-events:none;z-index:20;color:#51735a}.shuffle-notice-mark{font-size:26px;line-height:1;color:#8b9e73}.shuffle-notice strong{font-size:13px;font-weight:600}.shuffle-notice>span:not(.shuffle-notice-mark){font-size:12px}.shuffle-notice small{font-size:10px;color:#8c9d7f}.camp-house .camp-residents{bottom:0}.camp-house>svg{width:86%;height:86%}
-
-.camp-residents>span:only-child{width:43%;max-width:36px}
-
-/* Show the whole upgrade chain without letting arrows wrap on their own. */
-.tile.level-7{background:#d8d3a4;border-color:#b4b380}
-.facility-tier{position:absolute;left:3px;top:3px;padding:1px 4px;border-radius:5px;background:#fff5d9e6;color:#58784f;font-size:8px;line-height:1.4;z-index:3;pointer-events:none}
-.tile.level-7 .facility-tier{background:#f8e4b2;color:#6f7549}
-.terrain-legend{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;max-width:470px;align-items:start}
-.legend-item{position:relative;min-width:0;gap:4px;text-align:center;white-space:nowrap}
-.legend-item:not(:last-child):after{content:'›';position:absolute;right:-6px;top:24px;color:#8bb09a;font-size:12px}
-.legend-tier{font-size:8px;letter-spacing:.5px;color:#6e8e77}
-.legend-tile.level-0{background:#538b9b;border-color:#4d8293}
-.legend-tile.level-1{background:#87bdba;border-color:#76aaa7}
-.legend-tile.level-2{background:#b2cbbb;border-color:#94b7a4}
-.legend-tile.level-3{background:#ecd5a0;border-color:#d2bc8c}
-.legend-tile.level-4{background:#aac98b;border-color:#90b274}
-.legend-tile.level-5{background:#94b982;border-color:#80a66f}
-.legend-tile.level-6{background:#cbd9b1}.legend-tile.level-7{background:#e3dfbb;border-color:#b4b380}
-.board-tools{flex-wrap:wrap}.tool-button[hidden]{display:none}
-@media(max-width:700px){.terrain-legend{grid-template-columns:repeat(4,minmax(0,1fr));max-width:350px;gap:9px 10px}.legend-item{font-size:9px;gap:3px}.legend-tier{font-size:8px}.legend-item:not(:last-child):after{right:-8px;top:22px}.legend-item:nth-child(4):after{display:none}.facility-tier{font-size:7px;padding:1px 3px}}
-
-.terrain-objective{display:flex;align-items:center;gap:10px;border-top:1px solid #e2e7d7;padding-top:14px;margin-top:18px;color:#637f60;text-align:left}
-.terrain-objective[hidden]{display:none}.objective-art{width:36px;height:36px;flex-shrink:0;border-radius:10px;background:#e4e9cd}.objective-art svg{width:100%;height:100%}.terrain-objective div{flex:1;min-width:0}.terrain-objective small{display:block;font-size:9px;color:#94a287;margin-bottom:4px}.terrain-objective strong{font-size:10px;font-weight:500}.terrain-objective>b{font-size:11px;font-weight:500;white-space:nowrap}.map-goal{font-size:9px;color:#839d74;margin-top:4px}
-.supply-section{margin-top:25px;scroll-margin-top:20px}.supply-balance{display:flex;flex-wrap:wrap;gap:18px;margin:19px 0;color:#788c6c;font-size:12px}.supply-balance span{display:flex;align-items:center;gap:5px}.supply-balance .icon{width:19px;height:19px}.supply-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.supply-order{padding:20px 16px;background:#f5f1e3;border:1px solid #e3e5d0;border-radius:18px;text-align:center;min-width:0}.supply-symbol{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:14px;background:#e3e9cf;color:#879b72}.supply-symbol .icon{width:26px;height:26px}.supply-order h3{font-size:14px;font-weight:500;margin:14px 0 9px}.supply-order p{font-size:11px;color:#97a087;line-height:1.8;margin:0 0 15px}.supply-order>strong{display:flex;align-items:center;justify-content:center;gap:5px;font-size:15px;font-weight:500;color:#a78b55}.supply-order>strong .icon{width:19px;height:19px}.supply-order button{width:100%;margin-top:17px;font-size:11px;padding:11px 8px}.supply-actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-top:20px}.supply-actions .primary{font-size:12px}
-@media(max-width:700px){.terrain-objective{grid-column:1/-1;margin-top:10px;padding-top:11px;width:100%}.terrain-objective strong{font-size:10px}.terrain-objective .objective-art{width:32px;height:32px}.map-goal{font-size:8px}.level-route{row-gap:28px}.supply-section{padding:18px 15px}.supply-section .subtext{line-height:1.9}.supply-balance{gap:13px;font-size:11px;margin:16px 0}.supply-grid{grid-template-columns:1fr;gap:10px}.supply-order{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:5px 11px;padding:15px 12px;text-align:left}.supply-symbol{grid-row:1/3;width:39px;height:39px}.supply-order h3{font-size:12px;margin:0}.supply-order p{font-size:10px;margin:0;grid-column:2}.supply-order>strong{grid-column:3;grid-row:1/3;font-size:12px}.supply-order button{grid-column:1/-1;font-size:11px;padding:9px;margin-top:8px}.supply-actions{justify-content:space-between;gap:10px}.supply-actions .primary{font-size:11px;padding:12px}.supply-actions .text-button{font-size:11px}}
+:root{--ink:#234264;--muted:#6b8798;--paper:#fff7e7;--line:#eadfc6;--green:#83b85e;--green-dark:#679b48;--blue:#63b7dc;--orange:#f39a55;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--ink);background:#a6dced;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button{font:inherit;color:inherit;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}button:disabled{opacity:.45;cursor:default}button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:3px solid #eeac55;outline-offset:4px}button svg{pointer-events:none}svg{display:block}.icon{width:25px;height:25px;flex-shrink:0}[hidden]{display:none!important}h1,h2,h3,p{margin-top:0}button{transition:background .18s,transform .18s}button:active:not(:disabled){transform:translateY(1px)}.shell{min-height:100dvh;padding-left:94px;background:#9ed9ed}.rail{position:fixed;left:0;top:0;bottom:0;z-index:30;width:94px;display:flex;flex-direction:column;align-items:center;padding:25px 8px;background:#fff7e7;gap:12px;border-right:2px solid #f0e2c3}.brand-mark{width:60px;height:65px;margin-bottom:23px;border-radius:20px;background:#e8ecd6;display:grid;place-items:center}.brand-mark svg{width:48px;height:55px}.nav-item{width:77px;min-height:76px;background:transparent;border-radius:19px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#8c9d9a;font-size:12px;font-weight:650}.nav-item.active{color:#476c49;background:#e2edcc}.nav-item .icon{width:28px;height:28px}.rail-bottom{margin-top:auto;font-size:10px;color:#a0a68e;writing-mode:vertical-rl;letter-spacing:3px}.workspace{max-width:1320px;margin:auto;padding:0 34px 35px}.topbar{min-height:101px;display:flex;align-items:center;gap:16px;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:800;letter-spacing:1px}.brand-avatar{width:51px;height:54px;display:grid;place-items:center;background:#d9f0f8;border:2px solid #f6fbfa;border-radius:17px}.brand-avatar svg{width:45px;height:50px}.brand small{display:block;font-size:10px;font-weight:500;color:#4f8299;letter-spacing:2px;margin-top:5px}.resources{display:flex;gap:10px;align-items:center;margin-left:auto}.resource{background:#eff9fa;border:2px solid #daeff2;border-radius:15px;display:flex;align-items:center;gap:7px;min-width:87px;padding:6px 12px 6px 6px;font-size:16px;font-weight:750;font-variant-numeric:tabular-nums}.resource .icon{width:30px;height:30px}.round-button{display:grid;place-items:center;flex-shrink:0;width:42px;height:42px;border-radius:14px;background:var(--paper);color:#80928b;box-shadow:0 3px 0 #558da716}.sound-toggle{background:#70bddc;color:white}.eyebrow{font-size:11px;color:#5c8e9b;letter-spacing:2px;font-weight:650}.page-title{font-size:27px;letter-spacing:1px;line-height:1.5;margin:5px 0 8px;font-weight:800}.subtext{font-size:13px;line-height:1.9;color:var(--muted)}.primary,.secondary{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:17px;min-height:47px;padding:12px 22px;font-size:15px;font-weight:750;white-space:nowrap}.primary,.primary.warm{background:var(--green);color:#fffdf3;border:2px solid #d6e8af;box-shadow:0 4px 0 var(--green-dark)}.primary:hover{background:#77ad54}.primary .icon{width:22px;height:22px;fill:currentColor}.secondary{background:#eaf3e0;color:#608b4f;border:1px solid #d1dfbd}.secondary .icon{width:21px;height:21px}.text-button{background:transparent;display:inline-flex;align-items:center;justify-content:center;gap:5px;color:#6793a3;font-size:12px;padding:4px}.text-button .icon{width:16px;height:16px}.card{background:var(--paper);border-radius:25px;padding:23px;margin-bottom:18px;border:2px solid #fff9eb}.card-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:20px}.card-heading h2{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:800;margin:0}.card-heading>span{font-size:11px;color:#a5967e}.card-foot{border-top:1px dashed #ded2b9;margin:15px 0 0;padding-top:14px;font-size:11px;line-height:1.8;color:#9b927e}.home-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;align-items:center;gap:27px}.island-header{display:flex;align-items:center;justify-content:space-between;padding:3px 15px 0}.weather{font-size:11px;white-space:nowrap;display:flex;align-items:center;gap:8px;color:#548999}.sun{width:15px;height:15px;border-radius:50%;display:inline-block;background:#f4d57d;box-shadow:0 0 0 4px #f3e9b8}.island-view{position:relative;overflow:hidden;isolation:isolate}.island-illustration{width:100%;height:auto}.island-count{display:flex;align-items:center;gap:6px;position:absolute;left:30px;bottom:20px;padding:7px 11px;border-radius:20px;color:#46859a;font-size:12px;background:#d7f0f5}.island-count .icon{width:18px;height:18px}.scene-label{cursor:pointer}.scene-label:hover rect{fill:#fffdf5;stroke:#a5ba8c;stroke-width:2px}.island-animal>g{animation:animal-breathe 4.8s ease-in-out infinite}.island-animal:nth-child(2n)>g{animation-delay:-2s}.working>g{animation:working 2.8s ease-in-out infinite;transform-origin:50% 80%}.arrival-note{position:absolute;bottom:16%;left:25%;right:10%;background:#fff5d7;padding:9px 12px;border-radius:20px;text-align:center;font-size:12px;font-weight:700;animation:arrival-note 3s both}.has-arrivals .arrival-boat{animation:boat-arrive 1.3s ease-out both}.just-arrived>g{animation:animal-arrive 2.7s ease-in-out both}.task{display:flex;align-items:center;gap:12px;margin:19px 0}.task:last-child{margin-bottom:0}.task-icon{color:#a78153}.task-icon .icon{width:29px;height:29px}.task-main{flex:1;min-width:0}.task-title{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:12px;font-weight:650}.task-title strong{font-size:18px;white-space:nowrap}.task-title small{font-size:12px;font-weight:500;color:#9c8d73}.progress{height:12px;border-radius:9px;margin-top:8px;overflow:hidden;background:#eddfc4}.progress>span{display:block;height:100%;background:#8fc17b;border-radius:inherit;transition:width .45s}.task.levels .progress>span{background:#6ab8db}.task-gift{background:none;padding:0}.task-gift .icon{width:30px;height:30px}.task-gift.ready{animation:gift-ready 2.8s infinite}.journey-strip{padding:16px 0 21px}.journey-copy{display:flex;align-items:center;gap:12px;margin:0 4px 17px}.journey-icon{display:grid;place-items:center;width:41px;height:41px;border-radius:14px;background:#d2edf2;color:#5f9cb3}.journey-copy strong{display:block;font-size:14px}.journey-copy small{display:block;font-size:11px;color:#5e92a2;margin-top:5px}.journey-strip .primary{width:100%;min-height:61px;font-size:19px;border-radius:22px}.production-button{display:flex;align-items:center;gap:7px;background:#eee6cc;padding:12px;border-radius:14px;width:100%;font-size:12px;text-align:left}.production-button .icon{width:23px;height:23px}.production-button span{flex:1}.production-button .icon:last-child{width:16px}.section-heading{margin:12px 0 27px}.footer-note{display:flex;align-items:center;justify-content:center;gap:7px;font-size:11px;color:#6293a2;margin:25px 0 0}.footer-note .icon{width:16px;height:16px}
+/* Puzzle: the sea belongs around, rather than inside, the ruins. */
+.play-header{display:flex;align-items:center;gap:14px;margin:7px 0 20px}.play-header>div{flex:1}.play-header p{margin:0 0 4px;font-size:10px;letter-spacing:2px;color:#568b9f}.play-header h1{margin:0;font-size:24px}.play-header h1 span{font-size:15px;margin-left:10px;font-weight:500}.play-layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:25px;align-items:start}.play-aside{grid-column:2;grid-row:1}.game-sea{grid-column:1;grid-row:1;min-width:0;padding:22px 20px 13px;background:#75bdd9;border:2px solid #b5e0eb;border-radius:28px;display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden}.board-top{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;max-width:530px;margin:0 0 12px}.chapter-label{font-size:12px;font-weight:650;color:#e9f8fa;letter-spacing:1px}.move-label{font-size:12px;background:#e1f0e8;border-radius:12px;padding:6px 9px;white-space:nowrap}.move-label.urgent{background:#f7d4ad;color:#a5693d}.board{isolation:isolate;position:relative;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:4px;padding:8px;width:min(100%,530px);background:#6aa8b3;border:2px solid #a6d1cc;border-radius:22px;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none}.board-cell{position:relative;aspect-ratio:1;min-width:0;min-height:0}.board-cell>.tile{position:absolute;inset:0;width:100%;height:100%}.tile{position:relative;display:block;border-radius:15px;border:0;padding:0;background:transparent;touch-action:none;min-width:0;overflow:visible;transition:filter .2s}.tile>.terrain-art{width:100%;height:100%;position:absolute;inset:0;pointer-events:none}.tile.selected{outline:3px solid #ffe6a0;outline-offset:-2px;z-index:3}.tile.hinted{animation:hint-breathe 3.8s ease-in-out infinite;z-index:2}.tile.hinted:after{content:"";position:absolute;inset:1px;border:2px solid #ffedb4;border-radius:17px;pointer-events:none;animation:hint-ring 3.8s ease-in-out infinite}.tile.tile-in-flight,.tile.tile-dragging{z-index:8;will-change:transform;transition:none}.tile.tile-dragging{cursor:grabbing}.tile-animals{position:absolute;inset:0;pointer-events:none}.tile-animal{position:absolute;pointer-events:none;z-index:4}.tile-animal svg{width:100%;height:100%;overflow:visible}.camp-art{position:absolute;inset:13% 9% 1%;pointer-events:none;z-index:2}.camp-art svg{width:100%;height:100%}.camp-tent>.terrain-art{opacity:.7}.camp-count{position:absolute;right:4%;top:8%;display:flex;align-items:center;gap:1px;font-size:9px;line-height:1;border-radius:6px;padding:2px 3px;background:#f1f8da;color:#6d914c;z-index:5}.camp-count .icon{width:10px;height:10px}.timer-badge{position:absolute;right:0;top:0;min-width:21px;background:#ed9d62;color:#fff9e7;border:1px solid #f8e7c4;border-radius:7px;padding:3px;font-size:11px;z-index:6}.camp-visitor{position:absolute;pointer-events:none;z-index:15}.camp-visitor svg{width:100%;height:100%}.rescue-spark{position:absolute;left:5%;top:10%;z-index:15;color:#fff7d1;font-size:12px;font-weight:800;white-space:nowrap;padding:4px 7px;border-radius:9px;background:#7da85a;pointer-events:none}.game-feedback{position:relative;display:flex;align-items:center;justify-content:center;min-height:42px;text-align:center;font-size:12px;font-weight:550;color:#f7fbef;width:100%;line-height:1.6}.board-tools{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.tool-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:var(--paper);border-radius:17px;min-width:70px;min-height:70px;font-size:11px;font-weight:700;padding:10px 15px;color:#61879b;box-shadow:0 3px 0 #5594b1}.tool-button .icon{width:27px;height:27px}.terrain-guide{width:100%;max-width:530px;margin-top:19px;color:#e4f5f4}.terrain-guide summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:11px;padding:9px 4px;border-top:1px solid #acd5e4;list-style:none}.terrain-guide summary::-webkit-details-marker{display:none}.terrain-guide summary>span{display:flex;gap:5px;align-items:center;font-size:10px;color:#d2ecf1}.terrain-guide .icon{width:12px;height:12px}.terrain-guide[open] summary .icon{transform:rotate(90deg)}.terrain-legend{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;padding-top:8px}.legend-item{text-align:center;font-size:10px}.legend-tile{width:72px;height:72px;margin:auto}.legend-tile svg{width:100%;height:100%}.control-help{font-size:10px;color:#d2ebf0;margin:8px 0 0}.goal-label{color:#a3977b;font-size:12px;font-weight:700}.goal-number{font-size:38px;font-weight:850;margin:5px 0}.goal-number span{font-size:16px;color:#a6977b}.goal-title{font-size:12px;color:#9d937d;line-height:1.7;margin:0}.animal-goals{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.animal-goal{position:relative;width:42px;height:46px;border-radius:12px;background:#eee5d1;opacity:.8;padding:3px}.animal-goal svg{width:100%;height:100%}.animal-goal.saved{background:#e0ebc9;opacity:1}.animal-goal.saved:after{content:'✓';position:absolute;bottom:-3px;right:-3px;background:#83b85e;color:white;border-radius:50%;width:16px;height:16px;text-align:center;line-height:16px;font-size:11px}.terrain-objective{display:flex;align-items:center;gap:9px;border-top:1px solid #e1d5bc;margin-top:16px;padding-top:12px;width:100%}.objective-art{width:40px;height:40px;flex-shrink:0}.objective-art svg{width:100%;height:100%}.terrain-objective div{flex:1;min-width:0}.terrain-objective small{font-size:9px;color:#a69679;display:block}.terrain-objective strong{font-size:11px}.terrain-objective>b{font-size:12px;white-space:nowrap}.tip-card{font-size:13px;line-height:1.8;color:#66848c}.tip-card strong{font-size:15px;color:#597b7b}.tip-card p{margin:12px 0}.shuffle-notice{position:absolute;top:27%;left:7%;right:7%;z-index:22;border-radius:21px;padding:20px 10px;text-align:center;display:flex;flex-direction:column;gap:8px;background:#fff7e7f5;color:#537f82;pointer-events:none;border:2px solid #eadbb6}.shuffle-notice-mark{font-size:28px;color:#88ae6a}.shuffle-notice strong{font-size:16px}.shuffle-notice>span{font-size:14px}.shuffle-notice small{font-size:11px;color:#9b967f}
+/* Animal collection, buildings and a single-level work screen. */
+.residents-summary{display:flex;align-items:center;gap:30px;padding:24px 30px;background:var(--paper);border-radius:23px}.summary-number{font-size:30px;font-weight:800}.summary-number small{display:block;font-size:11px;color:#9a957d;margin-top:7px;font-weight:500}.summary-divider{height:35px;width:1px;background:#e6d8bd}.species-row{display:flex;gap:10px;margin:24px 0}.species-button{display:flex;align-items:center;gap:7px;white-space:nowrap;background:#d7edf0;padding:10px 18px;border-radius:17px;font-size:13px}.species-button.active{background:#fff5dd;color:#ae8751}.species-button svg{width:25px;height:28px}.residents-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.resident-card{background:var(--paper);border-radius:24px;padding:25px 13px;text-align:center}.portrait{width:95px;height:99px;border-radius:30px;margin:auto;display:grid;place-items:center}.portrait svg{width:75px;height:85px}.resident-card h2{font-size:17px;margin:16px 0 9px}.resident-card p{font-size:11px;line-height:1.8;color:#9a967f;min-height:35px}.job-select{display:flex;gap:5px;justify-content:center}.job-select button{background:#eee6d1;border-radius:10px;font-size:11px;padding:8px 10px}.job-select .chosen{background:#dcebc9;color:#688c4e}.residents-empty{grid-column:1/-1;text-align:center;padding:50px 15px}.empty-animal{width:100px;height:110px;margin:auto auto 20px}.residents-empty h2{font-size:21px}.residents-empty p{color:#6895a1;font-size:13px}.build-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.building-card{background:var(--paper);border-radius:26px;overflow:hidden}.building-art{display:grid;place-items:center;width:100%;height:190px;background:#d0deaa}.building-art svg{width:100%;height:190px}.building-body{padding:22px}.building-level{font-size:11px;color:#b19565}.building-body h2{font-size:21px;margin:8px 0 12px}.building-body p{font-size:12px;color:#9b957f;line-height:1.8;min-height:65px}.build-cost{display:flex;gap:20px;margin:19px 0;font-size:13px}.build-cost span{display:flex;align-items:center;gap:6px}.build-cost .icon{width:21px;height:21px}.building-body .primary{width:100%;font-size:13px}.build-info{font-size:11px;line-height:1.9;color:#66929e}.supply-section{margin-top:25px;scroll-margin-top:20px}.supply-balance{display:flex;gap:20px;margin:18px 0;font-size:12px}.supply-balance span{display:flex;gap:5px;align-items:center}.supply-balance .icon{width:22px;height:22px}.supply-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.supply-order{background:#f0e5cb;border-radius:19px;padding:20px;text-align:center}.supply-symbol{display:grid;place-items:center;width:45px;height:45px;background:#f9f0d8;border-radius:14px;margin:auto}.supply-order h3{font-size:15px;margin:13px 0 8px}.supply-order p{font-size:11px;color:#a08e70}.supply-order>strong{display:flex;align-items:center;justify-content:center;gap:4px;font-size:15px;color:#9f814c}.supply-order>strong .icon{width:22px;height:22px}.supply-order button{width:100%;font-size:12px;margin-top:15px}.supply-actions{display:flex;gap:20px;margin:20px 0 0}.work-page{max-width:780px;margin:0 auto;border-radius:28px;overflow:hidden;background:var(--paper)}.work-title{display:flex;align-items:center;justify-content:space-between;gap:13px;padding:18px 22px;background:#a8cb8d}.work-title h1{font-size:23px;margin:0;flex:1;text-align:center}.work-title h1 span{font-size:14px;color:#6b8753;margin-left:7px}.work-title>.text-button{color:#5d8152}.work-hero{overflow:hidden;background:#bdd998}.work-illustration{width:100%;height:auto}.work-panel{padding:25px}.work-panel .card-heading h2{font-size:19px}.work-panel .card-heading h2 span{font-size:15px;color:#a08e71;font-weight:500}.worker-slots{display:flex;gap:16px;overflow-x:auto;padding:3px 0 18px}.worker-slot{min-width:98px;display:flex;align-items:center;flex-direction:column;gap:5px}.worker-slot>svg{width:75px;height:82px;padding:6px;background:#f1e4c7;border-radius:20px}.worker-slot strong{font-size:13px}.worker-slot small{font-size:10px;color:#a09278}.worker-slot .text-button{font-size:10px;color:#b99574}.worker-slot.vacant>span{display:grid;place-items:center;width:75px;height:82px;border-radius:20px;font-size:40px;font-weight:300;background:#eee2c8;color:#bba788}.production-card{border-radius:21px;background:#f0e4ca;padding:20px;margin:8px 0 25px}.production-heading{display:flex;gap:12px;align-items:center}.production-heading>.icon{width:43px;height:43px}.production-heading>div{flex:1}.production-heading h3{font-size:17px;margin:0 0 7px}.production-heading p{font-size:11px;color:#9f8f72;margin:0}.production-heading>strong{font-size:28px}.production-timer{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-top:17px}.production-timer>span{display:flex;align-items:center;gap:7px;font-size:17px;color:#83a565}.production-timer .primary{font-size:12px;min-height:39px;padding:8px 15px;border-radius:13px}.production-timer .icon{width:20px;height:20px}.available-workers h3{font-size:15px;margin:0 0 13px}.available-workers>button{display:inline-flex;gap:7px;align-items:center;background:#f1e6ce;border-radius:14px;padding:7px 9px;margin:0 7px 8px 0;font-size:12px}.available-workers>button>.animal-art{width:32px;height:36px}.available-workers .icon{width:16px;height:16px}.available-workers p,.work-empty{color:#a29478;font-size:12px;line-height:1.8}.work-upgrade{display:flex;justify-content:space-between;align-items:center;gap:15px;border-top:1px dashed #dcccac;margin-top:18px;padding-top:20px}.work-upgrade>div>strong{display:block;font-size:14px;margin-bottom:9px}.work-upgrade>div>span{display:flex;align-items:center;gap:5px;font-size:12px}.work-upgrade .icon{width:20px;height:20px}.work-upgrade>.secondary{font-size:12px;min-height:40px}
+/* The route map. */
+.map-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:25px;align-items:start}.map-sea{padding:25px;background:#79bfd8;border:2px solid #b5e0eb;border-radius:26px}.map-region{font-size:11px;color:#e0f4f5;text-align:center;letter-spacing:1px;margin-bottom:30px}.level-route{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:29px 12px}.level-node{display:flex;align-items:center;flex-direction:column;background:transparent;padding:0}.level-islet{position:relative;width:73px;height:73px;border-radius:28px;background:#c9dca2;border:5px solid #eee0aa;display:grid;place-items:center;color:#71944e;box-shadow:0 4px 0 #6ba6ad}.node-number{font-size:25px;font-weight:800}.level-node.current .level-islet{background:#90bb6c;border-color:#ffe9a8;color:#fffbea}.level-node.completed .level-islet{background:#b1d18a;color:#648948}.level-node:disabled .level-islet{background:#9ec8cb;border-color:#b2d9db}.level-node small{font-size:11px;color:#e7f5f5;margin-top:12px}.node-stars{position:absolute;bottom:-7px;color:#f0bd59;font-size:16px;letter-spacing:0}.map-goal{font-size:9px;color:#e4eece;margin-top:5px}.route-counter{text-align:center;color:#d9eff0;font-size:11px;line-height:1.8;margin-top:30px}
+/* Dialogs and victory. */
+.modal-backdrop{position:fixed;inset:0;z-index:60;background:#2b617a7a;display:flex;align-items:center;justify-content:center;padding:25px;overflow:auto}.modal{position:relative;background:var(--paper);border:3px solid #fff9eb;border-radius:29px;max-width:480px;width:100%;padding:34px;text-align:center;max-height:calc(100dvh - 44px);overflow-y:auto;animation:modal-in .25s ease-out}.modal>.round-button{position:absolute;right:13px;top:13px;width:32px;height:32px;background:#ecdfc3;z-index:5}.modal>.round-button .icon{width:17px;height:17px}.modal h2{font-size:25px;line-height:1.5;margin:13px 0}.modal p{font-size:13px;line-height:1.9;color:#948a76}.modal .primary,.modal .secondary{width:100%;margin-top:12px}.modal .modal-animal{width:95px;height:105px;margin:5px auto 20px}.modal-animal>svg{width:100%;height:100%}.modal-eyebrow{font-size:11px;color:#ad976c;letter-spacing:2px}.rules-list{text-align:left;font-size:12px;color:#74877e;padding-left:20px;line-height:1.9}.rules-list li{margin:11px 0}.modal .modal-small{font-size:11px}.tutorial-demo{display:flex;align-items:center;justify-content:center;gap:4px;margin:20px 0}.tutorial-demo>div{width:58px;height:58px}.tutorial-demo svg{width:100%;height:100%}.tutorial-demo>span{font-size:21px;color:#9eae87}.victory-modal{background:#71bfdd;border-color:#bae7ef;padding:37px 23px 20px}.win-ribbon{margin:15px -8px 0;background:#f5cf77;color:#625c39;font-size:25px;font-weight:850;padding:15px 10px;border-radius:9px 9px 22px 22px;transform:rotate(-2deg);position:relative}.win-stage{position:relative;display:flex;justify-content:center;align-items:end;gap:3px;min-height:182px;padding:32px 22px 15px;margin:0 0 19px;border-radius:0 0 50% 50%;background:#8ecacb}.win-stage>.animal-art{width:min(30%,104px);height:127px}.celebrate-spark{position:absolute;color:#ffdb82;font-size:29px}.celebrate-spark.one{left:16px;top:52px}.celebrate-spark.two{right:20px;top:22px}.victory-modal h2{font-size:24px;color:#fff9df;margin:10px 0 5px}.victory-modal>p{color:#e4f3ed;font-size:11px;margin-bottom:18px}.win-rewards{background:var(--paper);padding:19px;border-radius:22px}.win-rewards h3{font-size:17px;margin:0 0 12px}.win-animal-list{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}.win-animal-list>span{display:flex;align-items:center;gap:4px}.win-animal-list svg{width:33px;height:38px}.win-animal-list b{font-size:11px;font-weight:600;color:#9b8866}.reward-row{display:flex;justify-content:center;gap:45px;margin-top:16px}.reward-row>span{display:grid;justify-items:center;gap:3px}.reward-row .icon{width:36px;height:36px}.reward-row b{font-size:20px;color:#9c8051}.reward-row small{font-size:10px;color:#ad9b7c}.win-rewards .reward-note{font-size:10px;margin:12px 0 0;color:#b1a186}.win-actions{display:flex;gap:13px;margin-top:11px}.win-actions .primary,.win-actions .secondary{min-height:54px;font-size:15px}.win-actions .secondary{background:#73b9d8;color:#fff9e9;border:2px solid #d3eff1;box-shadow:0 4px 0 #59a4c6}.win-stay{color:#e3f4ef;margin-top:15px}.star-row{font-size:25px;color:#efbf60;margin:13px 0}.status-card{font-size:12px;text-align:center;color:#81a09c}.status-card .icon{width:20px;height:20px;margin:auto auto 10px}#toast{position:fixed;z-index:90;bottom:30px;left:50%;transform:translate(-50%,15px);max-width:min(85vw,440px);min-width:230px;padding:13px 20px;border:1px solid #d5d7b4;border-radius:18px;background:#fff7e9f5;color:#678578;font-size:13px;line-height:1.7;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}#toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes hint-breathe{0%,65%,100%{filter:brightness(1)}30%{filter:brightness(1.13)}}@keyframes hint-ring{0%,65%,100%{opacity:.16}30%{opacity:.85}}@keyframes animal-breathe{50%{transform:translateY(-2px)}}@keyframes working{25%{transform:translateY(-3px) rotate(-3deg)}70%{transform:rotate(3deg)}}@keyframes gift-ready{50%{transform:rotate(7deg)}}@keyframes modal-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes boat-arrive{from{transform:translate(90px,16px)}to{transform:translate(0,0)}}@keyframes animal-arrive{0%,36%{transform:translate(60px,80px);opacity:0}42%{opacity:1}100%{transform:translate(0,0);opacity:1}}@keyframes arrival-note{0%,30%{opacity:0;transform:translateY(5px)}45%,90%{opacity:1;transform:translateY(0)}100%{opacity:0}}
+@media(min-width:1450px){.workspace{padding-top:15px}.topbar{min-height:115px}.home-grid{gap:40px}.island-illustration{max-height:660px}.home-panels{padding-top:30px}}
+@media(max-width:1100px){.workspace{padding-left:23px;padding-right:23px}.home-grid{grid-template-columns:minmax(0,1fr) 285px;gap:15px}.brand{font-size:20px}.resource{min-width:73px;padding-right:9px;font-size:14px}.resources{gap:7px}.play-layout{grid-template-columns:minmax(0,1fr) 235px;gap:18px}.card{padding:20px}.page-title{font-size:23px}.residents-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.build-grid{grid-template-columns:1fr}.building-card{display:grid;grid-template-columns:210px 1fr}.building-art,.building-art svg{height:100%;min-height:190px}.building-body p{min-height:0}.building-body .primary{width:auto}.map-layout{grid-template-columns:1fr}.map-layout>.card{display:none}.work-page{max-width:680px}}
+@media(max-width:800px){.shell{padding-left:0}.rail{left:0;right:0;top:auto;bottom:0;width:auto;height:77px;padding:6px 14px calc(6px + env(safe-area-inset-bottom)/2);flex-direction:row;justify-content:space-around;border:0;border-top:2px solid #e7e1c8;border-radius:23px 23px 0 0;background:#fff7eaf8}.rail .brand-mark,.rail-bottom{display:none}.nav-item{min-height:60px;width:79px;gap:4px;font-size:10px;border-radius:16px}.nav-item .icon{width:25px;height:25px}.workspace{padding:0 14px 101px;max-width:630px}.topbar{min-height:90px;gap:7px;flex-wrap:wrap;position:relative;padding:12px 0 8px;align-content:center}.brand{font-size:19px;gap:9px;width:calc(100% - 40px);letter-spacing:1px}.brand-avatar{width:38px;height:40px;border-radius:13px}.brand-avatar svg{width:34px;height:38px}.brand small{font-size:9px;letter-spacing:1px;margin-top:1px}.sound-toggle{position:absolute;right:0;top:18px;width:31px;height:31px;border-radius:11px}.sound-toggle .icon{width:18px;height:18px}.resources{margin:0;gap:7px;width:100%;justify-content:flex-end}.resource{min-width:0;flex:1;max-width:118px;border-width:1px;font-size:13px;border-radius:11px;padding:2px 10px 2px 5px;gap:8px;justify-content:center}.resource .icon{width:24px;height:24px}.home-grid{display:flex;flex-direction:column;gap:0}.home-scene{width:100%}.island-header{padding:10px 4px 0;align-items:center}.eyebrow{font-size:9px;letter-spacing:1px}.page-title{font-size:20px;letter-spacing:0;margin:3px 0 0}.weather{font-size:9px;gap:6px}.sun{width:11px;height:11px;box-shadow:0 0 0 3px #f3e9b8}.island-view{margin:-2px -7px 0;overflow:visible}.island-illustration{width:100%;aspect-ratio:460/410}.island-count{bottom:7%;left:8%;font-size:10px;padding:5px 8px}.island-count .icon{width:13px;height:13px}.home-panels{display:flex;flex-direction:column;width:100%}.card{padding:19px;border-radius:24px;margin-bottom:16px}.card-heading{margin-bottom:13px}.card-heading h2{font-size:17px}.card-heading h2 .icon{width:25px;height:25px}.card-heading>span{font-size:10px}.task-card{margin-top:-12px;z-index:2;padding:18px 19px 16px;border-radius:25px}.task{margin:17px 0;gap:10px}.task-icon .icon{width:26px;height:26px}.task-title{font-size:12px}.task-title strong{font-size:17px}.task-title small{font-size:11px}.task-gift .icon{width:29px;height:29px}.progress{height:11px;margin-top:6px}.journey-strip{padding:0 15px 23px}.journey-copy{display:none}.journey-strip .primary{min-height:57px;font-size:19px;border-radius:21px}.life-card{margin-bottom:0}.life-card .card-foot{font-size:10px}.play-header{margin:12px 0 17px;gap:11px}.play-header .round-button{width:35px;height:35px;border-radius:12px}.play-header .icon{width:21px;height:21px}.play-header p{font-size:9px;margin-bottom:4px}.play-header h1{font-size:22px}.play-header h1 span{font-size:12px;margin-left:7px}.play-layout{display:flex;flex-direction:column;gap:0}.play-aside{display:contents}.rescue-goal{order:0;display:flex;align-items:center;flex-wrap:wrap;justify-content:space-between;gap:7px;width:100%;padding:14px 18px;margin-bottom:13px;border-radius:22px}.goal-copy{max-width:55%}.goal-label{font-size:10px}.goal-number{font-size:28px;margin:3px 0}.goal-number span{font-size:15px}.goal-title{font-size:9px;line-height:1.6}.animal-goals{margin:0;gap:5px;max-width:43%}.animal-goal{width:32px;height:36px;border-radius:10px;padding:2px}.animal-goal.saved:after{width:12px;height:12px;font-size:9px;line-height:12px}.terrain-objective{padding-top:8px;margin-top:7px;gap:7px}.objective-art{width:30px;height:30px}.terrain-objective small{font-size:8px}.terrain-objective strong{font-size:10px}.terrain-objective>b{font-size:11px}.game-sea{order:1;width:calc(100% + 12px);margin:0 -6px;padding:15px 9px 11px;border-radius:24px;border-width:1px}.board-top{margin-bottom:8px;padding:0 4px}.chapter-label{font-size:10px;letter-spacing:.5px}.move-label{font-size:10px;padding:4px 8px}.board{gap:2px;padding:5px;border-radius:18px;border-width:1px;max-width:530px}.tile{border-radius:12px}.tile.hinted:after{border-radius:12px}.camp-count{font-size:8px;padding:2px;right:1%;top:5%}.camp-count .icon{width:9px;height:9px}.timer-badge{font-size:9px;min-width:17px;padding:2px;border-radius:5px}.game-feedback{font-size:10px;min-height:38px;letter-spacing:0;padding:0 2px}.board-tools{gap:14px}.tool-button{min-width:66px;min-height:66px;border-radius:17px;font-size:10px;padding:8px 13px;gap:5px}.tool-button .icon{width:26px;height:26px}.terrain-guide{margin-top:13px}.terrain-guide summary{font-size:10px;padding:8px 3px}.control-help{font-size:9px}.tip-card{display:none}.legend-item{font-size:9px}.legend-tile{width:63px;height:63px}.rescue-spark{font-size:10px;padding:3px 4px}.section-heading{margin:16px 2px 23px}.section-heading .page-title{font-size:23px;margin:7px 0}.section-heading .subtext{font-size:11px}.residents-summary{gap:15px;padding:18px 14px;flex-wrap:wrap;border-radius:22px}.summary-number{font-size:23px}.summary-number small{font-size:9px}.summary-divider{height:28px}.residents-summary .secondary{min-height:35px;padding:8px 12px;font-size:10px;margin-left:0!important}.species-row{overflow-x:auto;gap:7px;margin:19px 0}.species-button{padding:8px 12px;font-size:11px;border-radius:13px}.species-button svg{width:20px;height:23px}.residents-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.resident-card{padding:19px 10px;border-radius:21px}.portrait{width:78px;height:83px;border-radius:25px}.portrait svg{width:65px;height:73px}.resident-card h2{font-size:15px;margin:12px 0 7px}.resident-card p{font-size:10px;min-height:38px}.job-select{gap:4px}.job-select button{font-size:10px;padding:7px 8px}.residents-empty{padding:35px 10px}.residents-empty h2{font-size:17px}.residents-empty p{font-size:11px}.build-grid{gap:14px}.building-card{grid-template-columns:117px minmax(0,1fr);border-radius:23px}.building-art,.building-art svg{height:100%;min-height:170px}.building-body{padding:18px 15px}.building-level{font-size:10px}.building-body h2{font-size:17px;margin:6px 0 8px}.building-body p{font-size:10px;line-height:1.8;margin-bottom:10px}.build-cost{margin:10px 0;font-size:11px;gap:14px}.build-cost .icon{width:18px;height:18px}.building-body .primary{font-size:11px;min-height:37px;padding:8px 12px;gap:6px;width:100%;border-radius:12px}.building-body .primary .icon{width:15px;height:15px}.build-info{font-size:10px}.supply-section{padding:19px 15px}.supply-section .subtext{font-size:11px}.supply-balance{font-size:10px;gap:13px}.supply-balance .icon{width:18px;height:18px}.supply-grid{grid-template-columns:1fr;gap:10px}.supply-order{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:5px 10px;align-items:center;padding:14px;text-align:left}.supply-symbol{width:36px;height:36px;grid-row:1/3}.supply-symbol .icon{width:22px;height:22px}.supply-order h3{font-size:12px;margin:0}.supply-order p{font-size:10px;grid-column:2;margin:0}.supply-order>strong{grid-column:3;grid-row:1/3;font-size:12px}.supply-order>strong .icon{width:18px;height:18px}.supply-order button{grid-column:1/-1;margin-top:6px;min-height:32px;padding:8px;font-size:11px;border-radius:11px}.supply-actions{gap:13px;align-items:center;justify-content:space-between}.supply-actions .primary{min-height:39px;font-size:11px;padding:8px 13px;border-radius:13px}.supply-actions .text-button{font-size:10px}.map-sea{padding:23px 11px}.map-region{font-size:9px;letter-spacing:0;margin-bottom:25px}.level-route{gap:26px 8px}.level-islet{width:53px;height:53px;border-radius:21px;border-width:4px}.node-number{font-size:19px}.node-stars{font-size:12px}.level-node small{font-size:9px;margin-top:10px}.map-goal{font-size:8px}.route-counter{font-size:9px}.work-page{margin:13px -14px 0;border-radius:0;overflow:hidden}.route-work .topbar{display:none}.work-title{padding:20px 16px 14px}.work-title h1{font-size:20px}.work-title h1 span{font-size:12px;margin-left:5px}.work-title .round-button{width:37px;height:37px;border-radius:50%}.work-title>.text-button{font-size:11px}.work-panel{padding:22px 20px}.work-panel .card-heading h2{font-size:17px}.work-panel .card-heading h2 span{font-size:13px}.work-panel .card-heading>span{display:none}.worker-slots{gap:15px;padding-bottom:16px}.worker-slot{min-width:81px}.worker-slot>svg,.worker-slot.vacant>span{width:75px;height:80px}.worker-slot strong{font-size:12px}.worker-slot small{font-size:9px}.production-card{padding:18px 16px;border-radius:21px}.production-heading>.icon{width:38px;height:38px}.production-heading h3{font-size:16px}.production-heading p{font-size:10px}.production-heading>strong{font-size:25px}.production-timer{gap:12px}.production-timer>span{font-size:15px}.production-timer .primary{font-size:11px;min-height:37px;padding:8px 11px}.work-upgrade>div>strong{font-size:12px}.work-upgrade>div>span{font-size:11px}.footer-note{font-size:9px;margin-top:23px}.modal-backdrop{padding:16px}.modal{padding:31px 23px 24px;border-radius:27px;max-height:calc(100dvh - 32px)}.modal h2{font-size:22px}.modal p{font-size:11px}.modal .primary,.modal .secondary{font-size:12px;min-height:45px}.rules-list{font-size:11px;line-height:1.9}.tutorial-demo>div{width:50px;height:50px}.modal .modal-small{font-size:10px}.victory-modal{padding:32px 18px 18px}.win-ribbon{font-size:24px;padding:15px 9px}.win-stage{min-height:167px;padding:27px 15px 10px;margin-bottom:14px}.win-stage>.animal-art{height:116px}.victory-modal h2{font-size:21px}.victory-modal>p{font-size:10px}.win-rewards{padding:17px}.win-rewards h3{font-size:16px}.win-animal-list{gap:12px}.win-animal-list svg{width:30px;height:33px}.win-animal-list b{font-size:10px}.reward-row{gap:45px;margin-top:12px}.reward-row .icon{width:32px;height:32px}.reward-row b{font-size:18px}.win-actions .primary,.win-actions .secondary{font-size:14px;min-height:51px;padding:9px}.win-stay{font-size:10px;margin-top:13px}#toast{bottom:93px;font-size:11px;padding:11px 15px}.shuffle-notice{padding:16px 10px;border-radius:17px}.shuffle-notice strong{font-size:13px}.shuffle-notice>span{font-size:12px}.shuffle-notice small{font-size:10px}}
+@media(max-width:360px){.workspace{padding-left:10px;padding-right:10px}.task-card{padding-left:14px;padding-right:14px}.task{gap:7px}.task-title{font-size:11px}.task-title strong{font-size:15px}.weather{display:none}.board-tools{gap:10px}.tool-button{min-width:62px;min-height:62px}.play-header h1{font-size:20px}.play-header h1 span{font-size:11px}.goal-title{font-size:8px}.animal-goal{width:29px;height:32px}.work-page{margin-left:-10px;margin-right:-10px}.level-islet{width:47px;height:47px}.building-card{grid-template-columns:104px minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.tile.hinted{filter:brightness(1.06)}.tile.hinted:after{opacity:.6}}
+@media(max-width:800px){.route-play .topbar{min-height:51px;padding:9px 0 5px;flex-wrap:nowrap;gap:8px}.route-play .brand{display:none}.route-play .resources{width:auto;flex:1;justify-content:stretch}.route-play .resource{max-width:none}.route-play .sound-toggle{position:static;flex-shrink:0;width:28px;height:28px}.route-play .play-header{margin:9px 0 12px}.route-play .play-header p{display:none}.route-play .rescue-goal{padding:11px 15px;margin-bottom:10px}.route-play .goal-number{font-size:26px;margin:2px 0}.route-play .goal-title{font-size:9px}.route-play .game-sea{padding-top:12px}}
+@keyframes animal-arrive{0%,36%{transform:translate(var(--arrival-x,60px),var(--arrival-y,80px));opacity:0}42%{opacity:1}100%{transform:translate(0,0);opacity:1}}
+button.worker-slot{background:transparent;padding:0}
+.tile-animal.portrait-mini{border-radius:50%;background:#fff4dc;border:1px solid #d6c9a5;overflow:hidden;padding:1%}
 </style>
 </head>
 <body>
   <div id="app"></div>
   <div id="modal-root"></div>
   <div id="toast" role="status" aria-live="polite"></div>
-  <script type="module">const TERRAIN = ['深海', '浅海', '礁石', '沙滩', '草地', '树林', '救援小屋', '救援中心'];
+  <script type="module">const TERRAIN = ['碎石荒地', '地基轮廓', '石板路面', '单根立柱', '双柱平台', '带顶门廊', '小型祭坛', '城邦广场'];
 const MAX_TIER = 7;
 const isHouse = t => !!t && t.level >= 6 && t.level <= MAX_TIER;
 const isFixed = t => !!t && (t.level < 0 || isHouse(t));
-const houseCapacity = level => level === 7 ? 9 : level === 6 ? 3 : 0;
+const MIN_SAFE_TIER = 5;
+const isSafe = t => !!t && t.level >= MIN_SAFE_TIER;
+const houseCapacity = level => level >= MIN_SAFE_TIER ? null : 0;
 const copy = value => structuredClone(value);
 function random(state) {
   let x = state.rng | 0; x ^= x << 13; x ^= x >>> 17; x ^= x << 5;
@@ -75,7 +47,7 @@ function random(state) {
   return state.rng / 4294967296;
 }
 function tile(state, level, animals = []) {
-  return {id: ++state.serial, level, animals: copy(animals), capacity: houseCapacity(level),camp:level>=6?{kind:'house',occupants:[]}:null};
+  return {id: ++state.serial, level, animals: copy(animals), capacity: houseCapacity(level),camp:level>=MIN_SAFE_TIER?{kind:'house',occupants:[]}:null};
 }
 function neighbors(i,n) {
   return [i%n>0?i-1:-1,i%n<n-1?i+1:-1,i>=n?i-n:-1,i<n*(n-1)?i+n:-1].filter(x=>x>=0);
@@ -144,65 +116,19 @@ function gravity(state) {
   }
 }
 function rescue(state,emit=()=>{}) {
-  const rescued=[],builds=[],entries=[];
-  const planEntry=(animal,from,to)=>entries.push({animal:copy(animal),from,to});
-  if(state.mode==='beach') {
-    // A tent can receive later arrivals on connected terrain of the same level.
-    // It is attached to its terrain, and travels with it when it moves or merges.
-    const visited=new Set();
-    for(let start=0;start<state.board.length;start++) {
-      if(visited.has(start)||state.board[start].level<3)continue;
-      const component=[],todo=[start],level=state.board[start].level;visited.add(start);
-      while(todo.length) {
-        const i=todo.pop();component.push(i);
-        for(const j of neighbors(i,state.n))if(!visited.has(j)&&state.board[j].level===level){visited.add(j);todo.push(j);}
-      }
-      component.sort((a,b)=>a-b);
-      const arrivals=component.filter(i=>state.board[i].animals.length);
-      if(!arrivals.length)continue;
-      if(isHouse(state.board[start])) {
-        const houses=component.filter(i=>state.board[i].capacity>0).map(i=>({at:i,available:state.board[i].capacity}));
-        for(const i of arrivals)for(const animal of state.board[i].animals){
-          if(!houses.length)break;
-          planEntry(animal,i,houses[0].at);
-          if(--houses[0].available===0)houses.shift();
-        }
-        continue;
-      }
-      let at=component.find(i=>state.board[i].camp);
-      if(at===undefined){at=arrivals[0];state.board[at].camp={kind:'tent',occupants:[]};builds.push({at,kind:'tent'});}
-      for(const i of arrivals)for(const animal of state.board[i].animals)planEntry(animal,i,at);
-    }
-  } else {
-    const visited=new Set();
-    for(let start=0;start<state.board.length;start++) {
-      if(visited.has(start)||state.board[start].level<3)continue;
-      const component=[],todo=[start];visited.add(start);
-      while(todo.length) {
-        const i=todo.pop();component.push(i);
-        for(const j of neighbors(i,state.n)) if(!visited.has(j)&&state.board[j].level>=3) {visited.add(j);todo.push(j);}
-      }
-      const houses=component.filter(i=>isHouse(state.board[i])&&state.board[i].capacity>0).map(i=>({at:i,available:state.board[i].capacity}));
-      for(const i of component) {
-        const t=state.board[i];
-        for(const animal of t.animals) {
-          if(!houses.length)break;
-          const house=houses[0];
-          state.board[house.at].camp??={kind:'house',occupants:[]};
-          planEntry(animal,i,house.at);
-          if(--house.available===0)houses.shift();
-        }
-      }
-    }
+  const rescued=[],entries=[],registered=new Set(state.rescued.map(a=>a.id));
+  for(let at=0;at<state.board.length;at++) {
+    const current=state.board[at];
+    if(!isSafe(current)||!current.animals.length)continue;
+    for(const animal of current.animals)entries.push({animal:copy(animal),from:at,to:at});
   }
-  if(builds.length)emit('camp-build',{camps:builds});
-  if(entries.length)emit('camp-enter',{entries:copy(entries)});
-  const registered=new Set(state.rescued.map(a=>a.id));
-  for(const {animal,from,to}of entries) {
-    const source=state.board[from],destination=state.board[to];
-    source.animals=source.animals.filter(a=>a.id!==animal.id);
-    if(!destination.camp.occupants.some(a=>a.id===animal.id))destination.camp.occupants.push({...animal,timer:null});
-    if(isHouse(destination))destination.capacity=Math.max(0,destination.capacity-1);
+  if(entries.length)emit('shelter-ready',{entries:copy(entries)});
+  for(const {animal,to}of entries) {
+    const current=state.board[to];
+    current.camp??={kind:'house',occupants:[]};
+    current.animals=current.animals.filter(a=>a.id!==animal.id);
+    if(!current.camp.occupants.some(a=>a.id===animal.id))current.camp.occupants.push({...animal,timer:null});
+    current.capacity=null;
     if(!registered.has(animal.id)){registered.add(animal.id);rescued.push({...animal,timer:null});}
   }
   state.rescued.push(...rescued);
@@ -254,7 +180,7 @@ function swap(state,a,b,{frames=false,shuffle=true}={}) {
   if(!state.board[a]||!state.board[b]||!neighbors(a,state.n).includes(b))return invalid('请选择上下左右相邻的地块');
   if([state.board[a],state.board[b]].some(t=>t.level<0))return invalid('岩石不能移动');
   const houseMove=isHouse(state.board[a])||isHouse(state.board[b]);
-  if(!canExchange(state.board,state.n,a,b))return invalid([state.board[a],state.board[b]].some(t=>t.level===MAX_TIER)?'T7 救援中心已满级，固定在原位照顾玩伴':houseMove?'救援小屋固定，只有同级三连升级时才能移动':'需要连成至少 3 个相同地形');
+  if(!canExchange(state.board,state.n,a,b))return invalid([state.board[a],state.board[b]].some(t=>t.level===MAX_TIER)?'城邦广场已完成，固定在原位照顾玩伴':houseMove?'祭坛固定，只有同级三连升级时才能移动':'需要连成至少 3 个相同地形');
   const next=copy(state), animation=[];
   [next.board[a],next.board[b]]=[next.board[b],next.board[a]];
   let matches=groups(next.board,next.n);
@@ -274,8 +200,8 @@ function swap(state,a,b,{frames=false,shuffle=true}={}) {
       const upgraded=level===4&&group.length>=4?6:Math.min(level+1,MAX_TIER);
       for(const i of group)next.board[i]=null;
       next.board[at]=tile(next,upgraded,animals);
-      if(camps.length)next.board[at].camp={kind:upgraded>=6?'house':'tent',occupants:copy(occupants)};
-      if(upgraded>=6)next.board[at].capacity=Math.max(0,houseCapacity(upgraded)-occupants.length);
+      if(camps.length)next.board[at].camp={kind:'house',occupants:copy(occupants)};
+      if(upgraded>=MIN_SAFE_TIER)next.board[at].capacity=null;
       upgrades.push({at,level:upgraded,count:group.length,sources:group.slice()});
     }
     frame('merge',{upgrades,chain:chains});
@@ -314,14 +240,11 @@ function boardScore(state) {
   for(let i=0;i<state.board.length;i++) {
     const t=state.board[i];
     value+=state.building?([0,0,0,0,8,30,100,400][t.level]||0):t.level>=4?8:0;
-    if(isHouse(t))value+=t.capacity*22;
+    if(isSafe(t))value+=22;
     for(const a of t.animals) {
       value+=t.level*35;
       if(a.timer!==null)value-=Math.max(0,8-a.timer)*14;
-      if(state.mode==='house'&&t.level>=3) {
-        const homes=state.board.map((v,j)=>isHouse(v)&&v.capacity>0?j:-1).filter(j=>j>=0);
-        if(homes.length)value-=Math.min(...homes.map(j=>Math.abs(i%state.n-j%state.n)+Math.abs(Math.floor(i/state.n)-Math.floor(j/state.n))))*8;
-      }
+
     }
   }
   return value;
@@ -347,134 +270,146 @@ function findPlan(state,{depth=5,width=50}={}) {
   return best?.path||[];
 }
 
-// 确定性初始棋盘与无道具通关路径，已按 T7 与固定救援设施规则回放验证。
+// Art presentation is independent of the existing puzzle and rescue rules.
+const RUINS=['碎石荒地','地基轮廓','石板路面','单根立柱','双柱平台','带顶门廊','小型祭坛','城邦广场'];
+function animalLayout(count) {
+  if(count>4){
+    const size=Math.min(23,160/count);
+    return Array.from({length:count},(_,i)=>{const angle=-Math.PI/2+i*2*Math.PI/count;return {x:50+Math.cos(angle)*36-size/2,y:59+Math.sin(angle)*30-size/2,size,scale:size/44};});
+  }
+  const size=count>2?44*.7:44;
+  const positions=count===1?[[7,55]]:count===2?[[3,55],[53,55]]:count===3?[[0,38],[5,69],[68,69]]:[[0,37],[69,37],[4,69],[65,69]];
+  return Array.from({length:count},(_,i)=>({x:positions[i]?.[0]??(i%4)*23,y:positions[i]?.[1]??(94+Math.floor((i-4)/4)*22),size:i<4?size:22,scale:count>2?.7:1}));
+}
+
+// V1.5：T5 起完全安全；二十关确定性布局和无道具回放。
 const LEVELS = [
   {
     "id": 1,
-    "title": "第一次靠岸",
+    "title": "第一次修复",
     "region": "小兔的漂流日记",
-    "description": "把礁石三连升级为沙滩，接棉棉回家。",
+    "description": "合并双柱平台，修复带顶门廊，让同格玩伴全部获救。",
     "n": 5,
     "seed": 1716,
     "mode": "beach",
     "layout": [
       0,
-      3,
       2,
-      2,
+      4,
+      4,
+      1,
+      4,
       1,
       2,
       1,
-      3,
-      1,
+      4,
       2,
-      3,
-      3,
+      2,
       1,
       0,
+      4,
+      0,
       2,
-      0,
-      3,
       1,
       1,
       0,
       0,
       1,
+      4,
       2,
-      3,
-      3
+      2
     ],
     "animals": [
       {
         "id": "level1-0",
         "type": "rabbit",
-        "at": 22
+        "at": 2
       }
     ],
     "weights": [
-      24,
-      27,
-      28,
-      15,
-      6
+      20,
+      20,
+      16,
+      14,
+      30
     ],
     "solution": [
       [
-        6,
-        7
+        1,
+        6
       ]
     ]
   },
   {
     "id": 2,
-    "title": "遇见橘子",
+    "title": "门廊下的相逢",
     "region": "浅湾来信",
-    "description": "帮助两位玩伴登上沙滩。",
+    "description": "合并双柱平台，修复带顶门廊，让同格玩伴全部获救。",
     "n": 5,
     "seed": 5391,
     "mode": "beach",
     "layout": [
       1,
-      2,
-      2,
-      3,
-      1,
-      0,
-      2,
+      4,
+      4,
       2,
       1,
       0,
+      4,
+      4,
+      1,
+      0,
+      4,
       2,
-      3,
-      3,
       2,
-      2,
+      4,
+      4,
       1,
       1,
       0,
-      3,
+      2,
       0,
       1,
       1,
       0,
-      3,
-      2
+      2,
+      4
     ],
     "animals": [
       {
         "id": "level2-0",
         "type": "rabbit",
-        "at": 24
+        "at": 1
       },
       {
         "id": "level2-1",
         "type": "cat",
-        "at": 7
+        "at": 2
       }
     ],
     "weights": [
-      24,
-      27,
-      28,
-      15,
-      6
+      20,
+      20,
+      16,
+      14,
+      30
     ],
     "solution": [
       [
-        13,
-        18
+        12,
+        13
       ],
       [
-        18,
-        19
+        10,
+        11
       ]
     ]
   },
   {
     "id": 3,
-    "title": "浪花里的朋友",
+    "title": "两只橘色小伙伴",
     "region": "珊瑚浅湾",
-    "description": "从浅海开始合并，接住两只小猫。",
+    "description": "合并双柱平台，修复带顶门廊，让同格玩伴全部获救。",
     "n": 5,
     "seed": 5134,
     "mode": "beach",
@@ -509,12 +444,12 @@ const LEVELS = [
       {
         "id": "level3-0",
         "type": "cat",
-        "at": 22
+        "at": 2
       },
       {
         "id": "level3-1",
         "type": "cat",
-        "at": 11
+        "at": 2
       }
     ],
     "weights": [
@@ -526,28 +461,16 @@ const LEVELS = [
     ],
     "solution": [
       [
-        12,
-        17
-      ],
-      [
-        13,
-        18
-      ],
-      [
-        21,
-        22
-      ],
-      [
-        15,
-        20
+        2,
+        7
       ]
     ]
   },
   {
     "id": 4,
-    "title": "向暖暖的岸边",
+    "title": "一起躲进门廊",
     "region": "珊瑚浅湾",
-    "description": "让三位玩伴一起平安靠岸。",
+    "description": "合并双柱平台，修复带顶门廊，让同格玩伴全部获救。",
     "n": 5,
     "seed": 7826,
     "mode": "beach",
@@ -582,17 +505,17 @@ const LEVELS = [
       {
         "id": "level4-0",
         "type": "dog",
-        "at": 21
+        "at": 12
       },
       {
         "id": "level4-1",
         "type": "rabbit",
-        "at": 13
+        "at": 12
       },
       {
         "id": "level4-2",
         "type": "dog",
-        "at": 2
+        "at": 12
       }
     ],
     "weights": [
@@ -606,18 +529,6 @@ const LEVELS = [
       [
         22,
         23
-      ],
-      [
-        10,
-        15
-      ],
-      [
-        10,
-        11
-      ],
-      [
-        6,
-        7
       ]
     ]
   },
@@ -625,7 +536,7 @@ const LEVELS = [
     "id": 5,
     "title": "远方的小蓝点",
     "region": "海风群岛",
-    "description": "企鹅也想要一个温暖的家。",
+    "description": "合并双柱平台，修复带顶门廊，让同格玩伴全部获救。",
     "n": 5,
     "seed": 9535,
     "mode": "beach",
@@ -660,17 +571,17 @@ const LEVELS = [
       {
         "id": "level5-0",
         "type": "penguin",
-        "at": 20
+        "at": 1
       },
       {
         "id": "level5-1",
         "type": "penguin",
-        "at": 15
+        "at": 4
       },
       {
         "id": "level5-2",
         "type": "cat",
-        "at": 9
+        "at": 14
       }
     ],
     "weights": [
@@ -682,32 +593,16 @@ const LEVELS = [
     ],
     "solution": [
       [
-        5,
-        10
-      ],
-      [
-        11,
-        16
+        6,
+        7
       ],
       [
         18,
         19
       ],
       [
-        7,
-        12
-      ],
-      [
-        16,
-        21
-      ],
-      [
-        16,
-        17
-      ],
-      [
-        10,
-        11
+        13,
+        14
       ]
     ]
   },
@@ -715,7 +610,7 @@ const LEVELS = [
     "id": 6,
     "title": "一盏回家的灯",
     "region": "海风群岛",
-    "description": "第 6 关起，用连续的沙滩、草地或树林连接小屋。",
+    "description": "动物所在遗迹达到带顶门廊后，才算完全安全。",
     "n": 5,
     "seed": 10261,
     "mode": "house",
@@ -750,12 +645,12 @@ const LEVELS = [
       {
         "id": "level6-0",
         "type": "rabbit",
-        "at": 16
+        "at": 8
       },
       {
         "id": "level6-1",
         "type": "dog",
-        "at": 9
+        "at": 8
       }
     ],
     "weights": [
@@ -767,32 +662,24 @@ const LEVELS = [
     ],
     "solution": [
       [
-        14,
-        19
+        10,
+        15
+      ],
+      [
+        11,
+        16
       ],
       [
         3,
         8
-      ],
-      [
-        16,
-        17
-      ],
-      [
-        11,
-        12
-      ],
-      [
-        13,
-        14
       ]
     ]
   },
   {
     "id": 7,
-    "title": "一起搭个小屋",
+    "title": "我们的安全小屋",
     "region": "海风群岛",
-    "description": "四连草地会变成救援小屋，每座可以接待 3 位玩伴。",
+    "description": "动物所在遗迹达到带顶门廊后，才算完全安全。",
     "n": 5,
     "seed": 12953,
     "mode": "house",
@@ -827,17 +714,17 @@ const LEVELS = [
       {
         "id": "level7-0",
         "type": "cat",
-        "at": 2
+        "at": 1
       },
       {
         "id": "level7-1",
         "type": "rabbit",
-        "at": 20
+        "at": 2
       },
       {
         "id": "level7-2",
         "type": "penguin",
-        "at": 4
+        "at": 12
       }
     ],
     "weights": [
@@ -855,18 +742,6 @@ const LEVELS = [
       [
         9,
         14
-      ],
-      [
-        6,
-        7
-      ],
-      [
-        15,
-        16
-      ],
-      [
-        11,
-        12
       ]
     ]
   },
@@ -874,7 +749,7 @@ const LEVELS = [
     "id": 8,
     "title": "风来了，别着急",
     "region": "灯塔海域",
-    "description": "在 8 次有效交换内救出带倒计时的小企鹅。",
+    "description": "动物所在遗迹达到带顶门廊后，才算完全安全。",
     "n": 5,
     "seed": 14662,
     "mode": "house",
@@ -909,13 +784,13 @@ const LEVELS = [
       {
         "id": "level8-0",
         "type": "penguin",
-        "at": 5,
+        "at": 0,
         "timer": 8
       },
       {
         "id": "level8-1",
         "type": "dog",
-        "at": 13
+        "at": 1
       }
     ],
     "weights": [
@@ -929,22 +804,6 @@ const LEVELS = [
       [
         2,
         7
-      ],
-      [
-        10,
-        11
-      ],
-      [
-        1,
-        6
-      ],
-      [
-        2,
-        7
-      ],
-      [
-        10,
-        15
       ]
     ]
   },
@@ -952,7 +811,7 @@ const LEVELS = [
     "id": 9,
     "title": "绕过小小礁岩",
     "region": "灯塔海域",
-    "description": "岩石不可交换，让安全陆地从旁边连接起来。",
+    "description": "动物所在遗迹达到带顶门廊后，才算完全安全。",
     "n": 5,
     "seed": 15388,
     "mode": "house",
@@ -987,17 +846,17 @@ const LEVELS = [
       {
         "id": "level9-0",
         "type": "dog",
-        "at": 1
+        "at": 0
       },
       {
         "id": "level9-1",
         "type": "cat",
-        "at": 17
+        "at": 7
       },
       {
         "id": "level9-2",
         "type": "rabbit",
-        "at": 4
+        "at": 10
       }
     ],
     "weights": [
@@ -1013,24 +872,24 @@ const LEVELS = [
         19
       ],
       [
-        0,
-        5
-      ],
-      [
         13,
         14
       ],
       [
-        3,
-        8
+        0,
+        5
       ],
       [
-        1,
-        2
+        10,
+        11
       ],
       [
-        9,
-        14
+        11,
+        16
+      ],
+      [
+        12,
+        17
       ]
     ]
   },
@@ -1038,7 +897,7 @@ const LEVELS = [
     "id": 10,
     "title": "我们的救援队",
     "region": "灯塔海域",
-    "description": "6×6 棋盘，在 18 步内带四位玩伴回家。",
+    "description": "动物所在遗迹达到带顶门廊后，才算完全安全。",
     "n": 6,
     "seed": 20046,
     "mode": "house",
@@ -1084,22 +943,22 @@ const LEVELS = [
       {
         "id": "level10-0",
         "type": "rabbit",
-        "at": 35
+        "at": 3
       },
       {
         "id": "level10-1",
         "type": "cat",
-        "at": 10
+        "at": 12
       },
       {
         "id": "level10-2",
         "type": "dog",
-        "at": 17
+        "at": 20
       },
       {
         "id": "level10-3",
         "type": "penguin",
-        "at": 19
+        "at": 21
       }
     ],
     "weights": [
@@ -1112,36 +971,24 @@ const LEVELS = [
     "limit": 18,
     "solution": [
       [
+        22,
+        28
+      ],
+      [
         1,
         7
       ],
       [
         12,
         18
-      ],
-      [
-        10,
-        16
-      ],
-      [
-        16,
-        22
-      ],
-      [
-        27,
-        28
-      ],
-      [
-        34,
-        35
       ]
     ]
   },
   {
     "id": 11,
-    "title": "树林里的新家",
+    "title": "门廊里的新家",
     "region": "青叶群岛",
-    "description": "三块树林可以搭成小屋，救出玩伴并建成一座 T6 小屋。",
+    "description": "救出所有玩伴，并完成 1 座小型祭坛。",
     "n": 5,
     "seed": 138822,
     "mode": "house",
@@ -1176,12 +1023,12 @@ const LEVELS = [
       {
         "id": "level11-0",
         "type": "rabbit",
-        "at": 20
+        "at": 5
       },
       {
         "id": "level11-1",
         "type": "cat",
-        "at": 7
+        "at": 5
       }
     ],
     "weights": [
@@ -1198,16 +1045,16 @@ const LEVELS = [
     },
     "solution": [
       [
+        18,
+        23
+      ],
+      [
         20,
         21
       ],
       [
-        11,
-        12
-      ],
-      [
-        13,
-        18
+        1,
+        6
       ]
     ]
   },
@@ -1215,7 +1062,7 @@ const LEVELS = [
     "id": 12,
     "title": "海风营地",
     "region": "青叶群岛",
-    "description": "救出三位玩伴，再把树林连成一座 T6 小屋。",
+    "description": "救出所有玩伴，并完成 1 座小型祭坛。",
     "n": 5,
     "seed": 142351,
     "mode": "house",
@@ -1250,17 +1097,17 @@ const LEVELS = [
       {
         "id": "level12-0",
         "type": "dog",
-        "at": 22
+        "at": 0
       },
       {
         "id": "level12-1",
         "type": "penguin",
-        "at": 18
+        "at": 2
       },
       {
         "id": "level12-2",
         "type": "rabbit",
-        "at": 0
+        "at": 7
       }
     ],
     "weights": [
@@ -1277,19 +1124,19 @@ const LEVELS = [
     },
     "solution": [
       [
-        6,
-        7
-      ],
-      [
         13,
         14
       ],
       [
-        5,
-        6
+        11,
+        12
       ],
       [
-        7,
+        3,
+        8
+      ],
+      [
+        11,
         12
       ]
     ]
@@ -1298,7 +1145,7 @@ const LEVELS = [
     "id": 13,
     "title": "两盏小小的灯",
     "region": "青叶群岛",
-    "description": "两座小屋一起照顾玩伴。完成救援，并保留两座 T6 以上设施。",
+    "description": "救出所有玩伴，并完成 2 座小型祭坛。",
     "n": 5,
     "seed": 145880,
     "mode": "house",
@@ -1333,17 +1180,17 @@ const LEVELS = [
       {
         "id": "level13-0",
         "type": "cat",
-        "at": 24
+        "at": 11
       },
       {
         "id": "level13-1",
         "type": "rabbit",
-        "at": 18
+        "at": 11
       },
       {
         "id": "level13-2",
         "type": "dog",
-        "at": 3
+        "at": 11
       }
     ],
     "weights": [
@@ -1368,28 +1215,28 @@ const LEVELS = [
         7
       ],
       [
-        16,
-        17
-      ],
-      [
-        8,
-        9
-      ],
-      [
-        10,
-        11
+        3,
+        4
       ],
       [
         16,
         17
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        14,
+        19
       ]
     ]
   },
   {
     "id": 14,
-    "title": "森林绕行",
+    "title": "遗迹绕行",
     "region": "青叶群岛",
-    "description": "绕开礁岩连接陆地，救出玩伴并建成两座 T6 以上设施。",
+    "description": "救出所有玩伴，并完成 2 座小型祭坛。",
     "n": 6,
     "seed": 151883,
     "mode": "house",
@@ -1435,17 +1282,17 @@ const LEVELS = [
       {
         "id": "level14-0",
         "type": "penguin",
-        "at": 6
+        "at": 3
       },
       {
         "id": "level14-1",
         "type": "cat",
-        "at": 13
+        "at": 4
       },
       {
         "id": "level14-2",
         "type": "dog",
-        "at": 2
+        "at": 11
       }
     ],
     "weights": [
@@ -1470,32 +1317,8 @@ const LEVELS = [
         20
       ],
       [
-        20,
-        26
-      ],
-      [
-        27,
-        28
-      ],
-      [
-        13,
-        19
-      ],
-      [
-        2,
-        8
-      ],
-      [
-        30,
-        31
-      ],
-      [
-        27,
-        33
-      ],
-      [
-        27,
-        28
+        8,
+        9
       ]
     ]
   },
@@ -1503,7 +1326,7 @@ const LEVELS = [
     "id": 15,
     "title": "营地连成星光",
     "region": "青叶群岛",
-    "description": "营救四位玩伴，并保留三座 T6 以上设施。",
+    "description": "救出所有玩伴，并完成 3 座小型祭坛。",
     "n": 6,
     "seed": 157886,
     "mode": "house",
@@ -1549,22 +1372,22 @@ const LEVELS = [
       {
         "id": "level15-0",
         "type": "rabbit",
-        "at": 12
+        "at": 0
       },
       {
         "id": "level15-1",
         "type": "cat",
-        "at": 1
+        "at": 21
       },
       {
         "id": "level15-2",
         "type": "dog",
-        "at": 4
+        "at": 27
       },
       {
         "id": "level15-3",
         "type": "penguin",
-        "at": 18
+        "at": 0
       }
     ],
     "weights": [
@@ -1582,40 +1405,28 @@ const LEVELS = [
     "limit": 16,
     "solution": [
       [
-        15,
-        21
-      ],
-      [
-        21,
-        27
+        20,
+        26
       ],
       [
         18,
         19
       ],
       [
-        25,
-        26
-      ],
-      [
-        19,
+        24,
         25
       ],
       [
-        19,
-        20
-      ],
-      [
-        19,
-        20
+        16,
+        22
       ]
     ]
   },
   {
     "id": 16,
-    "title": "三座小屋的约定",
+    "title": "三座祭坛的约定",
     "region": "星光海域",
-    "description": "小屋只有同级三连时才可移动。合成 T7 救援中心并接回玩伴。",
+    "description": "救出所有玩伴，并完成 1 座城邦广场。",
     "n": 5,
     "seed": 156467,
     "mode": "house",
@@ -1650,17 +1461,17 @@ const LEVELS = [
       {
         "id": "level16-0",
         "type": "rabbit",
-        "at": 18
+        "at": 1
       },
       {
         "id": "level16-1",
         "type": "cat",
-        "at": 5
+        "at": 2
       },
       {
         "id": "level16-2",
         "type": "penguin",
-        "at": 2
+        "at": 4
       }
     ],
     "weights": [
@@ -1677,24 +1488,20 @@ const LEVELS = [
     },
     "solution": [
       [
+        3,
+        8
+      ],
+      [
         17,
         22
-      ],
-      [
-        15,
-        16
-      ],
-      [
-        11,
-        12
       ]
     ]
   },
   {
     "id": 17,
-    "title": "第三座小屋",
+    "title": "第三座祭坛",
     "region": "星光海域",
-    "description": "先用树林造出第三座小屋，再合成 T7 中心，完成救援。",
+    "description": "救出所有玩伴，并完成 1 座城邦广场。",
     "n": 5,
     "seed": 159996,
     "mode": "house",
@@ -1729,17 +1536,17 @@ const LEVELS = [
       {
         "id": "level17-0",
         "type": "dog",
-        "at": 1
+        "at": 2
       },
       {
         "id": "level17-1",
         "type": "cat",
-        "at": 2
+        "at": 7
       },
       {
         "id": "level17-2",
         "type": "rabbit",
-        "at": 4
+        "at": 10
       }
     ],
     "weights": [
@@ -1756,24 +1563,16 @@ const LEVELS = [
     },
     "solution": [
       [
-        8,
-        13
-      ],
-      [
-        1,
-        2
-      ],
-      [
-        17,
-        22
-      ],
-      [
-        17,
-        18
+        22,
+        23
       ],
       [
         2,
-        7
+        3
+      ],
+      [
+        13,
+        14
       ]
     ]
   },
@@ -1781,7 +1580,7 @@ const LEVELS = [
     "id": 18,
     "title": "礁岩间的灯塔",
     "region": "星光海域",
-    "description": "绕开礁岩救出四位玩伴，再用三座小屋合成 T7 中心。",
+    "description": "救出所有玩伴，并完成 1 座城邦广场。",
     "n": 6,
     "seed": 163525,
     "mode": "house",
@@ -1827,22 +1626,22 @@ const LEVELS = [
       {
         "id": "level18-0",
         "type": "penguin",
-        "at": 12
+        "at": 1
       },
       {
         "id": "level18-1",
         "type": "dog",
-        "at": 5
+        "at": 10
       },
       {
         "id": "level18-2",
         "type": "cat",
-        "at": 32
+        "at": 17
       },
       {
         "id": "level18-3",
         "type": "rabbit",
-        "at": 22
+        "at": 18
       }
     ],
     "weights": [
@@ -1863,16 +1662,24 @@ const LEVELS = [
         21
       ],
       [
-        11,
-        17
-      ],
-      [
         19,
         20
       ],
       [
-        17,
-        23
+        12,
+        13
+      ],
+      [
+        12,
+        18
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        14,
+        15
       ],
       [
         30,
@@ -1880,11 +1687,15 @@ const LEVELS = [
       ],
       [
         25,
-        26
+        31
       ],
       [
-        8,
-        9
+        26,
+        27
+      ],
+      [
+        9,
+        15
       ]
     ]
   },
@@ -1892,7 +1703,7 @@ const LEVELS = [
     "id": 19,
     "title": "风雨前的中心",
     "region": "星光海域",
-    "description": "在倒计时结束前接回玩伴，并合成一座 T7 中心。",
+    "description": "救出所有玩伴，并完成 1 座城邦广场。",
     "n": 6,
     "seed": 183135,
     "mode": "house",
@@ -1938,18 +1749,18 @@ const LEVELS = [
       {
         "id": "level19-0",
         "type": "penguin",
-        "at": 3,
+        "at": 6,
         "timer": 12
       },
       {
         "id": "level19-1",
         "type": "rabbit",
-        "at": 32
+        "at": 9
       },
       {
         "id": "level19-2",
         "type": "dog",
-        "at": 21
+        "at": 12
       }
     ],
     "weights": [
@@ -1970,28 +1781,12 @@ const LEVELS = [
         33
       ],
       [
-        28,
-        34
-      ],
-      [
-        9,
-        10
-      ],
-      [
         0,
         6
       ],
       [
         21,
         22
-      ],
-      [
-        20,
-        21
-      ],
-      [
-        9,
-        15
       ]
     ]
   },
@@ -1999,7 +1794,7 @@ const LEVELS = [
     "id": 20,
     "title": "双星救援港",
     "region": "星光海域",
-    "description": "在 18 步内救出四位玩伴，并建成两座 T7 救援中心。",
+    "description": "救出所有玩伴，并完成 2 座城邦广场。",
     "n": 6,
     "seed": 170583,
     "mode": "house",
@@ -2045,22 +1840,22 @@ const LEVELS = [
       {
         "id": "level20-0",
         "type": "rabbit",
-        "at": 16
+        "at": 6
       },
       {
         "id": "level20-1",
         "type": "cat",
-        "at": 27
+        "at": 7
       },
       {
         "id": "level20-2",
         "type": "dog",
-        "at": 8
+        "at": 12
       },
       {
         "id": "level20-3",
         "type": "penguin",
-        "at": 12
+        "at": 30
       }
     ],
     "weights": [
@@ -2082,24 +1877,16 @@ const LEVELS = [
         11
       ],
       [
-        22,
-        23
-      ],
-      [
         20,
         26
       ],
       [
-        16,
-        22
+        24,
+        30
       ],
       [
-        22,
-        28
-      ],
-      [
-        29,
-        35
+        8,
+        14
       ]
     ]
   }
@@ -2185,7 +1972,7 @@ function assignJob(save,id,job,now=Date.now()) {
 
 
 
-const SESSION_KEY='animal-island-run-v1';
+const SESSION_KEY='animal-island-run-v2';
 const MAX_BYTES=262144,MAX_HISTORY=10000;
 const object=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 const integer=(value,min=0,max=Number.MAX_SAFE_INTEGER)=>Number.isSafeInteger(value)&&value>=min&&value<=max;
@@ -2193,7 +1980,7 @@ const adjacent=(a,b,n)=>integer(a,0,n*n-1)&&integer(b,0,n*n-1)&&(Math.abs(a-b)==
 
 // Build a fresh engine state from known fields; storage never supplies rules or markup.
 function cleanSession(raw,levels) {
-  if(!object(raw)||raw.version!==1||!object(raw.game)||!Array.isArray(raw.history)||raw.history.length>MAX_HISTORY)return null;
+  if(!object(raw)||raw.version!==2||!object(raw.game)||!Array.isArray(raw.history)||raw.history.length>MAX_HISTORY)return null;
   const source=raw.game,config=levels.find(level=>level.id===source.levelId);
   if(!config||![5,6].includes(config.n||5)||!['playing','won','lost'].includes(source.status))return null;
   const game=createGame(config),n=game.n;
@@ -2216,17 +2003,17 @@ function cleanSession(raw,levels) {
   };
   const board=[];
   for(const stored of source.board) {
-    if(!object(stored)||!integer(stored.id,1,source.serial)||tileIds.has(stored.id)||!integer(stored.level,-1,7)||!Array.isArray(stored.animals)||!integer(stored.capacity))return null;
+    if(!object(stored)||!integer(stored.id,1,source.serial)||tileIds.has(stored.id)||!integer(stored.level,-1,7)||!Array.isArray(stored.animals)||(stored.level>=5?stored.capacity!==null:stored.capacity!==0))return null;
     tileIds.add(stored.id);
     const current={id:stored.id,level:stored.level,animals:[],capacity:stored.capacity,camp:null};
     for(const animal of stored.animals){const clean=cleanAnimal(animal,false);if(!clean)return null;current.animals.push(clean);}
     if(stored.camp!==null) {
-      if(!object(stored.camp)||stored.level<3||stored.camp.kind!==(stored.level>=6?'house':'tent')||!Array.isArray(stored.camp.occupants))return null;
+      if(!object(stored.camp)||stored.level<5||stored.camp.kind!=='house'||!Array.isArray(stored.camp.occupants))return null;
       current.camp={kind:stored.camp.kind,occupants:[]};
       for(const animal of stored.camp.occupants){const clean=cleanAnimal(animal,true);if(!clean)return null;current.camp.occupants.push(clean);occupants.set(clean.id,clean);}
     }
-    if(stored.level>=6&&!current.camp||stored.level<0&&(current.animals.length||current.camp))return null;
-    if(current.capacity!==Math.max(0,houseCapacity(current.level)-(current.camp?.occupants.length||0)))return null;
+    if(stored.level>=5&&!current.camp||stored.level<0&&(current.animals.length||current.camp))return null;
+    if(current.capacity!==houseCapacity(current.level))return null;
     board.push(current);
   }
   if(physical.size!==expected.size||!Array.isArray(source.rescued)||source.rescued.length!==occupants.size)return null;
@@ -2263,7 +2050,7 @@ function loadSession(storage,levels=LEVELS) {
 function persistSession(storage,{game,history}) {
   try {
     if(!object(game)||!Array.isArray(history)||history.length>MAX_HISTORY)return false;
-    const value=JSON.stringify({version:1,game,history});
+    const value=JSON.stringify({version:2,game,history});
     if(value.length>MAX_BYTES)return false;
     storage.setItem(SESSION_KEY,value);return true;
   }catch{return false;}
@@ -2273,43 +2060,88 @@ function clearSession(storage) {
 }
 
 function svg(body,view='0 0 48 48',cls='') {return `<svg class="${cls}" viewBox="${view}" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${body}</svg>`;}
-const ANIMALS={rabbit:{label:'小兔',color:'#f3dacb'},cat:{label:'小猫',color:'#edbe79'},dog:{label:'小狗',color:'#dcb18e'},penguin:{label:'企鹅',color:'#b7d3d8'}};
+const ANIMALS={rabbit:{label:'小兔',color:'#fff0df'},cat:{label:'小猫',color:'#ffe4b7'},dog:{label:'小狗',color:'#eed9ba'},penguin:{label:'企鹅',color:'#d5eaf0'}};
 function animalArt(type,cls='') {
- const dark='#37514c',pink='#efac9c';let body='';
- if(type==='rabbit')body=`<ellipse cx="17" cy="13" rx="6" ry="12" fill="#fff9ed" stroke="${dark}" stroke-width="1.5"/><ellipse cx="31" cy="13" rx="6" ry="12" fill="#fff9ed" stroke="${dark}" stroke-width="1.5"/><path d="M17 6v10M31 6v10" stroke="${pink}" stroke-width="4" stroke-linecap="round"/><ellipse cx="24" cy="30" rx="19" ry="16" fill="#fff9ed" stroke="${dark}" stroke-width="1.5"/>`;
- if(type==='cat')body=`<path d="M7 25 7 6 21 16H28L41 6V26" fill="#e9b777" stroke="${dark}" stroke-width="1.5" stroke-linejoin="round"/><path d="m12 12 7 7h-7zm24 0-7 7h7z" fill="${pink}"/><ellipse cx="24" cy="30" rx="19" ry="16" fill="#edc18a" stroke="${dark}" stroke-width="1.5"/><path d="m21 17 1 6m5-6-1 6" stroke="#d49b55" stroke-width="3" stroke-linecap="round"/><path d="M11 31H5m7 4-6 2m31-6h6m-7 4 6 2" stroke="${dark}" stroke-width="1.2" stroke-linecap="round"/>`;
- if(type==='dog')body=`<path d="M15 15C4 4 1 15 5 32l8-3m20-14C44 4 47 15 43 32l-8-3" fill="#ac7957" stroke="${dark}" stroke-width="1.5"/><ellipse cx="24" cy="28" rx="17" ry="18" fill="#e8c5a3" stroke="${dark}" stroke-width="1.5"/><ellipse cx="24" cy="34" rx="10" ry="8" fill="#fff5df"/>`;
- if(type==='penguin')body=`<path d="M8 28C8 2 40 2 40 28l4 10-8-2H12l-8 2z" fill="#5b7b83" stroke="${dark}" stroke-width="1.5"/><path d="M12 28c0-16 8-14 12-9 6-6 12-5 12 9 0 11-24 11-24 0" fill="#fff9ed"/><ellipse cx="24" cy="35" rx="13" ry="10" fill="#fff9ed"/><path d="m15 44-3 2h9l-1-3m8 0-1 3h9l-3-2" fill="#e6ae62"/>`;
- body+=`<circle cx="17.5" cy="28" r="1.65" fill="${dark}"/><circle cx="30.5" cy="28" r="1.65" fill="${dark}"/><ellipse cx="12" cy="33" rx="3" ry="1.8" fill="${pink}" opacity=".8"/><ellipse cx="36" cy="33" rx="3" ry="1.8" fill="${pink}" opacity=".8"/>`;
- body+=type==='penguin'?'<path d="m21 32 3 4 3-4z" fill="#e6ae62"/>':`<path d="m22 32 2 2 2-2m-2 2v2m-3 0q3 3 6 0" stroke="${dark}" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>`;
- return svg(body,'0 0 48 48',cls);
+ const ink='#334654',pink='#efb1a7';let body='';
+ const belly='<ellipse cx="50" cy="84" rx="24" ry="22" fill="#fffaf0"/><ellipse cx="34" cy="101" rx="11" ry="6" fill="#fffaf0"/><ellipse cx="66" cy="101" rx="11" ry="6" fill="#fffaf0"/>';
+ if(type==='rabbit')body=`<ellipse cx="31" cy="25" rx="10" ry="24" transform="rotate(-12 31 25)" fill="#fffaf0" stroke="#decfb9" stroke-width="1.5"/><ellipse cx="67" cy="24" rx="10" ry="24" transform="rotate(12 67 24)" fill="#fffaf0" stroke="#decfb9" stroke-width="1.5"/><path d="m28 11 5 23m36-23-4 22" stroke="${pink}" stroke-width="7" stroke-linecap="round"/><circle cx="77" cy="87" r="11" fill="#fffaf0"/>${belly}<ellipse cx="50" cy="57" rx="34" ry="29" fill="#fffaf0" stroke="#decfb9" stroke-width="1.5"/><path d="m28 79 6 12m38-12-6 12" stroke="#e4d5c0" stroke-width="3" stroke-linecap="round"/>`;
+ if(type==='cat')body=`<path d="M73 91q29 2 18-21-7-10-10 2" fill="#f5b262" stroke="#dc9953" stroke-width="2"/><ellipse cx="50" cy="84" rx="25" ry="22" fill="#f5b262"/>${belly}<path d="M18 44 20 13q2-7 10 0l15 18h13l16-18q7-7 8 1l1 34" fill="#f6b462" stroke="#dc9953" stroke-width="2"/><path d="m25 23 11 14-11 2m51-16-12 14 11 2" fill="#efb1a7"/><ellipse cx="50" cy="55" rx="35" ry="29" fill="#f8bd73" stroke="#dc9953" stroke-width="2"/><path d="m43 29 3 10m12-11-3 11" stroke="#df9348" stroke-width="5" stroke-linecap="round"/><path d="M24 62q6-14 17-4h18q12-10 18 4c-3 28-48 28-53 0" fill="#fffaf0"/>`;
+ if(type==='dog')body=`<path d="M72 91q24 3 17-13" stroke="#b77d51" stroke-width="10" stroke-linecap="round"/><ellipse cx="50" cy="84" rx="26" ry="22" fill="#c99b6b"/>${belly}<ellipse cx="50" cy="53" rx="33" ry="30" fill="#fffaf0" stroke="#d8c5aa" stroke-width="1.5"/><path d="M18 30q-20 2-14 30 3 15 17 6l11-31m49-5q19 2 15 30-4 15-17 6L67 35" fill="#ab754d" stroke="#94633f" stroke-width="1.5"/><path d="M52 24q18 0 24 16l-8 17-13-10z" fill="#cb9b6b"/><path d="M43 25 36 46" stroke="#eddcca" stroke-width="5" stroke-linecap="round"/>`;
+ if(type==='penguin')body=`<path d="M24 62Q5 57 8 75l16 14m52-27q19-5 16 13L76 89" fill="#40576b"/><ellipse cx="50" cy="62" rx="34" ry="43" fill="#40576b"/><path d="M27 58c0-21 15-24 23-12 10-12 24-9 24 12v21c0 27-48 27-48 0z" fill="#fffaf0"/><ellipse cx="33" cy="102" rx="13" ry="6" fill="#edac4f"/><ellipse cx="68" cy="102" rx="13" ry="6" fill="#edac4f"/>`;
+ body+=`<ellipse cx="29" cy="64" rx="6" ry="3.5" fill="${pink}"/><ellipse cx="72" cy="64" rx="6" ry="3.5" fill="${pink}"/><ellipse cx="37" cy="55" rx="3" ry="4" fill="${ink}"/><ellipse cx="63" cy="55" rx="3" ry="4" fill="${ink}"/><circle cx="38" cy="54" r=".8" fill="white"/><circle cx="64" cy="54" r=".8" fill="white"/>`;
+ body+=type==='penguin'?'<path d="m43 65 7-5 8 5-8 7z" fill="#f3a84e"/>':`<path d="M46 63q4-3 8 0l-4 5z" fill="${ink}"/><path d="M50 67v3m-7 0q3 6 7 0 4 6 7 0" stroke="${ink}" stroke-width="2" stroke-linecap="round"/><path d="M46 74h9q-5 8-9 0" fill="#e98a7c"/>`;
+ return svg(body,'0 0 100 110',`animal-art ${cls}`);
 }
 function icon(name,cls='') {
+ const colored={coin:'<circle cx="24" cy="24" r="20" fill="#f1c260"/><circle cx="24" cy="24" r="15" stroke="#d9a13f" stroke-width="2.5"/><path d="M28 15h-5a5 5 0 0 0 0 10h3a5 5 0 0 1 0 10h-6m4-24v28" stroke="#fff2be" stroke-width="3" stroke-linecap="round"/>',wood:'<path d="m11 13 21-5 10 25-24 7z" fill="#b48651"/><ellipse cx="15" cy="27" rx="10" ry="14" transform="rotate(-20 15 27)" fill="#ddb176" stroke="#a57847" stroke-width="2"/><ellipse cx="15" cy="27" rx="5" ry="8" transform="rotate(-20 15 27)" stroke="#ae804c" stroke-width="2"/>',carrot:'<path d="M15 17q14-11 22 2 5 10-23 26-8-17 1-28" fill="#f3a055"/><path d="m28 17-3-12m3 12 9-13m-9 13 14-5" stroke="#7bb371" stroke-width="5" stroke-linecap="round"/><path d="m17 23 6 4m-6 5 4 3" stroke="#dc8543" stroke-width="2.5" stroke-linecap="round"/>',gift:'<rect x="6" y="20" width="36" height="24" rx="4" fill="#f4be60"/><rect x="4" y="14" width="40" height="11" rx="4" fill="#f5ce7a"/><path d="M24 15C3 16 10-4 24 15c14-19 21 1 0 0v29" stroke="#ed8a62" stroke-width="5" stroke-linecap="round"/>',clipboard:'<rect x="8" y="7" width="32" height="38" rx="5" fill="#c4a273"/><rect x="12" y="12" width="24" height="29" rx="3" fill="#fff6dc"/><rect x="17" y="3" width="14" height="10" rx="3" fill="#8a8b76"/><path d="M18 23h13M18 30h10" stroke="#b9aa87" stroke-width="3" stroke-linecap="round"/>',clock:'<circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="3"/><path d="M24 12v13l9 5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>',plus:'<path d="M24 10v28M10 24h28" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>'};
+ if(colored[name])return svg(colored[name],'0 0 48 48',`icon ${cls}`);
  const p={home:'<path d="m5 22 19-16 19 16M10 19v23h28V19M20 42V29h9v13"/>',play:'<path d="m18 12 20 12-20 12z"/>',map:'<path d="m5 12 12-5 14 5 12-5v30l-12 5-14-5-12 5zM17 7v30m14-25v30"/>',paw:'<ellipse cx="24" cy="32" rx="12" ry="9"/><ellipse cx="9" cy="19" rx="4" ry="6"/><ellipse cx="19" cy="12" rx="4" ry="6"/><ellipse cx="30" cy="12" rx="4" ry="6"/><ellipse cx="40" cy="21" rx="4" ry="6"/>',build:'<path d="m8 12 6-6 28 28-8 8zM29 7l12 12M27 22l10-11M7 41l13-13"/>',leaf:'<path d="M10 37C0 13 24 8 40 7c-1 19-7 36-26 31M8 41l23-24"/>',wood:'<path d="m10 14 22-5 8 23-22 7z"/><ellipse cx="14" cy="27" rx="7" ry="13" transform="rotate(-20 14 27)"/><path d="m17 17 16-4m-11 9 14-4m-10 10 13-5"/>',coin:'<circle cx="24" cy="24" r="18"/><path d="M28 16h-6a5 5 0 0 0 0 10h4a5 5 0 0 1 0 10h-6m4-24v28"/>',arrow:'<path d="M9 24h30M28 13l11 11-11 11"/>',back:'<path d="m28 12-12 12 12 12"/>',close:'<path d="m13 13 22 22m0-22L13 35"/>',help:'<circle cx="24" cy="24" r="19"/><path d="M18 18a6 6 0 0 1 12 0c0 5-6 4-6 10m0 5v1"/>',sound:'<path d="M8 19h8l10-9v28l-10-9H8zm26-5c8 5 8 15 0 20m-2-14c3 2 3 6 0 8"/>',mute:'<path d="M8 19h8l10-9v28l-10-9H8zm25 0 10 10m0-10L33 29"/>',hint:'<path d="M17 32C4 21 13 6 24 6s20 15 7 26M18 33h12m-11 6h10m-8 4h6"/>',reset:'<path d="M10 20A16 16 0 1 1 9 31M10 8v13h13"/>',flag:'<path d="M13 43V6c10-5 16 7 26 1v21c-10 6-16-6-26-1"/>',check:'<path d="m11 24 9 9 18-20"/>',lock:'<rect x="10" y="22" width="28" height="21" rx="6"/><path d="M16 22V14a8 8 0 0 1 16 0v8m-8 8v5"/>',star:'<path d="m24 4 6 12 14 2-10 10 2 14-12-7-12 7 2-14L4 18l14-2z"/>',boat:'<path d="M6 29h36l-8 12H15zM23 6v23m3-22 12 17H26M20 13 9 24h11"/>',heart:'<path d="M24 41 7 24C-5 9 17-1 24 13 32-1 53 9 41 24z"/>'};
  return svg(`<g stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">${p[name]||p.leaf}</g>`,'0 0 48 48',`icon ${cls}`);
 }
-function terrainArt(level,capacity=3) {
- const color='#3d7e80';
- const art=[`<path d="M8 21q5 5 10 0t10 0 10 0M8 29q5 5 10 0t10 0 10 0" stroke="#a4dadd" stroke-width="2.5" stroke-linecap="round"/>`,`<path d="M7 21q5 4 10 0t10 0 10 0M12 30q5 4 10 0t10 0" stroke="#e0f1e2" stroke-width="2.5" stroke-linecap="round"/><circle cx="35" cy="12" r="2" fill="#e0f1e2"/>`,`<path d="m11 29 5-15 15-3 9 14-9 12-16-1z" fill="#92b5a2" stroke="#578e80" stroke-width="1.5"/><path d="m17 18 12-3 5 8" stroke="#b8cfb5" stroke-width="2" stroke-linecap="round"/>`,`<path d="M5 31q7-14 18-15t20 13v9H5z" fill="#f4dc9c"/><path d="m14 29 2-4m16 5 2-4" stroke="#bca56b" stroke-width="2" stroke-linecap="round"/><path d="M23 30c-5-8 8-8 4 0" stroke="#fff5d0" stroke-width="2"/>`,`<path d="M6 33q12-16 36-6v13H6z" fill="#87af74"/><path d="m18 25 3-5 3 5m4 6 3-6 3 6" stroke="#4d805c" stroke-width="2" stroke-linecap="round"/>`,`<path d="M17 9 6 30h8v9h6v-9h8z" fill="#4f7e5b"/><path d="M32 6 20 29h9v11h6V29h9z" fill="#3c6b52"/>`,`<path d="M11 22h27v20H11z" fill="#fff0ce" stroke="${color}" stroke-width="1.5"/><path d="m6 23 18-17 19 17z" fill="#d88c6b" stroke="${color}" stroke-width="1.5"/><path d="M21 30h8v12h-8z" fill="#70988a"/><path d="M16 27v6m-3-3h6" stroke="#e9ae80" stroke-width="2"/>${capacity===0?'<path d="m32 10 4 4 7-8" stroke="#fff" stroke-width="3"/>':''}`];
- if(level<0)return svg('<path d="m7 35 4-20 17-9 13 15-3 17z" fill="#9a9b91" stroke="#6c8179" stroke-width="1.8"/><path d="m14 18 12-6 8 10" stroke="#bbc0b3" stroke-width="2"/>');
- if(level===7)return svg(`<ellipse cx="24" cy="41" rx="21" ry="3" fill="#759b70" opacity=".25"/><path d="M4 23h40v18H4z" fill="#fff0ce" stroke="${color}" stroke-width="1.5"/><path d="m2 23 10-10h24l10 10z" fill="#729f9b" stroke="${color}" stroke-width="1.5"/><path d="M15 15h18v26H15z" fill="#fff5dd" stroke="${color}" stroke-width="1.5"/><path d="m12 16 12-11 12 11z" fill="#d88c6b" stroke="${color}" stroke-width="1.5"/><path d="M21 31h6v10h-6z" fill="#70988a"/><path d="M8 28h4v6H8zm28 0h4v6h-4z" fill="#b0d7d1" stroke="${color}" stroke-width="1.2"/><circle cx="24" cy="22" r="5" fill="#e9ae80"/><path d="M24 19v6m-3-3h6" stroke="#fff9e7" stroke-width="1.8" stroke-linecap="round"/><path d="M24 5V1m0 0 7 2-7 2" stroke="${color}" stroke-width="1.2" fill="#e9c27d" stroke-linejoin="round"/>${capacity===0?'<path d="m34 8 3 3 6-6" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>':''}`);
- return svg(art[level]);
+const artAttr=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const grass=(x,y)=>`<path d="M${x} ${y}q-9-15-10-5 1 7 10 5 0-18 5-13 4 7-5 13 12-13 12-4-2 6-12 4" fill="#92bd78"/>`;
+const stone=(x,y,s=1)=>`<path d="m-8 1 4-7h9l5 7-4 6H-4z" transform="translate(${x} ${y}) scale(${s})" fill="#c5c0ae"/>`;
+function pillar(x,y,engraved=false) {return `<g transform="translate(${x} ${y})"><path d="M-8 0h16v42H-8z" fill="#e7d3aa"/><path d="M2 0h6v42H2z" fill="#dbc39a"/><rect x="-12" y="-4" width="24" height="9" rx="3" fill="#f3e5cb"/><path d="M-12 6h24M-8 36H8" stroke="#cdb48c" stroke-width="2"/><rect x="-12" y="39" width="24" height="9" rx="3" fill="#f0dfc0"/>${engraved?'<path d="m-1 13 4 8-4 8-4-8z" stroke="#c8a575" stroke-width="2"/>':''}</g>`;}
+function terrainArt(level) {
+ if(level<0)return svg('<path d="M5 106V55q0-19 20-19h70q20 0 20 19v51z" fill="#b4bab0"/><path d="m23 90 8-35 25-16 34 12 15 39z" fill="#8d9693"/><path d="m31 55 25-16 8 30-41 21m41-21 26-18" stroke="#aab3ac" stroke-width="3"/>','0 0 120 120','terrain-art');
+ const color=['#77675f','#c19a73','#dcc49d','#e7d3aa','#d9d5a0','#d9dda7','#dce0ad','#dce1b0'][level];
+ let body=`<rect x="4" y="28" width="112" height="88" rx="19" fill="${color}"/><path d="M11 99q49 16 98 0v2q-2 12-18 12H28q-15 0-17-14" fill="#4e4937" opacity=".08"/>`;
+ const foundation='<path d="m27 64 34-17 35 17-35 22z" stroke="#e7d3aa" stroke-width="5" stroke-linejoin="round"/>';
+ const paving='<path d="m20 74 40-24 42 24-42 29z" fill="#f0dfc0"/><path d="m20 74 42 29m-22-41 42 27M60 50 20 74m22-1 39-22m-17 51 38-28" stroke="#d0b78f" stroke-width="1.8"/>';
+ if(level===0)body+=stone(39,67,1.1)+stone(79,86,.55)+stone(81,50,.4)+grass(21,88)+grass(88,101);
+ if(level===1)body+=foundation+'<path d="m30 92 10-4 7 4-10 5zM89 47l10-3 7 5-10 3z" fill="#dec19b"/>'+grass(17,99);
+ if(level===2)body+=foundation+'<path d="m35 64 25-13 30 14-29 20z" fill="#f0dfc0"/><path d="m48 58 29 14m-41-7 27 15m9-23-26 14" stroke="#cdb18c" stroke-width="1.7"/>'+grass(87,91);
+ if(level===3)body+=paving+'<path d="M83 60h18v17H83z" fill="#d5bf98"/><path d="M83 68h18m-10-8v8" stroke="#bb9f79" stroke-width="1.8"/>'+pillar(57,31)+grass(24,91);
+ if(level>=4)body+=paving+'<ellipse cx="61" cy="83" rx="24" ry="10" fill="#ceb38a"/><ellipse cx="61" cy="79" rx="24" ry="10" fill="#f5e6ca"/>';
+ if(level>=6)body+='<path d="M47 70h29v12H47z" fill="#cfb58c"/><ellipse cx="61" cy="69" rx="16" ry="6" fill="#f1d7a5"/><path d="M58 68q-9-6 1-17-1 6 4 7l4-9q13 15-2 20" fill="#efb15e"/>';
+ if(level>=4)body+=pillar(31,level===4?30:34,level>=5)+pillar(91,level===4?30:34,level>=5);
+ if(level>=5)body+='<path d="M14 19h94v19H14z" fill="#d9c39f"/><rect x="11" y="15" width="100" height="17" rx="4" fill="#f0dfc0"/><path d="M45 15h33v25l-16-7-17 7z" fill="#f39a55"/><path d="m61 20 6 5-6 5-6-5z" stroke="#f7d6a0" stroke-width="2"/>';
+ if(level>=6)body+='<path d="M35 13 48 6h28l14 7z" fill="#e6cc9f"/><rect x="55" y="2" width="13" height="10" rx="3" fill="#efb15e"/>';
+ if(level===7)body+='<path d="M12 17 28 4h22l-5 13m31 0L71 4h23l17 13" fill="#eaa16a"/><path d="M18 82V64h12v18m-15-20h18l-4-6H19z" fill="#d4b78b"/><rect x="20" y="65" width="7" height="10" rx="2" fill="#f6c96d"/><path d="M92 88V77h12v11q-6 6-12 0" fill="#d8976b"/><path d="M98 78q-13-13-8-17 6-2 8 8 2-14 8-10 4 8-8 19" fill="#92bd78"/>';
+ if(level>=4)body+=grass(16,91)+grass(104,101)+(level===7?'<circle cx="18" cy="94" r="3" fill="#fff5d7"/>':'');
+ return svg(body,'0 0 120 120','terrain-art');
 }
-function tentArt(cls='') {
- return svg('<ellipse cx="24" cy="41" rx="21" ry="3" fill="#bca56b" opacity=".18"/><path d="M24 14V4" stroke="#77916d" stroke-width="1.5" stroke-linecap="round"/><path d="m25 4 10 3-10 4z" fill="#87af74" stroke="#77916d" stroke-width="1.2" stroke-linejoin="round"/><path d="M24 14 44 40H4z" fill="#df9f7c" stroke="#77916d" stroke-width="1.5" stroke-linejoin="round"/><path d="M24 14v26H4z" fill="#fff0ce"/><path d="m24 23 9 17H15z" fill="#37514c"/><path d="m24 23-3 15-6 2z" fill="#e9ae80"/><path d="m24 23 3 15 6 2z" fill="#bf7e61"/><path d="M24 14 44 40H4zM24 14v9" stroke="#77916d" stroke-width="1.5" stroke-linejoin="round"/><path d="m7 37-4 5m38-5 4 5" stroke="#77916d" stroke-width="1.5" stroke-linecap="round"/>','0 0 48 48',cls);
-}
+function tentArt(cls='') {return svg('<path d="M60 31 107 102H13z" fill="#e7bb81"/><path d="M60 31v71H13z" fill="#f5dfb0"/><path d="m60 57 22 45H40z" fill="#77675f"/><path d="M60 31V14m1 0 25 6-25 7" stroke="#ac8056" stroke-width="3" fill="#92c681" stroke-linejoin="round"/><path d="m13 102-5 5m99-5 5 5" stroke="#ac8056" stroke-width="3" stroke-linecap="round"/>','0 0 120 120',cls);}
 function houseArt(x,y,scale=1,kind='home',built=true) {
- const colors=kind==='garden'?['#b4bf7b','#749967']:kind==='sawmill'?['#cfa77c','#a77e64']:['#df9f7c','#bf7e61'];
- let body=`<ellipse cx="0" cy="29" rx="57" ry="15" fill="#739a6c" opacity=".2"/><path d="M-42-11h84v45h-84z" fill="${built?'#fff0ce':'#b6c9a3'}" stroke="#77916d" stroke-width="2"/><path d="m-53-10 20-32h61l25 32z" fill="${built?colors[0]:'#9eb596'}" stroke="#77916d" stroke-width="2"/><path d="M-33-42 0-59l28 17" fill="${built?colors[1]:'#9eb596'}" stroke="#77916d" stroke-width="2"/>`;
- if(built)body+=`<path d="M-10 6h21v28h-21z" fill="#8da79a" stroke="#77916d" stroke-width="2"/><rect x="-32" y="2" width="14" height="13" rx="2" fill="#b3d7d4" stroke="#77916d" stroke-width="2"/><path d="M-25 2v13m-7-7h14" stroke="#fff3d8" stroke-width="2"/><path d="M22 2h12v13H22z" fill="#b3d7d4" stroke="#77916d" stroke-width="2"/>`;
- if(kind==='garden'&&built)body+=`<path d="m-65 30 33-10 20 24-35 11z" fill="#b69164"/><path d="m-53 35 25-6m-19 15 26-7" stroke="#e1b88d" stroke-width="3"/><path d="m-45 30-5-9m5 9 4-12m6 22-1-10" stroke="#689669" stroke-width="4" stroke-linecap="round"/>`;
- if(kind==='sawmill'&&built)body+=`<path d="M34 26h30v15H34z" fill="#c49e75" stroke="#7a8d68" stroke-width="2"/><circle cx="35" cy="34" r="8" fill="#e6c398" stroke="#7a8d68" stroke-width="2"/><circle cx="35" cy="34" r="3" stroke="#a38462"/>`;
+ const roof=kind==='sawmill'?'#93b78c':'#f09a5e';
+ let body='<ellipse cx="0" cy="35" rx="56" ry="12" fill="#527758" opacity=".1"/>';
+ if(kind==='garden') body+='<path d="m-57 5 74-23 44 43-76 25z" fill="#c6a16f"/><path d="m-43 9 58-18m-48 31L27 4m-47 31L40 17" stroke="#94734e" stroke-width="4" stroke-linecap="round"/>'+[-34,-9,17,39].map((v,i)=>`<g transform="translate(${v} ${13+(i%2)*9})"><path d="m0 0 5 12 9-15" fill="#ef9a4d"/><path d="m5 0-9-12m9 12 4-15m-4 15 12-9" stroke="#73a268" stroke-width="5" stroke-linecap="round"/></g>`).join('')+'<path d="M-58 4v28m75-50v22m43 20v27m-75-1v14" stroke="#a78051" stroke-width="5" stroke-linecap="round"/>';
+ else body+=`<path d="M-40-13h80v48h-80z" fill="#fff0cf"/><path d="m-51-10 21-35h58l24 35z" fill="${roof}"/><path d="m-30-45 9 35m12-35 3 35m16-35 5 35m16-35 10 35" stroke="${kind==='sawmill'?'#7c9e76':'#da8253'}" stroke-width="3"/><path d="M-8 35V12q10-15 21 0v23" fill="#a8ac99"/><rect x="-29" y="3" width="13" height="14" rx="4" fill="#90c8dc"/><rect x="23" y="3" width="10" height="14" rx="3" fill="#90c8dc"/>${kind==='sawmill'?'<path d="M-48 28h25v15h-25z" fill="#ae8459"/><ellipse cx="-47" cy="35" rx="8" ry="9" fill="#dfbd86"/><circle cx="-47" cy="35" r="4" stroke="#ae8459" stroke-width="2"/>':''}`;
+ if(!built)body='<path d="M-43 30h86M-33 30V-4h66v34m-76-34 43-40L43-4" stroke="#a2b58d" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 7"/>';
  return `<g transform="translate(${x} ${y}) scale(${scale})">${body}</g>`;
 }
+function islandBase() {return '<path d="M38 215c-33-41-6-94 63-113 20-61 118-69 172-38 59-13 128 12 136 75 54 33 48 102 9 128-1 65-86 106-146 86-57 34-146 9-161-29-60 0-104-60-73-109" fill="#e8ca94"/><path d="M38 201c-33-41-6-94 63-113 20-61 118-69 172-38 59-13 128 12 136 75 54 33 48 102 9 128-1 65-86 106-146 86-57 34-146 9-161-29-60 0-104-60-73-109" fill="#f7e5b8"/><path d="M55 193c-16-40 16-75 64-89 14-47 103-63 155-35 64-15 111 18 116 65 43 30 38 83 3 107 2 48-69 79-117 62-51 29-126 10-144-25-55 2-99-47-77-85" fill="#a8cb8d"/>';}
+function dockArt() {return '<path d="m220 316 2 71h45l-10-82" fill="#b48a5f"/><path d="m224 329 34-5m-33 20 35-5m-34 20 37-5m-36 20 37-5" stroke="#dfbd86" stroke-width="4"/><path d="M218 321v-14m50 51v-15m-49 42v-15" stroke="#926e4d" stroke-width="5" stroke-linecap="round"/>';}
+function boatArt() {return '<g class="arrival-boat"><path d="M276 355h90l-20 30h-50z" fill="#f5e7bb"/><path d="M284 359h75l-12 15h-51z" fill="#dd9c67"/><path d="M319 352v-58m5 1 29 45h-29z" fill="#fff9e9" stroke="#b19b76" stroke-width="3"/></g>';}
+const tree=(x,y,s=1)=>`<g transform="translate(${x} ${y}) scale(${s})"><path d="M-5 0h11v49H-5" fill="#a28c65"/><path d="M1 28-20 13m20 9 21-20" stroke="#a28c65" stroke-width="5"/><path d="M-23 17c-27-11-19-41 0-46-5-27 35-42 49-15 27 4 33 42 9 52-5 18-36 25-58 9" fill="#78ad77"/><path d="M-23 17c-13-9-17-17-10-28 5 18 25 21 36 15 13 8 25 1 33-8 7 25-38 36-59 21" fill="#699e70"/></g>`;
+const islandLabel=(x,y,label,key)=>`<g class="scene-label" data-action="building-details" data-building="${key}" role="button" tabindex="0" aria-label="查看${label}" transform="translate(${x} ${y})"><rect x="-32" y="-12" width="64" height="25" rx="12" fill="#fff8e7"/><text text-anchor="middle" y="5" fill="#234264" font-size="13" font-weight="700">${label}</text></g>`;
 function islandArt(save) {
- const residents=save.residents.slice(0,8).map((a,i)=>`<g class="island-animal animal-${i}" transform="translate(${[280,470,385,525,225,445,330,565][i]} ${[285,310,380,240,360,195,205,360][i]})"><g>${animalArt(a.type).replace('<svg ','<svg x="-17" y="-25" width="34" height="34" ')}<ellipse cx="0" cy="16" rx="15" ry="4" fill="#759b70" opacity=".25"/></g></g>`).join('');
- return svg(`<defs><pattern id="waves" width="88" height="72" patternUnits="userSpaceOnUse"><path d="M14 40q8 5 16 0m35-22q7 4 14 0" stroke="#aad6d4" stroke-width="2.5" stroke-linecap="round"/></pattern></defs><path fill="url(#waves)" d="M0 0h800v550H0z"/><g class="cloud" fill="#e4f2e9"><path d="M90 87c-15-18 9-35 24-21 13-27 47-16 46 6 24-6 28 19 14 22H90z"/><path d="M602 52c-9-18 14-28 22-17 13-22 42-14 42 6 21-4 25 15 13 19h-75z"/></g><path d="M164 223c-20-48 46-101 127-106 71-62 197-46 235 2 91-5 154 49 137 102 75 56 19 131-25 147-3 80-123 101-203 70-84 42-165 16-178-27-110 9-161-54-117-107-20-27-7-64 24-81z" fill="#b3d4c0"/><path d="M161 207c-20-48 46-101 127-106 71-62 197-46 235 2 91-5 154 49 137 102 75 56 19 131-25 147-3 80-123 101-203 70-84 42-165 16-178-27-110 9-161-54-117-107-20-27-7-64 24-81z" fill="#efdfb1" stroke="#f7edcf" stroke-width="5"/><path d="M191 209c-12-41 38-76 114-79 63-51 167-43 204 0 76-7 126 32 116 77 61 42 21 101-25 114-1 64-104 88-173 60-67 38-140 17-156-24-83 6-132-42-99-90-11-20-1-46 19-58z" fill="#a8c58c"/><path d="M417 144c-14 24-10 50 25 77 30 23 20 50-5 73-25 23-22 51-5 88" stroke="#c8d8a7" stroke-width="22" stroke-linecap="round"/><path d="M250 280q64-27 116-21t87-20" stroke="#e1d4a8" stroke-width="18" stroke-linecap="round"/><path d="M463 233q56 13 88 51" stroke="#e1d4a8" stroke-width="15" stroke-linecap="round"/><path d="M377 249q7 47 0 75" stroke="#e1d4a8" stroke-width="15" stroke-linecap="round"/>${houseArt(338,208,.98)}${houseArt(529,291,.75,'garden',save.buildings.garden>0)}${houseArt(260,336,.68,'sawmill',save.buildings.sawmill>0)}<path d="m437 390 25 96 34-10-30-93" fill="#c29e77" stroke="#8e9b79" stroke-width="2"/><path d="m447 412 28-8m-23 24 28-8m-24 24 29-8m-24 24 28-8" stroke="#e1c49b" stroke-width="3"/><g transform="translate(521 465) rotate(-12)"><ellipse cx="0" cy="9" rx="48" ry="15" fill="#9ac8c3"/><path d="M-40-8h80l-18 28h-44z" fill="#f9edce" stroke="#6f9485" stroke-width="2"/><path d="M-32-8h63l-10 15h-44z" fill="#d99e76"/><path d="M0-63v56m4-52 28 43H4" fill="#fff8df" stroke="#6f9485" stroke-width="2"/></g><g fill="#5e946d" stroke="#628969" stroke-width="2"><path d="m228 145-20 38h13v17h12v-17h14z"/><path d="m566 151-20 38h14v17h12v-17h14z"/><path d="m600 177-14 28h9v12h10v-12h10z"/><path d="m184 269-14 28h9v13h10v-13h10z"/><path d="m500 141-13 26h9v12h9v-12h9z"/></g><g stroke="#739666" stroke-width="2" stroke-linecap="round"><path d="m314 335 3-5 3 5m146-163 3-5 3 5m113 156 3-5 3 5m-222-190 3-5 3 5m-147 130 3-5 3 5m375-59 3-5 3 5"/></g><g fill="#f7edd0"><circle cx="288" cy="310" r="3"/><circle cx="294" cy="315" r="3"/><circle cx="489" cy="337" r="3"/><circle cx="494" cy="342" r="3"/></g>${residents}<g fill="#7eafab"><path d="m82 370 10-4 9 4m540 44 10-4 9 4m-51-316 10-4 9 4"/></g>`,'0 0 800 550','island-illustration');
+ const seen=new Set(),counts={rest:0,garden:0,sawmill:0,waiting:0},totals={rest:0,garden:0,sawmill:0,waiting:0};
+ for(const [i,a]of save.residents.entries())totals[i>=save.buildings.home*6?'waiting':a.job]++;
+ const residents=save.residents.map((a,index)=>{
+  if(seen.has(a.id))return '';seen.add(a.id);
+  const zone=index>=save.buildings.home*6?'waiting':a.job,k=counts[zone]++;
+  let pos=zone==='garden'?[311+(k%2)*33,243+Math.floor(k/2)*19]:zone==='sawmill'?[105+(k%2)*27,252+Math.floor(k/2)*17]:zone==='waiting'?[222+(k%3)*20,334+Math.floor(k/3)*14]:[175+(k%4)*35,229+Math.floor(k/4)*23];
+  let size=32;
+  if(totals[zone]>8){const areas={rest:[150,210,140,91],garden:[286,234,77,60],sawmill:[85,241,70,60],waiting:[219,323,46,57]},[left,top,width,height]=areas[zone],cols=Math.ceil(Math.sqrt(totals[zone]*width/height)),rows=Math.ceil(totals[zone]/cols);size=Math.min(27,width/cols*.9,height/rows*.9);pos=[left+(k%cols)*width/cols,top+Math.floor(k/cols)*height/rows];}
+  return `<g class="island-animal ${zone==='garden'||zone==='sawmill'?'working':''}" data-island-animal-id="${artAttr(a.id)}" data-job="${zone}" transform="translate(${pos[0]} ${pos[1]})"><g>${animalArt(a.type).replace('<svg ',`<svg x="${-size/2}" y="${-size}" width="${size}" height="${size*1.1}" `)}${zone==='garden'?'<path d="m6-3 8 5" stroke="#92744d" stroke-width="3"/>':''}</g></g>`;
+ }).join('');
+ return svg(`<g fill="#e4f5fa"><path d="M22 43q-10-19 14-23 10-30 37-10 25-7 29 19H22z"/><path d="M335 38q-5-17 14-18 10-25 27-8 29-3 27 26z"/></g><g stroke="#c0e7f1" stroke-width="3" stroke-linecap="round"><path d="M18 302q10 6 20 0m355 52q10 6 20 0M35 375q10 6 20 0m306-310q10 6 20 0M97 38q8 4 16 0"/></g>${islandBase()}<path d="M224 171q-21 46-7 88l26 66m-30-74-73 8m82-25 80 10" stroke="#e9dbb0" stroke-width="17" stroke-linecap="round"/>${tree(136,118,.72)}${tree(340,103,.75)}${tree(378,189,.62)}${tree(61,230,.6)}${tree(295,77,.48)}<path d="M65 173q16-18 42-9 25 7 18 32-15 25-49 13-25-5-11-36" fill="#e3d4aa"/><path d="M70 177q19-13 38-7 18 5 11 22-8 18-38 11-19-6-11-26" fill="#73bcd1"/><path d="M82 184q7 4 14 0m-3 10q7 4 14 0" stroke="#c5e8ef" stroke-width="2"/>${houseArt(241,157,.94,'home')}${houseArt(322,251,.9,'garden',save.buildings.garden>0)}${houseArt(119,252,.66,'sawmill',save.buildings.sawmill>0)}${dockArt()}${boatArt()}${grass(156,170)}${grass(366,278)}${grass(175,303)}<g fill="#fff5d3"><circle cx="145" cy="306" r="3"/><circle cx="151" cy="310" r="3"/><circle cx="357" cy="214" r="3"/></g>${residents}${islandLabel(240,105,'小屋','home')}${islandLabel(333,191,'菜园','garden')}${islandLabel(109,197,'木工坊','sawmill')}<text x="71" y="154" font-size="12" fill="#456d6b" font-weight="600">鱼塘</text>`,'0 0 460 410','island-illustration').replace('aria-hidden="true"','role="group" aria-label="主岛场景"');
 }
+function workArt(kind,workers=[]) {
+ return svg(`<path fill="#bdd998" d="M0 0h460v290H0z"/><path d="M0 240q130-30 240 0t220 0v50H0z" fill="#a7cb88"/>${tree(42,76,1.3)}${tree(408,69,1.2)}${kind==='garden'?houseArt(337,97,.95,'home'):''}<path d="M25 184v62m38-75v65m-38-35 61-18m-59 35 59-19" stroke="#aa895e" stroke-width="7" stroke-linecap="round"/>${houseArt(230,190,kind==='garden'?2.1:1.7,kind,true)}${workers.map((a,i)=>`<g class="working" transform="translate(${143+(i%4)*51} ${183+Math.floor(i/4)*32})"><g>${animalArt(a.type).replace('<svg ','<svg width="55" height="61" x="-27" y="-48" ')}</g></g>`).join('')}`,'0 0 460 290','work-illustration');
+}
+
+
+
+
+function renderTile(t,i,{n,selected=null,hint=[]}){
+ if(!t)return `<div class="tile blank" aria-hidden="true"></div>`;
+ const animals=t.animals||[],residents=t.camp?.occupants||[],all=[...animals,...residents],layout=animalLayout(all.length),urgent=animals.filter(a=>a.timer!==null),timer=urgent.length?Math.min(...urgent.map(a=>a.timer)):null;
+ const house=isHouse(t),label=`第 ${Math.floor(i/n)+1} 行第 ${i%n+1} 列，${t.level<0?'岩石':TERRAIN[t.level]}${all.length?'，'+all.map(a=>ANIMALS[a.type].label).join('、'):''}${residents.length?'，已救援 '+residents.length+' 只':''}${house?'，安全区域':''}${timer!==null?'，紧急剩余 '+timer+' 步':''}`;
+ return `<button class="tile level-${t.level} ${t.camp?'has-camp camp-'+t.camp.kind:''} ${i===selected?'selected':''} ${hint.includes(i)?'hinted':''}" data-id="${t.id}" data-action="tile" data-index="${i}" aria-label="${label}" ${t.level<0||t.level===MAX_TIER?'aria-disabled="true"':''}>${terrainArt(t.level)}${t.camp?.kind==='tent'?`<div class="camp-art">${tentArt()}</div>`:''}<div class="tile-animals" data-animal-count="${all.length}" data-animal-scale="${layout[0]?.scale||1}">${all.map((a,k)=>`<span class="tile-animal ${all.length>4?'portrait-mini':''} ${k>=animals.length?'resident':''}" data-${k>=animals.length?'resident':'animal'}-id="${a.id}" style="left:${layout[k].x}%;top:${layout[k].y}%;width:${layout[k].size}%;height:${layout[k].size}%">${all.length>4?animalArt(a.type).replace('viewBox="0 0 100 110"','viewBox="0 0 100 82"'):animalArt(a.type)}</span>`).join('')}</div>${residents.length?`<span class="camp-count">${icon('check')}${residents.length}</span>`:''}${timer!==null?`<span class="timer-badge">${timer}</span>`:''}</button>`;
+}
+
 
 
 
@@ -2393,7 +2225,9 @@ class BoardView {
     // Read the visible drag positions before clearing the preview transforms.
     this.resetDrag();
     const {created,removed}=this.reconcile(frame.board,{keepRemoved:frame.kind==='merge'}),tasks=[];
-    if(frame.kind==='camp-build') {
+    if(frame.kind==='shelter-ready') {
+      for(const at of new Set(frame.entries.map(e=>e.to))){const node=this.slots[at].querySelector('.terrain-art');if(node)tasks.push(this.animate(node,[{filter:'brightness(1)'},{filter:'brightness(1.12)',offset:.5},{filter:'brightness(1)'}],{duration:300}));}
+    } else if(frame.kind==='camp-build') {
       for(const camp of frame.camps) {
         const node=this.slots[camp.at].querySelector('.camp-art');
         if(node)tasks.push(this.animate(node,[{transform:'scale(.72,.2)',transformOrigin:'50% 85%',opacity:0},{transform:'scale(.98,.94)',transformOrigin:'50% 85%',opacity:1,offset:.7},{transform:'scale(1)',transformOrigin:'50% 85%',opacity:1}],{duration:520}));
@@ -2453,8 +2287,9 @@ class BoardView {
         const destinations=new Set(frame.entries?.map(e=>e.to)||[]);
         oldBoard.forEach((tile,index)=>{
           if(destinations.size?!destinations.has(index):!tile?.animals.some(a=>rescued.has(a.id)))return;
-          const slot=this.slots[index],spark=document.createElement('span');spark.className='rescue-spark';spark.textContent='♥';slot.append(spark);
-          tasks.push(this.animate(spark,[{transform:'translateY(0) scale(.85)',opacity:0},{transform:'translateY(-14px) scale(1)',opacity:.8,offset:.4},{transform:'translateY(-28px) scale(1)',opacity:0}],{duration:480}).then(()=>spark.remove()));
+          const slot=this.slots[index],spark=document.createElement('span');spark.className='rescue-spark';spark.textContent='救援 +'+frame.entries.filter(e=>e.to===index).length;slot.append(spark);
+          for(const animal of slot.querySelectorAll('.tile-animal'))tasks.push(this.animate(animal,[{transform:'translateY(0)'},{transform:'translateY(-5px)',offset:.4},{transform:'translateY(0)'}],{duration:380}));
+          tasks.push(this.animate(spark,[{transform:'translateY(0) scale(.85)',opacity:0},{transform:'translateY(-14px) scale(1)',opacity:.8,offset:.4},{transform:'translateY(-28px) scale(1)',opacity:0}],{duration:600}).then(()=>spark.remove()));
         });
       }
     }
@@ -2499,12 +2334,15 @@ class BoardView {
 
 
 
+
 const app=document.querySelector('#app'),modalRoot=document.querySelector('#modal-root');
 let storage;try{storage=window.localStorage;}catch{storage={getItem:()=>null,setItem:()=>{throw Error('Storage unavailable');}};}
 let save=loadSave(storage),route='home',game=null,selected=null,hint=[],busy=false,runToken=0,history=[],reward=null,animalFilter='all';
 let toastTimer,pointerStart,ignoreClick=false,audioContext,previousFocus,boardView=null,idleTimer;
 let activityVersion=0;
 let pendingRescue=null;
+let workBuilding='garden',arrivalIds=[];
+const ART_COPY=text=>String(text).replace(/深海|浅海|礁石|沙滩|草地|树林|救援小屋|救援中心/g,word=>({'深海':'碎石荒地','浅海':'地基轮廓','礁石':'石板路面','沙滩':'单根立柱','草地':'双柱平台','树林':'带顶门廊','救援小屋':'小型祭坛','救援中心':'城邦广场'}[word]));
 let sessionSaveFailed=false;
 const IDLE_HINT_DELAY=8000;
 const introduced=new Set(),reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2517,8 +2355,8 @@ const activeLevel=()=>LEVELS[(game?.levelId||1)-1];
 const highestTier=()=>Math.max(0,...game.board.map(t=>t.level));
 const moveText=timers=>game.building?'自由合成 · 不限步数':timers.length?'紧急救援 · '+Math.min(...timers)+' 步':game.limit?'挑战剩余 · '+Math.max(0,game.limit-game.moves)+' 步':'轻松救援 · 不限步数';
 const goalNumber=()=>game.building?`T${highestTier()} <span>/ T${MAX_TIER}</span>`:`${game.rescued.length} <span>/ ${game.target} 位</span>`;
-const goalTitle=()=>game.building?(highestTier()>=MAX_TIER?'救援中心建成，继续照顾这片海域':'目标 T7 · 救援中心'):game.terrainGoal?'接玩伴入住，再完成本关的建造目标':game.mode==='beach'?'搭起帐篷，让玩伴入住':'让玩伴沿陆地抵达救援设施';
-const playFeedback=()=>game.status==='lost'?game.failure:game.building?(highestTier()>=MAX_TIER?'T7 救援中心建成啦！玩伴们在这里安家。':'自由合成中 · 三座 T6 小屋可升级为 T7 中心'):game.status==='won'?(game.terrainGoal?'营救和建造目标都完成啦！':'玩伴们都住进营地啦！'):game.terrainGoal&&game.rescued.length>=game.target?'玩伴已入住，继续完成本关的建造目标':'拖动相邻地形，让三个相同地块连成一线';
+const goalTitle=()=>game.building?'修复这片遗迹，让玩伴安心留下':game.terrainGoal?'救出玩伴，完成遗迹修复目标':'修复到带顶门廊，接玩伴平安回家';
+const playFeedback=()=>game.status==='lost'?game.failure:game.status==='won'?'本关完成！玩伴们已经安全了':game.building?'修复遗迹，玩伴会一直留在这里':game.rescued.length>=game.target?'玩伴已安全，继续完成修复目标':'合并相同遗迹，带顶门廊就能保护玩伴';
 function terrainObjectiveContent(){
  const goal=terrainGoalProgress(game);if(!goal)return '';
  return `<span class="objective-art">${terrainArt(goal.level)}</span><div><small>本关建造目标</small><strong>T${goal.level} ${TERRAIN[goal.level]}${goal.level===6?'或更高':''}</strong></div><b>${Math.min(goal.have,goal.count)} / ${goal.count} 座${goal.have>=goal.count?' ✓':''}</b>`;
@@ -2539,45 +2377,52 @@ function sound(kind='tap') {
   notes.forEach((frequency,i)=>{const o=audioContext.createOscillator(),g=audioContext.createGain(),time=audioContext.currentTime+i*.09;o.type='sine';o.frequency.value=frequency;g.gain.setValueAtTime(0,time);g.gain.linearRampToValueAtTime(.035,time+.015);g.gain.exponentialRampToValueAtTime(.001,time+.22);o.connect(g);g.connect(audioContext.destination);o.start(time);o.stop(time+.24);});
  }catch{}
 }
-function resourceHeader(){return `<header class="topbar"><div class="brand">动物漂流岛<small>ANIMAL DRIFT ISLAND</small></div><div class="resources"><div class="resource gold" title="金币">${icon('coin')}<span>${save.coins}</span></div><div class="resource timber" title="木材">${icon('wood')}<span>${save.wood}</span></div><div class="resource food" title="食物">${icon('leaf')}<span>${save.food}</span></div><button class="round-button" data-action="sound" aria-label="${save.sound?'关闭':'开启'}音效">${icon(save.sound?'sound':'mute')}</button></div></header>`;}
-function shell(content){return `<div class="shell"><nav class="rail" aria-label="主要导航"><div class="brand-mark">${animalArt('rabbit')}</div>${[['home','home','小岛'],['map','map','航线'],['friends','paw','玩伴'],['build','build','建设']].map(([id,i,label])=>`<button class="nav-item ${route===id?'active':''}" data-action="nav" data-route="${id}" ${route===id?'aria-current="page"':''}>${icon(i)}<span>${label}</span></button>`).join('')}<span class="rail-bottom">一 起 慢 慢 长 大</span></nav><main class="workspace">${resourceHeader()}${content}</main></div>`;}
+function resourceHeader(){return `<header class="topbar"><div class="brand"><span class="brand-avatar">${animalArt('cat')}</span><div>动物漂流岛<small>把小小的相逢，变成家</small></div></div><div class="resources"><div class="resource gold" aria-label="金币 ${save.coins}">${icon('coin')}<span>${save.coins}</span></div><div class="resource timber" aria-label="木材 ${save.wood}">${icon('wood')}<span>${save.wood}</span></div><div class="resource food" aria-label="食物 ${save.food}">${icon('carrot')}<span>${save.food}</span></div></div><button class="round-button sound-toggle" data-action="sound" aria-label="${save.sound?'关闭':'开启'}音效">${icon(save.sound?'sound':'mute')}</button></header>`;}
+function shell(content){return `<div class="shell route-${route}"><nav class="rail" aria-label="主要导航"><div class="brand-mark">${animalArt('rabbit')}</div>${[['home','home','主岛'],['map','map','关卡'],['friends','paw','图鉴'],['build','build','建造 / 工作']].map(([id,i,label])=>`<button class="nav-item ${route===id||route==='work'&&id==='build'?'active':''}" data-action="nav" data-route="${id}" ${route===id?'aria-current="page"':''}>${icon(i)}<span>${label}</span></button>`).join('')}<span class="rail-bottom">一起把日子过好</span></nav><main class="workspace">${resourceHeader()}${content}</main></div>`;}
 const sectionHeading=(eyebrow,title,description)=>`<div class="section-heading"><div class="eyebrow">${eyebrow}</div><h1 class="page-title">${title}</h1><p class="subtext">${description}</p></div>`;
 const footer=()=>`<div class="footer-note">${icon('leaf')} 合并一片陆地，接一个朋友回家。</div>`;
 function milestone(kind){const list=MILESTONES[kind],value=kind==='rescue'?save.residents.length:done();const target=list.find(n=>!save.claims.includes(`${kind}-${n}`));return {kind,target:target||list.at(-1),value,finished:!target,ready:!!target&&value>=target};}
-function taskHTML(kind){const t=milestone(kind);return `<div class="task"><div class="task-title"><span>${kind==='rescue'?'接玩伴回家':'完成海上救援'}</span><strong><b>${Math.min(t.value,t.target)}</b> / ${t.target}</strong></div><div class="progress"><span style="width:${Math.min(t.value/t.target*100,100)}%"></span></div><div class="task-reward"><span>${t.finished?'全部里程碑已完成':'奖励：'+(kind==='rescue'?'80 金币 + 15 木材':'100 金币')}</span>${t.ready?`<button class="claim-button" data-action="claim" data-kind="${kind}">领取奖励</button>`:`<span>${t.finished?'✓ 已领取':'慢慢来，一起长大'}</span>`}</div></div>`;}
+function taskHTML(kind){const t=milestone(kind);return `<div class="task ${kind}"><span class="task-icon">${icon(kind==='rescue'?'paw':'map')}</span><div class="task-main"><div class="task-title"><span>${kind==='rescue'?'累计解救玩伴':'累计首次通关'}</span><strong>${t.value}<small> / ${t.target}</small></strong></div><div class="progress"><span style="width:${Math.min(t.value/t.target*100,100)}%"></span></div></div><button class="task-gift ${t.ready?'ready':''}" data-action="${t.ready?'claim':'task-info'}" data-kind="${kind}" aria-label="${t.finished?'阶段奖励已全部领取':t.ready?'领取阶段奖励':'查看阶段奖励'}">${icon(t.finished?'check':'gift')}</button></div>`;}
 function homePage(){
- const active=!!game,level=active?activeLevel():nextLevel(),pending=production(save);
- return `<div class="home-grid"><section><div class="island-header"><div><div class="eyebrow">第一章 · 海风来信</div><h1 class="page-title">一座小岛，等你一起长大。</h1><p class="subtext">${save.residents.length?'今天也有新的朋友，等着我们带它回家。':'海风送来了第一封信，去接一位新朋友吧。'}</p></div><div class="weather"><span class="sun"></span>晴 · 微风</div></div><div class="island-view"><div class="island-caption">${icon('flag')}我们的漂流岛</div>${islandArt(save)}<span class="island-tag">${save.buildings.home>1?'暖暖小屋 Lv.'+save.buildings.home:'暖暖小屋'}</span><div class="island-count">${icon('paw')} ${save.residents.length} 位玩伴 · ${done()} 次相逢</div><span class="sea-note">HOME, SWEET ISLAND</span></div><div class="journey-strip"><div class="journey-copy"><div class="journey-icon">${icon('boat')}</div><div><strong>${active?(game.building?'把这片海域，慢慢变成家':game.status==='won'?'玩伴们正在营地等你':game.status==='lost'?'休息好了，再试一次':'伙伴们还在等你'):'下一站 · '+level.title}</strong><small>${active?`已保存 · 第 ${String(level.id).padStart(2,'0')} 关 · ${game.moves} 次交换`:`第 ${String(level.id).padStart(2,'0')} 关 · ${level.animals.length} 位玩伴等你回家`}</small></div></div><button class="primary warm" data-action="${active?'resume':'start'}" data-level="${level.id}">${active?(game.building?'继续合成':game.status==='won'?'看看营地':game.status==='lost'?'查看棋盘':'继续救援'):done()===LEVELS.length?'再次出航':'出发救援'} ${icon('arrow')}</button></div>${footer()}</section><aside class="side-panel"><section class="card"><div class="card-heading"><h2>小岛心愿</h2><span>累计里程碑</span></div>${taskHTML('rescue')}${taskHTML('levels')}<p class="card-foot">每一次平安靠岸，都让小岛更热闹一点。<br>重玩关卡不会重复累计玩伴和奖励。</p></section><section class="card"><div class="card-heading"><h2>岛上的新朋友</h2><button class="text-button" data-action="nav" data-route="friends">看看大家 ${icon('arrow')}</button></div>${save.residents.length?`<div class="friend-note"><div class="portrait" style="background:${ANIMALS[save.residents.at(-1).type].color}">${animalArt(save.residents.at(-1).type)}</div><div><strong>${escapeHTML(save.residents.at(-1).name)}</strong><p>“有你在，这里就是家。”</p></div></div>`:`<div class="friend-note"><div class="portrait">${animalArt('rabbit')}</div><div><strong>第一位玩伴还在海上</strong><p>棉棉，正等着你的救援。</p></div></div>`}<div class="small-empty">${save.residents.length?'安排工作，一起照顾我们的小岛。':'把玩伴带回家，它就会出现在小岛上。'}</div></section><section class="card"><div class="card-heading"><h2>慢慢生活</h2><span>小岛工坊</span></div><button class="production-button" data-action="collect">${icon('leaf')}<span id="production-label">${pending.food+pending.wood?`可收取 ${pending.food} 食物 · ${pending.wood} 木材`:'安排玩伴，收获一点小美好'}</span>${icon('arrow')}</button><button class="text-button" data-action="nav" data-route="build" style="margin-top:14px">去建设小岛 ${icon('arrow')}</button><button class="text-button" data-action="supplies" style="margin-top:12px">交付补给，换取金币 ${icon('arrow')}</button></section></aside></div>`;
+ const active=!!game&&game.status!=='won',level=active?activeLevel():nextLevel(),pending=production(save);
+ return `<div class="home-grid"><section class="home-scene"><div class="island-header"><div><div class="eyebrow">我们的第一座小岛</div><h1 class="page-title">海风刚好，欢迎回家。</h1></div><span class="weather"><i class="sun"></i>晴 · 微风</span></div><div class="island-view ${arrivalIds.length?'has-arrivals':''}">${islandArt(save)}<span class="island-count">${icon('paw')} ${save.residents.length} 位玩伴已靠岸</span>${arrivalIds.length?'<span class="arrival-note">新朋友靠岸啦，快去小屋看看吧！</span>':''}</div></section><aside class="home-panels"><section class="card task-card"><div class="card-heading"><h2>${icon('clipboard')}岛屿任务</h2><span>一起慢慢完成</span></div>${taskHTML('rescue')}${taskHTML('levels')}</section><div class="journey-strip"><div class="journey-copy"><span class="journey-icon">${icon('boat')}</span><div><strong>第 ${level.id} 关 · ${level.title}</strong><small>${active?'已保存，随时继续':'有 '+level.animals.length+' 位新朋友等着你'}</small></div></div><button class="primary" data-action="${active?'resume':'start'}" data-level="${level.id}">${icon('play')}${active?(game.building?'继续修复':game.status==='won'?'返回营地':'继续第 '+level.id+' 关'):'开始第 '+level.id+' 关'}</button></div><section class="card life-card"><div class="card-heading"><h2>岛上的小日常</h2><button class="text-button" data-action="nav" data-route="build">去看看 ${icon('arrow')}</button></div><button class="production-button" data-action="collect">${icon('carrot')}<span id="production-label">${pending.food+pending.wood?`可收取 ${pending.food} 食物 · ${pending.wood} 木材`:'给玩伴安排一份小工作吧'}</span>${icon('arrow')}</button><p class="card-foot">点击岛上的小屋、菜园和木工坊，看看玩伴们。</p></section></aside></div>`;
 }
-function tileHTML(t,i){
- if(!t)return `<div class="tile blank" aria-hidden="true"></div>`;
- const animals=t.animals||[],urgent=animals.filter(a=>a.timer!==null),timer=urgent.length?Math.min(...urgent.map(a=>a.timer)):null;
- const residents=t.camp?.occupants||[];
- const house=isHouse(t),facility=house?TERRAIN[t.level]:'帐篷';
- const label=`第 ${Math.floor(i/game.n)+1} 行第 ${i%game.n+1} 列，${t.level<0?'岩石':`T${t.level} ${TERRAIN[t.level]}`}${house?(t.level===MAX_TIER?'，满级固定':'，固定，仅参与同级三连升级时可交换'):''}${animals.length?'，'+animals.map(a=>ANIMALS[a.type].label).join('、'):''}${t.camp?'，'+facility+'已入住 '+residents.length+' 位'+(residents.length?'：'+residents.map(a=>ANIMALS[a.type].label).join('、'):''):''}${house?'，空余 '+t.capacity+' 个位置':''}${timer!==null?'，紧急剩余 '+timer+' 步':''}`;
- const camp=t.camp?`${t.camp.kind==='tent'?`<div class="camp-art">${tentArt()}</div>`:''}<div class="camp-residents" aria-hidden="true">${residents.slice(0,3).map(a=>`<span data-resident-id="${a.id}">${animalArt(a.type)}</span>`).join('')}</div>${residents.length?`<span class="camp-count">${residents.length}${house?'/'+houseCapacity(t.level):''}位</span>`:''}`:'';
- return `<button class="tile level-${t.level} ${t.camp?'has-camp camp-'+t.camp.kind:''} ${i===selected?'selected':''} ${hint.includes(i)?'hinted':''}" data-id="${t.id}" data-action="tile" data-index="${i}" aria-label="${label}" ${t.level<0||t.level===MAX_TIER?'aria-disabled="true"':''}>${terrainArt(t.level,t.capacity)}${house?`<span class="facility-tier">T${t.level}</span>`:''}${camp}${animals.length?`<div class="tile-animal ${t.level<3?'raft':''}">${animalArt(animals[0].type)}</div>${animals.length>1?`<span class="animal-count">${animals.length}</span>`:''}`:''}${timer!==null?`<span class="timer-badge">${timer}</span>`:''}${house&&!residents.length?`<span class="capacity">余 ${t.capacity}/${houseCapacity(t.level)}</span>`:''}</button>`;
-}
+
+function tileHTML(t,i){return renderTile(t,i,{n:game.n,selected,hint});}
 function boardHTML(board=game.board){return board.map((t,i)=>`<div class="board-cell">${t?tileHTML(t,i):''}</div>`).join('');}
-function legend(){return `<div class="terrain-legend" aria-label="地形升级顺序，从 T0 到 T7">${TERRAIN.map((name,i)=>`<div class="legend-item"><span class="legend-tier">T${i}${i===MAX_TIER?' · 满级':''}</span><div class="legend-tile level-${i}">${terrainArt(i)}</div><span>${name}</span></div>`).join('')}</div>`;}
+function legend(){return `<details class="terrain-guide"><summary>遗迹修复图鉴 <span>8 个阶段 ${icon('arrow')}</span></summary><div class="terrain-legend">${TERRAIN.map((name,i)=>`<div class="legend-item"><div class="legend-tile">${terrainArt(i)}</div><span>${name}</span></div>`).join('')}</div></details>`;}
 function gamePage(){
  const level=activeLevel(),timers=game.board.flatMap(t=>t.animals).filter(a=>a.timer!==null).map(a=>a.timer);
- return `<div class="play-header"><button class="round-button" data-action="nav" data-route="home" aria-label="返回小岛">${icon('back')}</button><div><h1>${level.title}</h1><p>第 ${String(level.id).padStart(2,'0')} 关 · ${level.region}</p></div></div><div class="play-layout"><section class="game-sea"><div class="board-top"><span class="chapter-label">一 片 陆 地，一 个 新 家</span><span class="move-label ${timers.length?'urgent':''}" id="moves">${moveText(timers)}</span></div><div class="board" id="board" style="--n:${game.n}" role="group" aria-label="${game.n} 乘 ${game.n} 救援棋盘" aria-busy="${busy}">${boardHTML()}</div><div id="feedback" class="game-feedback" role="status">${playFeedback()}</div><div class="board-tools"><button class="tool-button" id="continue-building" data-action="build-terrain" ${game.status!=='won'?'hidden':''}>${icon('build')}继续合成到 T7</button><button class="tool-button" data-action="hint">${icon('hint')}看看提示</button><button class="tool-button" data-action="retry">${icon('reset')}重新出发</button><button class="tool-button" data-action="rules">${icon('help')}玩法</button></div>${legend()}<p class="control-help">每步自动保存 · 也可点选相邻地块 · 无效交换不扣步数</p></section><aside class="play-aside"><section class="card rescue-goal"><div class="goal-label">${game.building?'自由合成':'本次救援'}</div><div class="goal-number">${goalNumber()}</div><p class="goal-title">${goalTitle()}</p><div class="animal-goals">${level.animals.map(a=>`<div class="animal-goal ${game.rescued.some(s=>s.id===a.id)?'saved':''}" title="${ANIMALS[a.type].label}">${animalArt(a.type)}</div>`).join('')}</div><div id="terrain-objective" class="terrain-objective" ${!game.terrainGoal||game.building?'hidden':''}>${terrainObjectiveContent()}</div></section><section class="card tip-card"><strong>${icon('leaf').replace('class="icon ','class="icon ').replace('<svg ','<svg style="display:inline-block;width:16px;height:16px;vertical-align:middle;margin-right:5px" ')}海风小提醒</strong>${level.description}<br><br>${game.building?'继续把 T5 树林合并为 T6 小屋，再把三座小屋升级为 T7 救援中心。小屋和中心固定，不随地块掉落或棋盘整理移动。原有营地、玩伴都会保留。':game.mode==='beach'?'三连礁石升级为沙滩后，会搭起帐篷。玩伴走进去才算获救，会一直留在营地。同等级相连地块上的玩伴还能继续入住。':'沙滩及以上都是安全陆地。T6 小屋容纳 3 位，三座同级小屋连成一线升级为 T7 救援中心，可容纳 9 位。小屋平时固定，只有参与同级三连升级的交换才允许移动；入住玩伴全部保留。'}<button class="text-button" data-action="rules" style="margin-top:13px">查看完整玩法 ${icon('arrow')}</button></section><div class="status-card">${icon('heart')}不用赶路，每一份小小的帮助<br>都会被小岛记住。</div></aside></div>`;
+ return `<div class="play-header"><button class="round-button" data-action="nav" data-route="home" aria-label="返回主岛">${icon('back')}</button><div><p>遗迹修复之旅</p><h1>第 ${level.id} 关 <span>${level.title}</span></h1></div><button class="round-button" data-action="rules" aria-label="查看玩法">${icon('help')}</button></div><div class="play-layout"><aside class="play-aside"><section class="card rescue-goal"><div class="goal-copy"><span class="goal-label">${game.building?'自由修复':'本关救援'}</span><div class="goal-number">${goalNumber()}</div><p class="goal-title">${ART_COPY(goalTitle())}</p></div><div class="animal-goals">${level.animals.map(a=>`<div class="animal-goal ${game.rescued.some(s=>s.id===a.id)?'saved':''}" title="${ANIMALS[a.type].label}">${animalArt(a.type)}</div>`).join('')}</div><div id="terrain-objective" class="terrain-objective" ${!game.terrainGoal||game.building?'hidden':''}>${terrainObjectiveContent()}</div></section><section class="card tip-card"><strong>给遗迹一点新生</strong><p>${ART_COPY(level.description)}</p><button class="text-button" data-action="rules">查看玩法 ${icon('arrow')}</button></section></aside><section class="game-sea"><div class="board-top"><span class="chapter-label">修复遗迹 · 接玩伴回家</span><span class="move-label ${timers.length?'urgent':''}" id="moves" ${!timers.length&&!game.limit?'hidden':''}>${moveText(timers)}</span></div><div class="board" id="board" style="--n:${game.n}" role="group" aria-label="${game.n} 乘 ${game.n} 救援棋盘" aria-busy="${busy}">${boardHTML()}</div><div id="feedback" class="game-feedback" role="status">${ART_COPY(playFeedback())}</div><div class="board-tools"><button class="tool-button" id="continue-building" data-action="build-terrain" ${game.status!=='won'?'hidden':''}>${icon('build')}继续修复</button><button class="tool-button" data-action="hint">${icon('hint')}提示</button><button class="tool-button" data-action="retry">${icon('reset')}重试</button><button class="tool-button" data-action="rules">${icon('help')}玩法</button></div>${legend()}<p class="control-help">拖动或点选相邻地块 · 进度自动保存</p></section></div>`;
 }
-function mapPage(){return `${sectionHeading('ISLAND JOURNAL · 02','沿着海风，寻找新朋友。','二十次出航，从第一次靠岸到共同建成救援中心。')}<div class="map-layout"><section class="map-sea"><div class="map-region">浅 湾 → 海 风 群 岛 → 灯 塔 海 域 → 晨 光 群 岛</div><div class="level-route">${LEVELS.map(l=>{const open=l.id<=unlocked(),completed=save.completed[l.id];return `<button class="level-node ${completed?'completed':l.id===unlocked()?'current':''}" data-action="start" data-level="${l.id}" ${!open?'disabled':''} aria-label="第 ${l.id} 关 ${l.title}${completed?'，已通关':''}"><span class="level-islet">${open?`<span class="node-number">${String(l.id).padStart(2,'0')}</span>`:icon('lock')}${completed?`<span class="node-stars">${'★'.repeat(completed)}</span>`:''}</span><small>${l.title}</small>${l.terrainGoal?`<span class="map-goal">T${l.terrainGoal.level} × ${l.terrainGoal.count}</span>`:''}</button>`;}).join('')}</div><div class="route-counter">已经留下 ${done()} 段平安回家的故事 / 共 ${LEVELS.length} 段</div></section><aside class="card"><div class="card-heading"><h2>我们的航海手记</h2><span>试玩版 0.6</span></div><p class="subtext">01—05 · 登岸搭帐篷，接玩伴入住<br><br>06—10 · 安全陆地与紧急救援<br><br>11—15 · 合并树林，建成更多 T6 小屋<br><br>16—20 · 三连小屋，挑战 T7 救援中心</p><div class="small-empty" style="margin-top:25px">新十关同时需要营救和建造。<br>每步都会保存，可以随时回来继续。</div></aside></div>${footer()}`;}
+
+function mapPage(){return `${sectionHeading('ISLAND JOURNAL · 02','沿着海风，寻找新朋友。','二十次出航，从第一次靠岸到共同修复城邦广场。')}<div class="map-layout"><section class="map-sea"><div class="map-region">浅 湾 → 海 风 群 岛 → 灯 塔 海 域 → 晨 光 群 岛</div><div class="level-route">${LEVELS.map(l=>{const open=l.id<=unlocked(),completed=save.completed[l.id];return `<button class="level-node ${completed?'completed':l.id===unlocked()?'current':''}" data-action="start" data-level="${l.id}" ${!open?'disabled':''} aria-label="第 ${l.id} 关 ${l.title}${completed?'，已通关':''}"><span class="level-islet">${open?`<span class="node-number">${String(l.id).padStart(2,'0')}</span>`:icon('lock')}${completed?`<span class="node-stars">${'★'.repeat(completed)}</span>`:''}</span><small>${l.title}</small>${l.terrainGoal?`<span class="map-goal">T${l.terrainGoal.level} × ${l.terrainGoal.count}</span>`:''}</button>`;}).join('')}</div><div class="route-counter">已经留下 ${done()} 段平安回家的故事 / 共 ${LEVELS.length} 段</div></section><aside class="card"><div class="card-heading"><h2>我们的航海手记</h2><span>美术版 0.7</span></div><p class="subtext">01—05 · 修复门廊，一起平安获救<br><br>06—10 · 遗迹修复与紧急救援<br><br>11—15 · 修复门廊，建成更多 T6 祭坛<br><br>16—20 · 三连祭坛，挑战 T7 城邦广场</p><div class="small-empty" style="margin-top:25px">新十关同时需要营救和建造。<br>每步都会保存，可以随时回来继续。</div></aside></div>${footer()}`;}
 function friendsPage(){
  const housed=save.buildings.home*6,workers=save.residents.filter(a=>a.job!=='rest').length,residents=save.residents.filter(a=>animalFilter==='all'||a.type===animalFilter);
- return `${sectionHeading('OUR LITTLE FRIENDS','每一次相逢，都有了名字。','救回的玩伴会留在小岛上。为它们安排工作，一起把日子过好。')}<div class="residents-summary"><div class="summary-number">${save.residents.length}<small>小岛玩伴</small></div><div class="summary-divider"></div><div class="summary-number">${Math.min(save.residents.length,housed)} / ${housed}<small>小屋入住</small></div><div class="summary-divider"></div><div class="summary-number">${workers}<small>正在工作</small></div><button class="secondary" data-action="collect" style="margin-left:auto">收取产出</button></div><div class="species-row">${[['all','全部玩伴'],...Object.entries(ANIMALS).map(([key,v])=>[key,v.label])].map(([key,label])=>`<button class="species-button ${animalFilter===key?'active':''}" data-action="filter" data-filter="${key}">${key==='all'?icon('paw'):animalArt(key)}${label}</button>`).join('')}</div><div class="residents-grid">${residents.length?residents.map(a=>{const index=save.residents.indexOf(a),waiting=index>=housed;return `<article class="resident-card"><div class="portrait" style="background:${ANIMALS[a.type].color}">${animalArt(a.type)}</div><h2>${escapeHTML(a.name)}</h2><p>${waiting?'在码头等候 · 扩建小屋后入住':a.job==='rest'?'已入住 · 享受海风':a.job==='garden'?'在菜园照顾小芽 · 2 食物 / 30 秒':'在木工坊忙碌 · 2 木材 / 30 秒'}</p><div class="job-select">${[['rest','休息'],['garden','菜园'],['sawmill','木工']].map(([job,label])=>`<button class="${a.job===job?'chosen':''}" data-action="job" data-animal="${a.id}" data-job="${job}" ${waiting&&job!=='rest'?'disabled':''}>${label}</button>`).join('')}</div></article>`;}).join(''):`<div class="residents-empty">${animalArt(animalFilter==='all'?'rabbit':animalFilter,'empty-animal')}<h2>${save.residents.length?'这一位朋友，还在旅途中。':'小岛的故事，就从遇见你开始。'}</h2><p>出发救援，把漂流的玩伴带回家。</p><button class="primary warm" data-action="start" data-level="${nextLevel().id}">去接新朋友 ${icon('arrow')}</button></div>`}</div>${footer()}`;
+ return `${sectionHeading('OUR LITTLE FRIENDS','每一次相逢，都有了名字。','救回的玩伴会留在小岛上。为它们安排工作，一起把日子过好。')}<div class="residents-summary"><div class="summary-number">${save.residents.length}<small>小岛玩伴</small></div><div class="summary-divider"></div><div class="summary-number">${Math.min(save.residents.length,housed)} / ${housed}<small>小屋入住</small></div><div class="summary-divider"></div><div class="summary-number">${workers}<small>正在工作</small></div><button class="secondary" data-action="collect" style="margin-left:auto">收取产出</button></div><div class="species-row">${[['all','全部玩伴'],...Object.entries(ANIMALS).map(([key,v])=>[key,v.label])].map(([key,label])=>`<button class="species-button ${animalFilter===key?'active':''}" data-action="filter" data-filter="${key}">${key==='all'?icon('paw'):animalArt(key)}${label}</button>`).join('')}</div><div class="residents-grid">${residents.length?residents.map(a=>{const index=save.residents.indexOf(a),waiting=index>=housed;return `<article class="resident-card"><div class="portrait" style="background:${ANIMALS[a.type].color}">${animalArt(a.type)}</div><h2>${escapeHTML(a.name)}</h2><p>${waiting?'在码头等候 · 扩建小屋后入住':a.job==='rest'?'已入住 · 享受海风':a.job==='garden'?'在菜园照顾小芽 · 2 食物 / 30 秒':'在木工坊忙碌 · 2 木材 / 30 秒'}</p><div class="job-select">${[['rest','休息'],['garden','菜园'],['sawmill','木工']].map(([job,label])=>`<button class="${a.job===job?'chosen':''}" data-action="job" data-animal="${escapeHTML(a.id)}" data-job="${job}" ${waiting&&job!=='rest'?'disabled':''}>${label}</button>`).join('')}</div></article>`;}).join(''):`<div class="residents-empty">${animalArt(animalFilter==='all'?'rabbit':animalFilter,'empty-animal')}<h2>${save.residents.length?'这一位朋友，还在旅途中。':'小岛的故事，就从遇见你开始。'}</h2><p>出发救援，把漂流的玩伴带回家。</p><button class="primary warm" data-action="start" data-level="${nextLevel().id}">去接新朋友 ${icon('arrow')}</button></div>`}</div>${footer()}`;
 }
 function buildingCost(key){const level=save.buildings[key];return {coins:key==='home'?100*level:80*(level+1),wood:key==='home'?25*level:20*(level+1)};}
 function suppliesSection(){
  return `<section id="supply-orders" class="card supply-section"><div class="card-heading"><h2>小岛补给站</h2><span>随时交付 · 可重复</span></div><p class="subtext">玩伴工作产出食物和木材。收取后交付补给，换取扩建小岛的金币。</p><div class="supply-balance"><span>${icon('leaf')}食物 <b>${save.food}</b></span><span>${icon('wood')}木材 <b>${save.wood}</b></span><span>${icon('coin')}金币 <b>${save.coins}</b></span></div><div class="supply-grid">${SUPPLY_ORDERS.map(order=>{const needs=[];if(order.food&&!save.buildings.garden)needs.push('菜园');if(order.wood&&!save.buildings.sawmill)needs.push('木工坊');const enough=save.food>=order.food&&save.wood>=order.wood,ready=!needs.length&&enough;return `<article class="supply-order"><span class="supply-symbol">${icon(order.id==='vegetables'?'leaf':order.id==='timber'?'wood':'boat')}</span><h3>${order.title}</h3><p>${[order.food?`${order.food} 食物`:'',order.wood?`${order.wood} 木材`:''].filter(Boolean).join(' + ')}</p><strong>${icon('coin')} +${order.coins} 金币</strong><button class="secondary" data-action="supply-order" data-order="${order.id}" ${!ready?'disabled':''}>${needs.length?'先建'+needs.join('和'):!enough?'资源不足':'交付补给'}</button></article>`;}).join('')}</div><div class="supply-actions"><button class="primary" data-action="collect">${icon('leaf')}收取产出</button><button class="text-button" data-action="nav" data-route="friends">去安排工作 ${icon('arrow')}</button></div></section>`;
 }
-function buildPage(){return `${sectionHeading('MAKE A LITTLE HOME','给小小的日常，留一片地方。','营救新朋友，安排生产、交付补给，慢慢扩建我们的小岛。')}<div class="build-grid">${[['home','暖暖小屋','每级可住 6 位玩伴。屋子不够时，新朋友会先在码头等候。'],['garden','小芽菜园','每级开放 2 个岗位。每位玩伴每 30 秒产出 2 食物，可交付菜篮换取金币。'],['sawmill','森林木工坊','每级开放 2 个岗位。每位玩伴每 30 秒产出 2 木材，可用于建设或交付补给。']].map(([key,title,desc])=>{const level=save.buildings[key],cost=buildingCost(key);return `<article class="building-card"><div class="building-art">${svg(houseArt(100,99,1.05,key,true),'0 0 200 160')}</div><div class="building-body"><span class="building-level">${level?'Lv. '+level:'等待建设'}</span><h2>${title}</h2><p>${desc}</p><div class="build-cost"><span>${icon('coin')}${cost.coins}</span><span>${icon('wood')}${cost.wood}</span></div><button class="primary ${level?'':'warm'}" data-action="build" data-building="${key}" ${level>=5?'disabled':''}>${level>=5?'已经满级':level?'扩建到 Lv. '+(level+1):'开始建设'} ${icon(level?'arrow':'build')}</button></div></article>`;}).join('')}</div>${suppliesSection()}<p class="build-info">首次通关和小岛心愿提供建设资源。补给订单可反复交付；重玩关卡不重复发放首次奖励。生产需要安排已入住的玩伴，每位最多累计 1 小时，记得收取。</p>${footer()}`;}
+function buildPage(){return `${sectionHeading('MAKE A LITTLE HOME','给小小的日常，留一片地方。','营救新朋友，安排生产、交付补给，慢慢扩建我们的小岛。')}<div class="build-grid">${[['home','暖暖小屋','每级可住 6 位玩伴。屋子不够时，新朋友会先在码头等候。'],['garden','小芽菜园','每级开放 2 个岗位。每位玩伴每 30 秒产出 2 食物，可交付菜篮换取金币。'],['sawmill','森林木工坊','每级开放 2 个岗位。每位玩伴每 30 秒产出 2 木材，可用于建设或交付补给。']].map(([key,title,desc])=>{const level=save.buildings[key],cost=buildingCost(key);return `<article class="building-card"><button class="building-art" data-action="building-details" data-building="${key}" aria-label="查看${title}详情">${svg(houseArt(100,99,1.05,key,true),'0 0 200 160')}</button><div class="building-body"><span class="building-level">${level?'Lv. '+level:'等待建设'}</span><h2>${title}</h2><p>${desc}</p><div class="build-cost"><span>${icon('coin')}${cost.coins}</span><span>${icon('wood')}${cost.wood}</span></div><button class="primary ${level?'':'warm'}" data-action="build" data-building="${key}" ${level>=5?'disabled':''}>${level>=5?'已经满级':level?'扩建到 Lv. '+(level+1):'开始建设'} ${icon(level?'arrow':'build')}</button></div></article>`;}).join('')}</div>${suppliesSection()}<p class="build-info">首次通关和小岛心愿提供建设资源。补给订单可反复交付；重玩关卡不重复发放首次奖励。生产需要安排已入住的玩伴，每位最多累计 1 小时，记得收取。</p>${footer()}`;}
+const BUILDING_NAMES={home:'暖暖小屋',garden:'小芽菜园',sawmill:'森林木工坊'};
+function workData(key){
+ const capacity=key==='home'?save.buildings.home*6:save.buildings[key]*2;
+ const workers=key==='home'?save.residents.slice(0,capacity):save.residents.filter(a=>a.job===key);
+ const amount=key==='home'?0:workers.reduce((n,a)=>n+Math.min(120,Math.max(0,Math.floor((Date.now()-a.lastHarvest)/30000)))*2,0);
+ const remaining=workers.length&&key!=='home'?Math.min(...workers.map(a=>30-Math.floor((Date.now()-a.lastHarvest)%30000/1000))):30;
+ return {capacity,workers,amount,remaining};
+}
+function workPage(key){
+ const {capacity,workers,amount,remaining}=workData(key),level=save.buildings[key],cost=buildingCost(key),home=key==='home';
+ return `<section class="work-page"><div class="work-title"><button class="round-button" data-action="nav" data-route="home" aria-label="返回主岛">${icon('back')}</button><h1>${BUILDING_NAMES[key]} <span>Lv.${level}</span></h1><button class="text-button" data-action="nav" data-route="build">建造 ${icon('build')}</button></div><div class="work-hero">${workArt(key,home?workers.filter(a=>a.job==='rest'):workers)}</div><div class="work-panel"><div class="card-heading"><h2>${home?'已入住的玩伴':'工作中的玩伴'} <span>(${workers.length}/${capacity})</span></h2><span>${home?'温暖的小家':'一起照顾小岛'}</span></div><div class="worker-slots">${workers.map(a=>`<div class="worker-slot" data-worker-id="${escapeHTML(a.id)}">${animalArt(a.type)}<strong>${escapeHTML(a.name)}</strong><small>${home?(a.job==='rest'?'空闲 · 已入住':'已入住 · 外出工作'):'正在工作'}</small>${!home?`<button class="text-button" data-action="job" data-animal="${escapeHTML(a.id)}" data-job="rest">休息一下</button>`:''}</div>`).join('')}${Array.from({length:Math.min(4,Math.max(0,capacity-workers.length))},()=>`<button class="worker-slot vacant" data-action="work-invite" data-building="${key}" aria-label="${home?'去接新朋友':'安排玩伴工作'}"><span>＋</span><small>${home?'等新朋友回家':'空闲岗位'}</small></button>`).join('')}</div>${!level?`<p class="work-empty">${home?'':'先建好'+BUILDING_NAMES[key]+'，再请玩伴来帮忙。'}</p>`:''}${!home?`<section class="production-card"><div class="production-heading">${icon(key==='garden'?'carrot':'wood')}<div><h3>产出${key==='garden'?'食物':'木材'}</h3><p>每位玩伴每 30 秒 <b>×2</b></p></div><strong id="work-amount">${amount}</strong></div><div class="production-timer"><span>${icon('clock')}<b id="work-countdown">${workers.length?'00:'+String(remaining).padStart(2,'0'):'等待安排'}</b></span><button class="primary" data-action="collect">收取全部产出</button></div></section>${level?`<div class="available-workers"><h3>请空闲玩伴来帮忙</h3>${save.residents.filter((a,i)=>a.job==='rest'&&i<save.buildings.home*6).map(a=>`<button data-action="job" data-animal="${escapeHTML(a.id)}" data-job="${key}" ${workers.length>=capacity?'disabled':''}>${animalArt(a.type)}<span>${escapeHTML(a.name)}</span>${icon('plus')}</button>`).join('')||'<p>还没有空闲玩伴，去海上接新朋友吧。</p>'}</div>`:''}`:`<p class="work-empty">${save.residents.length>capacity?save.residents.length-capacity+' 位玩伴正在码头等候，扩建小屋就能入住。':'给每位回来的朋友，留一个安心的位置。'}</p>`}<div class="work-upgrade"><div><strong>${level>=5?'建筑已满级':level?'扩建到 Lv.'+(level+1):'建设'+BUILDING_NAMES[key]}</strong><span>${icon('coin')}${cost.coins} ${icon('wood')}${cost.wood}</span></div><button class="secondary" data-action="build" data-building="${key}" ${level>=5?'disabled':''}>${level>=5?'已满级':level?'扩建':'建造'}</button></div></div></section>`;
+}
 function render(){
  clearIdleHint();pointerStart=null;boardView?.destroy();boardView=null;
- app.innerHTML=shell(route==='home'?homePage():route==='play'?gamePage():route==='map'?mapPage():route==='friends'?friendsPage():buildPage());
+ app.innerHTML=shell(route==='home'?homePage():route==='play'?gamePage():route==='map'?mapPage():route==='friends'?friendsPage():route==='work'?workPage(workBuilding):buildPage());
  if(route==='play')boardView=new BoardView(document.querySelector('#board'),{board:game.board,n:game.n,tileHTML,reducedMotion:reduceMotion});
+ if(route==='home'&&arrivalIds.length)document.querySelectorAll('[data-island-animal-id]').forEach(node=>{if(arrivalIds.includes(node.dataset.islandAnimalId)){const p=node.getAttribute('transform').match(/translate\(([-.\d]+) ([-.\d]+)/);node.style.setProperty('--arrival-x',(320-Number(p[1]))+'px');node.style.setProperty('--arrival-y',(355-Number(p[2]))+'px');node.classList.add('just-arrived');}});
  armIdleHint();
 }
 function clearIdleHint(){clearTimeout(idleTimer);activityVersion++;}
@@ -2600,36 +2445,36 @@ function playerActivity(){
 function cancelPendingRescue(){
  if(pendingRescue){game=pendingRescue.before;history.pop();pendingRescue=null;}
 }
-function navigate(to){if(!['home','map','friends','build','play'].includes(to))return;cancelPendingRescue();commitWin();saveRun();runToken++;busy=false;selected=null;hint=[];closeModal();route=to;render();window.scrollTo({top:0,behavior:'instant'});}
-function showModal(html){clearIdleHint();hint=[];document.querySelectorAll('#board .hinted').forEach(node=>node.classList.remove('hinted'));previousFocus=document.activeElement;modalRoot.innerHTML=`<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">${html}</section></div>`;document.body.style.overflow='hidden';modalRoot.querySelector('button')?.focus();}
-function closeModal(){modalRoot.innerHTML='';document.body.style.overflow='';previousFocus?.isConnected&&previousFocus.focus();armIdleHint();}
+function navigate(to){if(!['home','map','friends','build','play','work'].includes(to))return;cancelPendingRescue();commitWin();saveRun();runToken++;busy=false;selected=null;hint=[];closeModal();route=to;render();window.scrollTo({top:0,behavior:'instant'});}
+function showModal(html){clearIdleHint();hint=[];document.querySelectorAll('#board .hinted').forEach(node=>node.classList.remove('hinted'));previousFocus=document.activeElement;modalRoot.innerHTML=`<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">${html}</section></div>`;document.body.style.overflow='hidden';app.inert=true;modalRoot.querySelector('button')?.focus();}
+function closeModal(){modalRoot.innerHTML='';document.body.style.overflow='';app.inert=false;previousFocus?.isConnected&&previousFocus.focus();armIdleHint();}
 const closeButton=()=>`<button class="round-button" data-action="close-modal" aria-label="关闭">${icon('close')}</button>`;
-function rulesModal(tutorial=false){showModal(`${closeButton()}<div class="modal-animal">${animalArt('rabbit')}</div><div class="modal-eyebrow">一 封 海 风 里 的 小 纸 条</div><h2 id="modal-title">我们一起，接它回家。</h2><div class="tutorial-demo"><div>${terrainArt(2)}</div><div>${terrainArt(2)}</div><div>${terrainArt(2)}</div><span>→</span><div>${terrainArt(3)}</div></div><ol class="rules-list"><li><b>交换相邻地块</b>，横向或纵向连成至少 3 个相同地形，合并升级。</li><li>地块向下掉落，上方补入新地形；<b>玩伴随地块移动</b>，合并时全部保留。</li><li>第 1—5 关，玩伴到达<b>沙滩或更高地形</b>后搭帐篷，<b>走进去才算获救</b>，获救后仍留在营地。同等级相连地块能继续送来新住户。</li><li>地形可从 T0 一路升级到 <b>T7 救援中心</b>。T6 救援小屋容纳 3 位，三座同级小屋连成一线，升级后容纳 9 位，已入住的玩伴全部保留。</li><li>第 6 关起，沿安全陆地抵达救援设施才算获救。<b>小屋平时固定，只有它自己参与同级三连升级时才允许交换</b>。满级 T7 固定，不再升级。</li></ol><p class="modal-small">三连草地 → T5 树林 → T6 小屋 → T7 中心<br>四连草地可直接建成 T6 小屋。通关后可以继续自由合成。<br>紧急倒计时每次有效交换减 1，连锁与无效交换不多扣步数。</p><button class="primary warm" data-action="close-modal">${tutorial?'准备好啦，出发！':'知道啦，继续救援'} ${icon('arrow')}</button>`);}
+function rulesModal(tutorial=false){showModal(`${closeButton()}<div class="modal-animal">${animalArt('rabbit')}</div><div class="modal-eyebrow">给玩伴一个安心的家</div><h2 id="modal-title">修复遗迹，一起回家。</h2><div class="tutorial-demo"><div>${terrainArt(4)}</div><div>${terrainArt(4)}</div><div>${terrainArt(4)}</div><span>→</span><div>${terrainArt(5)}</div></div><ol class="rules-list"><li>拖动相邻地块，横向或纵向连成至少 <b>3 个相同遗迹</b>，合并升级。</li><li>玩伴随地块移动，合并时所有玩伴都会保留。遗迹共有 <b>8 个修复阶段</b>。</li><li>动物所在的地块达到 <b>带顶门廊（T5）</b>后，才算完全安全。低级遗迹上的玩伴还需要帮助。</li><li>同一地块的玩伴会<b>一起获救，没有人数上限</b>，获救后会留在原处。同种玩伴也会分别计数。</li><li>祭坛需要参与同级三连升级才能移动；城邦广场固定。紧急倒计时只在有效交换后减少。</li></ol><p class="modal-small">重玩不会重复增加累计玩伴和首次通关奖励。<br>没有可用交换时，会先提示再整理棋盘。</p><button class="primary" data-action="close-modal">${tutorial?'准备好啦，出发！':'知道啦，继续救援'} ${icon('play')}</button>`);}
 function startLevel(id,force=false){
  if(id<1||id>unlocked())return;
  cancelPendingRescue();
  if(game?.status==='playing'&&game.levelId!==id&&!force){showModal(`${closeButton()}<div class="modal-animal">${icon('boat')}</div><h2 id="modal-title">驶向另一片海域？</h2><p>当前这次救援会重新开始。已经回到主岛的玩伴和建设进度会保留。</p><button class="primary warm" data-action="force-start" data-level="${id}">开始第 ${id} 关 ${icon('arrow')}</button><button class="secondary" data-action="resume">继续当前救援</button>`);return;}
  closeModal();game=createGame(LEVELS[id-1]);history=[];reward=null;route='play';selected=null;hint=[];runToken++;busy=false;render();saveRun();window.scrollTo({top:0,behavior:'instant'});
- if((id===1||id===6||id===8)&&!introduced.has(id)){introduced.add(id);if(id===1)rulesModal(true);else showModal(`${closeButton()}<div class="modal-animal">${id===8?animalArt('penguin'):terrainArt(6)}</div><div class="modal-eyebrow">海 风 带 来 新 的 挑 战</div><h2 id="modal-title">${id===8?'起风了，接住小企鹅。':'亮起一盏回家的灯。'}</h2><p>${id===8?'带数字的玩伴有 8 步紧急倒计时。只有有效交换才扣步数，一次连锁只算一步。优先把它送回小屋吧。':'从这一关起，玩伴需要沿相连的安全陆地走进救援小屋。小屋固定在原位，只有参与同级三连升级时才允许交换。三座 T6 小屋可升级为容纳 9 位的 T7 救援中心！'}</p><button class="primary warm" data-action="close-modal">一起试试看 ${icon('arrow')}</button>`);}
+ if(id===1&&!introduced.has(id)){introduced.add(id);rulesModal(true);}
 }
 function updateBoard(board=game.board){if(!boardView)return;boardView.update(board);boardView.element.setAttribute('aria-busy',String(busy));}
 function refreshPlayStatus(){
  updateBoard();
  const timers=game.board.flatMap(t=>t.animals).filter(a=>a.timer!==null).map(a=>a.timer),moves=document.querySelector('#moves');
  moves.classList.toggle('urgent',!!timers.length);
- moves.textContent=moveText(timers);
+ moves.textContent=moveText(timers);moves.hidden=!timers.length&&!game.limit;
  document.querySelector('.goal-number').innerHTML=goalNumber();
- document.querySelector('.goal-title').textContent=goalTitle();
+ document.querySelector('.goal-title').textContent=ART_COPY(goalTitle());
  const objective=document.querySelector('#terrain-objective');objective.hidden=!game.terrainGoal||!!game.building;objective.innerHTML=terrainObjectiveContent();
  document.querySelector('#continue-building').hidden=game.status!=='won';
  document.querySelectorAll('.animal-goal').forEach((node,i)=>node.classList.toggle('saved',game.rescued.some(a=>a.id===activeLevel().animals[i].id)));
  for(const [key,cls]of [['coins','gold'],['wood','timber'],['food','food']])document.querySelector(`.resource.${cls} span`).textContent=save[key];
- document.querySelector('#feedback').textContent=playFeedback();
+ document.querySelector('#feedback').textContent=ART_COPY(playFeedback());
 }
 function selectTile(index){
  if(busy||modalRoot.children.length||game.status!=='playing')return;
  if(game.board[index].level<0){toast('岩石不可移动，可以从旁边绕过去');return;}
- if(game.board[index].level===MAX_TIER){toast('T7 救援中心已满级，固定在原位照顾玩伴');return;}
+ if(game.board[index].level===MAX_TIER){toast('T7 城邦广场已满级，固定在原位照顾玩伴');return;}
  if(selected===null){selected=index;hint=[];updateBoard();return;}
  if(index===selected){selected=null;updateBoard();return;}
  const n=game.n,adjacent=Math.abs(index-selected)===n||(Math.floor(index/n)===Math.floor(selected/n)&&Math.abs(index-selected)===1);
@@ -2642,21 +2487,21 @@ async function runMove(a,b){
  const before=game;
  const result=swap(game,a,b,{frames:true});
  const view=boardView;
- if(!result.valid){busy=true;clearIdleHint();view.element.setAttribute('aria-busy','true');await view.returnDrag();if(token!==runToken)return;busy=false;updateBoard();toast(result.reason);armIdleHint();return;}
+ if(!result.valid){busy=true;clearIdleHint();view.element.setAttribute('aria-busy','true');await view.returnDrag();if(token!==runToken)return;busy=false;updateBoard();toast(ART_COPY(result.reason));armIdleHint();return;}
  busy=true;clearIdleHint();view.element.setAttribute('aria-busy','true');game=result.state;history.push([a,b]);
  if(result.rescued.length)pendingRescue={before};
  for(const frame of result.frames){
   if(token!==runToken)return;
   const feedback=document.querySelector('#feedback');
-  if(frame.kind==='swap'&&frame.houseMove)feedback.textContent='同级小屋连成一线，准备升级救援中心…';
-  if(frame.kind==='merge'){sound('merge');feedback.textContent=frame.upgrades.some(u=>u.level===MAX_TIER)?'T7 救援中心建成！玩伴们一起搬进新家':frame.upgrades.some(u=>u.level===6)?'一盏新灯亮了 · T6 救援小屋建成！':frame.chain>1?`${frame.chain} 次连锁 · 陆地慢慢长大了`:'合并成功 · 离家更近一步';}
-  if(frame.kind==='camp-build')feedback.textContent='安全靠岸，正在搭起小帐篷…';
+  if(frame.kind==='swap'&&frame.houseMove)feedback.textContent='同级祭坛连成一线，准备修复城邦广场…';
+  if(frame.kind==='merge'){sound('merge');feedback.textContent=frame.upgrades.some(u=>u.level===MAX_TIER)?'T7 城邦广场建成！玩伴们一起搬进新家':frame.upgrades.some(u=>u.level===6)?'一盏新灯亮了 · T6 小型祭坛建成！':frame.chain>1?`${frame.chain} 次连锁 · 陆地慢慢长大了`:'合并成功 · 离家更近一步';}
+  if(frame.kind==='shelter-ready')feedback.textContent='门廊修复完成，玩伴们安全啦…';
   if(frame.kind==='camp-enter')feedback.textContent='跟着海风，走进我们的营地…';
   if(frame.kind==='rescue'){
    pendingRescue=null;
-   feedback.textContent=`${frame.rescued.length} 位玩伴已入住，会留在营地里！`;
+   feedback.textContent=`成功救援 +${frame.rescued.length} · 玩伴会留在遗迹里`;
    document.querySelector('.goal-number').innerHTML=goalNumber();
-   document.querySelector('.goal-title').textContent=goalTitle();
+   document.querySelector('.goal-title').textContent=ART_COPY(goalTitle());
    document.querySelectorAll('.animal-goal').forEach((node,i)=>node.classList.toggle('saved',game.rescued.some(a=>a.id===activeLevel().animals[i].id)));
    commitWin();saveRun();
   }
@@ -2670,7 +2515,8 @@ async function runMove(a,b){
  if(game.status==='won'){sound('win');await view.wait(900);if(token===runToken&&route==='play'&&!modalRoot.children.length)winModal();}
  if(game.status==='lost')lostModal();
 }
-function winModal(){const level=activeLevel();showModal(`${closeButton()}<div class="modal-eyebrow">第 ${String(level.id).padStart(2,'0')} 关 · 平安 靠岸</div><div class="star-row">${'★'.repeat(reward?.stars||save.completed[level.id]||3)}</div><h2 id="modal-title">${game.terrainGoal?'营救站建成啦！':'欢迎回家，新朋友！'}</h2><p>${game.rescued.length} 位玩伴已经入住营地。${game.terrainGoal?'<br>本关建造目标也已完成。':''}<br>它们会留在棋盘上，也可以继续把海域合成到 T7。<br>${reward?.first?'它们将带着自己的名字，住进你的小岛。':'这次相逢，也被海风好好记住了。'}</p><div class="win-animals">${game.rescued.map(a=>animalArt(a.type)).join('')}</div>${reward?.first?`<div class="reward-row"><span>${icon('coin')} +${reward.coins}</span><span>${icon('wood')} +${reward.wood}</span></div>`:'<p class="modal-small">重玩不重复累计玩伴和首次通关奖励</p>'}<button class="primary warm" data-action="nav" data-route="home">带玩伴回岛 ${icon('home')}</button><button class="secondary" data-action="${level.id<LEVELS.length?'start':'nav'}" ${level.id<LEVELS.length?`data-level="${level.id+1}"`:'data-route="map"'}>${level.id<LEVELS.length?'继续下一次救援':'查看我们的航海手记'}</button><button class="secondary" data-action="build-terrain">继续合成到 T7 ${icon('build')}</button><button class="text-button" style="justify-content:center;width:100%;margin-top:15px" data-action="close-modal">留在营地看看</button>`);}
+function winModal(){const level=activeLevel(),groups=Object.keys(ANIMALS).map(type=>({type,count:game.rescued.filter(a=>a.type===type).length})).filter(a=>a.count);showModal(`${closeButton()}<div class="win-ribbon">成功救出玩伴！</div><div class="win-stage">${groups.map(a=>animalArt(a.type)).join('')}<span class="celebrate-spark one">✦</span><span class="celebrate-spark two">✧</span></div><h2 id="modal-title">成功救出 ${game.rescued.length} 只小动物</h2><p>第 ${level.id} 关完成，新的相逢正等着你。</p><section class="win-rewards"><h3>本关收获</h3><div class="win-animal-list">${groups.map(a=>`<span>${animalArt(a.type)}<b>${ANIMALS[a.type].label} ×${a.count}</b></span>`).join('')}</div><div class="reward-row"><span>${icon('coin')}<b>+${reward?.coins||0}</b><small>金币</small></span><span>${icon('wood')}<b>+${reward?.wood||0}</b><small>木材</small></span></div><p class="reward-note">${reward?.first?'首次通关奖励已收好':'重玩关卡，玩伴和首次奖励不会重复累计'}</p></section><div class="win-actions"><button class="secondary" data-action="return-home">${icon('home')}返回主岛</button><button class="primary" data-action="${level.id<LEVELS.length?'start':'nav'}" ${level.id<LEVELS.length?`data-level="${level.id+1}"`:'data-route="map"'}>${icon('play')}${level.id<LEVELS.length?'下一关':'查看关卡'}</button></div><button class="text-button win-stay" data-action="close-modal">留在营地看看</button>`);modalRoot.querySelector('.modal').classList.add('victory-modal');}
+
 async function buildTerrain(){
  const next=continueBuilding(game);if(!next||next===game)return;
  const prepared=prepareBoard(next,{frames:true});
@@ -2700,6 +2546,10 @@ async function showHint(){
 document.addEventListener('click',event=>{
  const button=event.target.closest('[data-action]');if(!button||button.disabled)return;
  const {action}=button.dataset;
+ if(action==='building-details'){workBuilding=button.dataset.building;navigate('work');return;}
+ if(action==='work-invite'){if(button.dataset.building==='home'){startLevel(nextLevel().id);}else{document.querySelector('.available-workers')?.scrollIntoView({behavior:reduceMotion?'instant':'smooth',block:'center'});toast('点击下方空闲玩伴，就能请它来帮忙');}return;}
+ if(action==='task-info'){const t=milestone(button.dataset.kind);toast(t.finished?'阶段奖励已全部领取':`达到 ${t.target} ${t.kind==='rescue'?'位玩伴，可领取 80 金币和 15 木材':'次首次通关，可领取 100 金币'}`);return;}
+ if(action==='return-home'){arrivalIds=reward?.first?game.rescued.map(a=>a.id):[];navigate('home');setTimeout(()=>{arrivalIds=[];document.querySelector('.has-arrivals')?.classList.remove('has-arrivals');document.querySelector('.arrival-note')?.remove();},3200);return;}
  playerActivity();
  if(action==='tile'){if(ignoreClick){ignoreClick=false;return;}selectTile(Number(button.dataset.index));return;}
  if(action==='nav'){navigate(button.dataset.route);return;}
@@ -2771,6 +2621,7 @@ document.addEventListener('pointerup',event=>{
 document.addEventListener('pointercancel',()=>{pointerStart=null;settleDrag();armIdleHint();});
 document.addEventListener('keydown',event=>{
  playerActivity();
+ if((event.key==='Enter'||event.key===' ')&&event.target.matches('.scene-label')){event.preventDefault();event.target.dispatchEvent(new MouseEvent('click',{bubbles:true}));return;}
  if(modalRoot.children.length){
   if(event.key==='Escape'&&modalRoot.querySelector('[data-action="close-modal"]'))closeModal();
   if(event.key==='Tab') {const buttons=[...modalRoot.querySelectorAll('button:not(:disabled)')];if(!buttons.length)return;const first=buttons[0],last=buttons.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
@@ -2788,7 +2639,7 @@ document.addEventListener('keydown',event=>{
 document.addEventListener('visibilitychange',()=>{pointerStart=null;playerActivity();if(document.hidden){clearIdleHint();boardView?.finish();}else settleDrag();});
 window.addEventListener('blur',()=>{pointerStart=null;clearIdleHint();settleDrag();});
 window.addEventListener('focus',()=>playerActivity());
-setInterval(()=>{const el=document.querySelector('#production-label');if(!el)return;const p=production(save);if(p.food+p.wood)el.textContent=`可收取 ${p.food} 食物 · ${p.wood} 木材`;},5000);
+setInterval(()=>{if(route==='work'){const d=workData(workBuilding),counter=document.querySelector('#work-countdown'),amount=document.querySelector('#work-amount');if(counter)counter.textContent=d.workers.length?'00:'+String(d.remaining).padStart(2,'0'):'等待安排';if(amount)amount.textContent=d.amount;}const el=document.querySelector('#production-label');if(!el)return;const p=production(save);if(p.food+p.wood)el.textContent=`可收取 ${p.food} 食物 · ${p.wood} 木材`;},1000);
 const restoredRun=loadSession(storage);
 if(restoredRun&&restoredRun.game.levelId<=unlocked()){game=restoredRun.game;history=restoredRun.history;commitWin();}
 render();
