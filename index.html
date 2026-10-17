@@ -246,7 +246,7 @@ const MAX_TIER = 8;
 const GRASS_TIER = 5;
 const HOUSE_TIER = 7;
 const isHouse = t => !!t && t.level >= HOUSE_TIER && t.level <= MAX_TIER;
-const isFixed = t => !!t && (t.level < 0 || isHouse(t));
+const isFixed = t => !!t && t.level < 0;
 const MIN_SAFE_TIER = 6;
 const isSafe = t => !!t && t.level >= MIN_SAFE_TIER;
 const houseCapacity = level => level >= MIN_SAFE_TIER ? null : 0;
@@ -292,8 +292,6 @@ function canExchange(board,n,a,b) {
   const after=board.slice();[after[a],after[b]]=[after[b],after[a]];
   const matches=groups(after,n);
   if(!matches.some(g=>g.includes(a)||g.includes(b)))return false;
-  // A facility can only leave its anchor as part of its own upgrade.
-  for(const [from,to]of [[a,b],[b,a]])if(isHouse(board[from])&&!matches.some(g=>g.includes(to)&&after[g[0]].level===board[from].level))return false;
   return true;
 }
 function legalMoves(state) {
@@ -390,7 +388,7 @@ function swap(state,a,b,{frames=false,shuffle=true}={}) {
   if(!state.board[a]||!state.board[b]||!neighbors(a,state.n).includes(b))return invalid('请选择上下左右相邻的地块');
   if([state.board[a],state.board[b]].some(t=>t.level<0))return invalid('岩石不能移动');
   const houseMove=isHouse(state.board[a])||isHouse(state.board[b]);
-  if(!canExchange(state.board,state.n,a,b))return invalid([state.board[a],state.board[b]].some(t=>t.level===MAX_TIER)?'救援中心已完成，固定在原位照顾玩伴':houseMove?'救援小屋固定，只有同级三连升级时才能移动':'需要连成至少 3 个相同地形');
+  if(!canExchange(state.board,state.n,a,b))return invalid('交换后需要连成至少 3 个相同地形');
   const next=copy(state), animation=[];
   [next.board[a],next.board[b]]=[next.board[b],next.board[a]];
   let matches=groups(next.board,next.n);
@@ -437,7 +435,7 @@ function boardScore(state) {
     value+=Math.min(goal.have,goal.count)*1800;
     // Earlier tiers remain useful building material after every animal is safe.
     for(const t of state.board)if(t.level>=4&&t.level<goal.level)value+=[0,0,0,0,4,12,60,220][t.level]||0;
-    // Fixed houses need an alignment, so reward nearby pairs and one-swap triples.
+    // Reward facilities that can form an upgrade, or move aside for another match.
     if(goal.level===MAX_TIER) {
       for(let a=0;a<state.board.length;a++)if(state.board[a].level===HOUSE_TIER)
         for(let b=a+1;b<state.board.length;b++)if(state.board[b].level===HOUSE_TIER) {
@@ -491,48 +489,48 @@ function animalLayout(count) {
   return Array.from({length:count},(_,i)=>({x:positions[i]?.[0]??(i%4)*23,y:positions[i]?.[1]??(94+Math.floor((i-4)/4)*22),size:i<4?size:22,scale:count>2?.7:1}));
 }
 
-// V0.10: nine ocean tiers with floating ice; stable layouts and verified paths.
+// V0.11: separate T0/T1 arrivals, stable openings and deterministic rescue/build paths.
 const LEVELS = [
   {
     "id": 1,
     "title": "第一次靠岸",
     "region": "小兔的漂流日记",
-    "description": "合并草地，升为树林并搭起营地，让同格玩伴全部获救。",
+    "description": "从深海与浅海接回玩伴，合并地形，升级树林营地。",
     "n": 5,
-    "seed": 1716,
+    "seed": 22832638,
     "mode": "beach",
     "layout": [
+      1,
+      5,
+      5,
+      4,
+      3,
+      0,
+      4,
+      4,
+      1,
+      3,
       2,
       3,
-      5,
-      5,
-      1,
-      5,
-      1,
       3,
-      1,
-      5,
-      3,
-      3,
-      1,
+      2,
+      0,
+      4,
+      2,
+      2,
       0,
       5,
-      0,
-      3,
+      2,
       1,
       1,
       0,
-      0,
-      1,
-      5,
-      3,
-      3
+      1
     ],
     "animals": [
       {
         "id": "level1-0",
         "type": "rabbit",
-        "at": 2
+        "at": 21
       }
     ],
     "weights": [
@@ -545,8 +543,8 @@ const LEVELS = [
     ],
     "solution": [
       [
-        1,
-        6
+        24,
+        23
       ]
     ],
     "refill": []
@@ -555,47 +553,47 @@ const LEVELS = [
     "id": 2,
     "title": "林间的相逢",
     "region": "浅湾来信",
-    "description": "合并草地，升为树林并搭起营地，让同格玩伴全部获救。",
+    "description": "从深海与浅海接回玩伴，合并地形，升级树林营地。",
     "n": 5,
-    "seed": 5391,
+    "seed": 7964795,
     "mode": "beach",
     "layout": [
+      0,
+      5,
+      5,
       2,
-      5,
-      5,
       3,
       1,
-      0,
-      5,
-      5,
-      1,
-      0,
-      5,
-      3,
-      3,
-      5,
-      5,
+      4,
+      4,
       1,
       1,
       0,
       3,
-      0,
-      1,
-      1,
-      0,
       3,
-      5
+      0,
+      0,
+      0,
+      2,
+      2,
+      1,
+      0,
+      4,
+      1,
+      1,
+      0,
+      1
     ],
     "animals": [
       {
         "id": "level2-0",
         "type": "rabbit",
-        "at": 1
+        "at": 21
       },
       {
         "id": "level2-1",
         "type": "cat",
-        "at": 2
+        "at": 22
       }
     ],
     "weights": [
@@ -608,12 +606,8 @@ const LEVELS = [
     ],
     "solution": [
       [
-        12,
-        13
-      ],
-      [
-        10,
-        11
+        24,
+        23
       ]
     ],
     "refill": []
@@ -622,47 +616,47 @@ const LEVELS = [
     "id": 3,
     "title": "两只橘色小伙伴",
     "region": "珊瑚浅湾",
-    "description": "合并草地，升为树林并搭起营地，让同格玩伴全部获救。",
+    "description": "从深海与浅海接回玩伴，合并地形，升级树林营地。",
     "n": 5,
-    "seed": 5134,
+    "seed": 26292113,
     "mode": "beach",
     "layout": [
+      3,
+      5,
+      5,
+      1,
+      5,
+      3,
+      4,
+      4,
+      0,
+      4,
+      0,
+      3,
+      3,
+      1,
+      5,
+      1,
       2,
-      3,
-      5,
-      4,
-      1,
-      5,
-      5,
+      2,
       0,
+      3,
+      2,
+      1,
       1,
       0,
-      3,
-      3,
-      0,
-      5,
-      4,
-      4,
-      4,
-      3,
-      4,
-      5,
-      5,
-      0,
-      1,
-      3,
-      5
+      1
     ],
     "animals": [
       {
         "id": "level3-0",
         "type": "cat",
-        "at": 2
+        "at": 21
       },
       {
         "id": "level3-1",
         "type": "cat",
-        "at": 2
+        "at": 22
       }
     ],
     "weights": [
@@ -675,8 +669,8 @@ const LEVELS = [
     ],
     "solution": [
       [
-        2,
-        7
+        24,
+        23
       ]
     ],
     "refill": []
@@ -685,52 +679,52 @@ const LEVELS = [
     "id": 4,
     "title": "一起搭个营地",
     "region": "珊瑚浅湾",
-    "description": "合并草地，升为树林并搭起营地，让同格玩伴全部获救。",
+    "description": "从深海与浅海接回玩伴，合并地形，升级树林营地。",
     "n": 5,
-    "seed": 7826,
+    "seed": 23886038,
     "mode": "beach",
     "layout": [
-      3,
+      1,
+      5,
+      5,
+      1,
+      1,
+      0,
       4,
-      3,
       4,
+      1,
+      3,
       2,
-      4,
-      0,
-      4,
-      4,
       3,
-      4,
       3,
-      5,
+      2,
+      1,
+      1,
+      2,
+      2,
       1,
       3,
+      0,
       1,
-      4,
-      5,
-      0,
-      0,
-      0,
-      3,
       1,
-      5,
+      0,
       1
     ],
     "animals": [
       {
         "id": "level4-0",
         "type": "dog",
-        "at": 12
+        "at": 21
       },
       {
         "id": "level4-1",
         "type": "rabbit",
-        "at": 12
+        "at": 22
       },
       {
         "id": "level4-2",
         "type": "dog",
-        "at": 12
+        "at": 24
       }
     ],
     "weights": [
@@ -743,7 +737,7 @@ const LEVELS = [
     ],
     "solution": [
       [
-        22,
+        24,
         23
       ]
     ],
@@ -753,52 +747,52 @@ const LEVELS = [
     "id": 5,
     "title": "远方的小蓝点",
     "region": "海风群岛",
-    "description": "合并草地，升为树林并搭起营地，让同格玩伴全部获救。",
+    "description": "从深海与浅海接回玩伴，合并地形，升级树林营地。",
     "n": 5,
-    "seed": 9535,
+    "seed": 25563411,
     "mode": "beach",
     "layout": [
-      3,
+      4,
       5,
+      5,
+      3,
+      4,
+      0,
+      4,
+      4,
+      0,
+      0,
+      1,
+      3,
+      3,
+      1,
+      4,
+      1,
       2,
-      0,
-      5,
-      4,
-      3,
-      4,
-      3,
-      3,
-      0,
-      4,
-      4,
-      1,
-      5,
-      3,
+      2,
       1,
       3,
       5,
-      4,
       1,
-      5,
+      1,
       0,
-      0,
-      4
+      1
     ],
     "animals": [
       {
         "id": "level5-0",
         "type": "penguin",
-        "at": 1
+        "at": 21
       },
       {
         "id": "level5-1",
         "type": "penguin",
-        "at": 4
+        "at": 22
       },
       {
         "id": "level5-2",
         "type": "cat",
-        "at": 14
+        "at": 24
       }
     ],
     "weights": [
@@ -811,16 +805,8 @@ const LEVELS = [
     ],
     "solution": [
       [
-        6,
-        7
-      ],
-      [
-        18,
-        19
-      ],
-      [
-        13,
-        14
+        24,
+        23
       ]
     ],
     "refill": []
@@ -829,47 +815,47 @@ const LEVELS = [
     "id": 6,
     "title": "一盏回家的灯",
     "region": "海风群岛",
-    "description": "动物所在的地块达到树林后，会搭起营地，让同格玩伴一起获救。",
+    "description": "从深海与浅海接回玩伴，合并地形，升级树林营地。",
     "n": 5,
-    "seed": 10261,
+    "seed": 12996657,
     "mode": "house",
     "layout": [
-      4,
-      0,
-      0,
-      4,
-      4,
-      4,
       3,
-      2,
+      5,
       5,
       3,
-      0,
-      1,
-      4,
+      2,
       3,
+      4,
+      4,
+      1,
+      2,
+      1,
+      3,
+      3,
+      0,
+      5,
+      0,
+      2,
+      2,
       1,
       4,
-      3,
+      2,
       1,
       1,
       0,
-      1,
-      4,
-      7,
-      1,
-      4
+      1
     ],
     "animals": [
       {
         "id": "level6-0",
         "type": "rabbit",
-        "at": 8
+        "at": 21
       },
       {
         "id": "level6-1",
         "type": "dog",
-        "at": 8
+        "at": 22
       }
     ],
     "weights": [
@@ -882,16 +868,8 @@ const LEVELS = [
     ],
     "solution": [
       [
-        10,
-        15
-      ],
-      [
-        11,
-        16
-      ],
-      [
-        3,
-        8
+        24,
+        23
       ]
     ],
     "refill": []
@@ -900,52 +878,52 @@ const LEVELS = [
     "id": 7,
     "title": "我们的安全小屋",
     "region": "海风群岛",
-    "description": "动物所在的地块达到树林后，会搭起营地，让同格玩伴一起获救。",
+    "description": "从深海与浅海接回玩伴，合并地形，升级树林营地。",
     "n": 5,
-    "seed": 12953,
+    "seed": 19806734,
     "mode": "house",
     "layout": [
-      4,
+      0,
       5,
       5,
+      0,
+      0,
+      1,
       4,
+      4,
+      1,
+      0,
+      0,
       3,
+      3,
+      0,
       2,
       1,
-      4,
-      4,
-      3,
-      0,
-      3,
-      5,
-      0,
-      0,
-      1,
-      0,
-      3,
+      2,
+      2,
       1,
       3,
-      5,
-      5,
+      0,
       1,
       1,
-      4
+      0,
+      1
     ],
     "animals": [
       {
         "id": "level7-0",
         "type": "cat",
-        "at": 1
+        "at": 21
       },
       {
         "id": "level7-1",
         "type": "rabbit",
-        "at": 2
+        "at": 22
       },
       {
         "id": "level7-2",
         "type": "penguin",
-        "at": 12
+        "at": 24
       }
     ],
     "weights": [
@@ -958,12 +936,8 @@ const LEVELS = [
     ],
     "solution": [
       [
-        14,
-        19
-      ],
-      [
-        9,
-        14
+        24,
+        23
       ]
     ],
     "refill": []
@@ -972,48 +946,48 @@ const LEVELS = [
     "id": 8,
     "title": "风来了，别着急",
     "region": "灯塔海域",
-    "description": "动物所在的地块达到树林后，会搭起营地，让同格玩伴一起获救。",
+    "description": "从深海与浅海接回玩伴，合并地形，升级树林营地。",
     "n": 5,
-    "seed": 14662,
+    "seed": 24730706,
     "mode": "house",
     "layout": [
+      2,
       5,
       5,
-      4,
+      1,
+      3,
       2,
       4,
-      3,
-      1,
-      5,
-      5,
       4,
-      5,
-      4,
-      4,
+      0,
       3,
       0,
+      3,
+      3,
+      2,
+      2,
+      5,
+      2,
+      2,
       0,
-      5,
-      4,
-      5,
-      5,
+      1,
+      3,
+      1,
       1,
       0,
-      7,
-      1,
-      5
+      1
     ],
     "animals": [
       {
         "id": "level8-0",
         "type": "penguin",
-        "at": 0,
+        "at": 21,
         "timer": 8
       },
       {
         "id": "level8-1",
         "type": "dog",
-        "at": 1
+        "at": 22
       }
     ],
     "weights": [
@@ -1026,8 +1000,8 @@ const LEVELS = [
     ],
     "solution": [
       [
-        2,
-        7
+        24,
+        23
       ]
     ],
     "refill": []
@@ -1036,52 +1010,52 @@ const LEVELS = [
     "id": 9,
     "title": "绕过小小礁岩",
     "region": "灯塔海域",
-    "description": "动物所在的地块达到树林后，会搭起营地，让同格玩伴一起获救。",
+    "description": "从深海与浅海接回玩伴，合并地形，升级树林营地。",
     "n": 5,
-    "seed": 15388,
+    "seed": 16772028,
     "mode": "house",
     "layout": [
+      1,
       5,
+      5,
+      1,
+      5,
+      1,
+      4,
+      4,
       3,
+      0,
+      0,
+      3,
+      3,
+      1,
+      4,
+      1,
       2,
-      3,
-      1,
-      1,
-      -1,
-      5,
-      3,
-      1,
-      5,
+      2,
       0,
+      0,
+      5,
+      1,
       1,
       0,
-      4,
-      5,
-      3,
-      3,
-      -1,
-      1,
-      4,
-      4,
-      7,
-      0,
-      0
+      1
     ],
     "animals": [
       {
         "id": "level9-0",
         "type": "dog",
-        "at": 0
+        "at": 21
       },
       {
         "id": "level9-1",
         "type": "cat",
-        "at": 7
+        "at": 22
       },
       {
         "id": "level9-2",
         "type": "rabbit",
-        "at": 10
+        "at": 24
       }
     ],
     "weights": [
@@ -1094,28 +1068,8 @@ const LEVELS = [
     ],
     "solution": [
       [
-        14,
-        19
-      ],
-      [
-        0,
-        5
-      ],
-      [
-        7,
-        8
-      ],
-      [
-        8,
-        13
-      ],
-      [
-        12,
-        13
-      ],
-      [
-        7,
-        8
+        24,
+        23
       ]
     ],
     "refill": []
@@ -1124,68 +1078,68 @@ const LEVELS = [
     "id": 10,
     "title": "我们的救援队",
     "region": "灯塔海域",
-    "description": "动物所在的地块达到树林后，会搭起营地，让同格玩伴一起获救。",
+    "description": "从深海与浅海接回玩伴，合并地形，升级树林营地。",
     "n": 6,
-    "seed": 20046,
+    "seed": 1486252,
     "mode": "house",
     "layout": [
+      5,
+      5,
+      0,
+      3,
+      5,
+      1,
+      4,
+      4,
+      2,
+      3,
+      4,
+      4,
+      3,
+      3,
+      0,
+      2,
+      2,
+      5,
+      0,
+      0,
+      1,
+      1,
+      0,
+      3,
+      2,
+      2,
+      0,
+      3,
       2,
       1,
-      4,
-      5,
-      4,
-      4,
-      4,
-      0,
-      4,
       1,
-      3,
-      1,
-      5,
       1,
       0,
-      1,
-      0,
-      3,
-      3,
-      1,
-      5,
       5,
       1,
-      4,
-      5,
-      3,
-      5,
-      3,
-      5,
-      0,
-      5,
-      5,
-      4,
-      7,
-      4,
-      3
+      2
     ],
     "animals": [
       {
         "id": "level10-0",
         "type": "rabbit",
-        "at": 3
+        "at": 18
       },
       {
         "id": "level10-1",
         "type": "cat",
-        "at": 12
+        "at": 19
       },
       {
         "id": "level10-2",
         "type": "dog",
-        "at": 20
+        "at": 26
       },
       {
         "id": "level10-3",
         "type": "penguin",
-        "at": 21
+        "at": 32
       }
     ],
     "weights": [
@@ -1199,16 +1153,8 @@ const LEVELS = [
     "limit": 18,
     "solution": [
       [
-        22,
-        28
-      ],
-      [
-        1,
-        7
-      ],
-      [
-        12,
-        18
+        14,
+        20
       ]
     ],
     "refill": []
@@ -1217,47 +1163,47 @@ const LEVELS = [
     "id": 11,
     "title": "树林里的新家",
     "region": "青叶群岛",
-    "description": "救出所有玩伴，并完成 1 座救援小屋。",
+    "description": "从海面接回分散的玩伴，再完成T7救援小屋的建造目标。",
     "n": 5,
-    "seed": 138822,
+    "seed": 57949230,
     "mode": "house",
     "layout": [
-      1,
-      6,
-      3,
-      2,
-      6,
+      0,
       5,
+      5,
+      2,
+      2,
+      5,
+      4,
+      4,
+      1,
       0,
-      3,
-      6,
       1,
       3,
-      4,
+      3,
+      5,
       6,
       1,
-      4,
-      0,
-      4,
-      0,
+      2,
+      2,
+      5,
       6,
       0,
-      4,
+      1,
       1,
       0,
-      0,
-      3
+      1
     ],
     "animals": [
       {
         "id": "level11-0",
         "type": "rabbit",
-        "at": 5
+        "at": 21
       },
       {
         "id": "level11-1",
         "type": "cat",
-        "at": 5
+        "at": 22
       }
     ],
     "weights": [
@@ -1275,16 +1221,12 @@ const LEVELS = [
     },
     "solution": [
       [
-        18,
+        24,
         23
       ],
       [
-        20,
-        21
-      ],
-      [
-        1,
-        6
+        23,
+        24
       ]
     ],
     "refill": []
@@ -1293,52 +1235,52 @@ const LEVELS = [
     "id": 12,
     "title": "海风营地",
     "region": "青叶群岛",
-    "description": "救出所有玩伴，并完成 1 座救援小屋。",
+    "description": "从海面接回分散的玩伴，再完成T7救援小屋的建造目标。",
     "n": 5,
-    "seed": 142351,
+    "seed": 5483530,
     "mode": "house",
     "layout": [
-      5,
-      1,
-      5,
-      3,
-      6,
-      6,
-      1,
-      5,
-      3,
-      3,
       4,
-      0,
-      1,
-      0,
-      3,
       5,
-      6,
+      5,
+      4,
+      4,
+      1,
+      4,
+      4,
+      1,
       2,
-      4,
       0,
-      1,
-      4,
       3,
+      3,
+      2,
       6,
-      5
+      1,
+      2,
+      2,
+      1,
+      6,
+      4,
+      1,
+      1,
+      0,
+      1
     ],
     "animals": [
       {
         "id": "level12-0",
         "type": "dog",
-        "at": 0
+        "at": 21
       },
       {
         "id": "level12-1",
         "type": "penguin",
-        "at": 2
+        "at": 22
       },
       {
         "id": "level12-2",
         "type": "rabbit",
-        "at": 7
+        "at": 24
       }
     ],
     "weights": [
@@ -1356,20 +1298,12 @@ const LEVELS = [
     },
     "solution": [
       [
-        13,
-        14
+        24,
+        23
       ],
       [
-        11,
-        12
-      ],
-      [
-        3,
-        8
-      ],
-      [
-        11,
-        12
+        23,
+        24
       ]
     ],
     "refill": []
@@ -1378,34 +1312,34 @@ const LEVELS = [
     "id": 13,
     "title": "两盏小小的灯",
     "region": "青叶群岛",
-    "description": "救出所有玩伴，并完成 2 座救援小屋。",
+    "description": "从海面接回分散的玩伴，再完成T7救援小屋的建造目标。",
     "n": 5,
-    "seed": 145880,
+    "seed": 1612086,
     "mode": "house",
     "layout": [
+      7,
+      5,
+      5,
+      3,
+      5,
+      1,
       4,
       4,
       1,
-      4,
-      0,
-      4,
-      -1,
+      1,
+      2,
       3,
-      4,
+      3,
+      2,
+      6,
+      0,
+      2,
+      2,
+      0,
       6,
       2,
-      5,
-      6,
-      3,
-      6,
-      3,
-      4,
-      6,
-      4,
-      3,
-      4,
-      6,
-      7,
+      1,
+      1,
       0,
       1
     ],
@@ -1413,17 +1347,17 @@ const LEVELS = [
       {
         "id": "level13-0",
         "type": "cat",
-        "at": 11
+        "at": 21
       },
       {
         "id": "level13-1",
         "type": "rabbit",
-        "at": 11
+        "at": 22
       },
       {
         "id": "level13-2",
         "type": "dog",
-        "at": 11
+        "at": 24
       }
     ],
     "weights": [
@@ -1441,28 +1375,12 @@ const LEVELS = [
     },
     "solution": [
       [
-        2,
-        3
+        24,
+        23
       ],
       [
-        2,
-        7
-      ],
-      [
-        16,
-        17
-      ],
-      [
-        17,
-        18
-      ],
-      [
-        17,
-        18
-      ],
-      [
-        12,
-        13
+        23,
+        24
       ]
     ],
     "refill": []
@@ -1471,63 +1389,63 @@ const LEVELS = [
     "id": 14,
     "title": "森林绕行",
     "region": "青叶群岛",
-    "description": "救出所有玩伴，并完成 2 座救援小屋。",
+    "description": "从海面接回分散的玩伴，再完成T7救援小屋的建造目标。",
     "n": 6,
-    "seed": 151883,
+    "seed": 675528,
     "mode": "house",
     "layout": [
+      5,
+      5,
+      7,
+      3,
+      0,
+      0,
+      4,
+      4,
+      0,
       2,
-      6,
-      3,
-      5,
-      5,
-      3,
-      3,
-      -1,
-      6,
-      0,
-      3,
-      5,
-      5,
-      5,
-      6,
-      0,
-      5,
       4,
       5,
-      4,
+      3,
+      3,
       0,
-      5,
-      -1,
+      3,
       1,
-      6,
-      6,
-      3,
+      1,
+      0,
+      0,
+      1,
       6,
       0,
       1,
-      4,
-      6,
-      3,
+      2,
+      2,
       0,
+      6,
       4,
+      2,
+      1,
+      1,
+      0,
+      0,
+      1,
       5
     ],
     "animals": [
       {
         "id": "level14-0",
         "type": "penguin",
-        "at": 3
+        "at": 18
       },
       {
         "id": "level14-1",
         "type": "cat",
-        "at": 4
+        "at": 19
       },
       {
         "id": "level14-2",
         "type": "dog",
-        "at": 11
+        "at": 26
       }
     ],
     "weights": [
@@ -1545,16 +1463,12 @@ const LEVELS = [
     },
     "solution": [
       [
-        20,
-        21
-      ],
-      [
         14,
         20
       ],
       [
-        8,
-        9
+        32,
+        33
       ]
     ],
     "refill": []
@@ -1563,68 +1477,68 @@ const LEVELS = [
     "id": 15,
     "title": "营地连成星光",
     "region": "青叶群岛",
-    "description": "救出所有玩伴，并完成 3 座救援小屋。",
+    "description": "从海面接回分散的玩伴，再完成T7救援小屋的建造目标。",
     "n": 6,
-    "seed": 157886,
+    "seed": 1309905,
     "mode": "house",
     "layout": [
       5,
-      4,
-      0,
-      6,
-      2,
-      6,
-      4,
-      0,
-      1,
-      6,
-      4,
-      3,
-      4,
-      3,
-      1,
-      0,
-      6,
-      4,
-      3,
-      6,
-      3,
       5,
-      0,
-      0,
-      6,
-      0,
-      1,
-      5,
-      1,
-      0,
-      6,
-      3,
-      0,
       7,
+      7,
+      0,
+      0,
       4,
-      6
+      4,
+      2,
+      2,
+      4,
+      3,
+      3,
+      3,
+      0,
+      2,
+      1,
+      5,
+      0,
+      0,
+      1,
+      6,
+      0,
+      0,
+      2,
+      2,
+      0,
+      6,
+      4,
+      1,
+      1,
+      1,
+      0,
+      0,
+      3,
+      5
     ],
     "animals": [
       {
         "id": "level15-0",
         "type": "rabbit",
-        "at": 0
+        "at": 18
       },
       {
         "id": "level15-1",
         "type": "cat",
-        "at": 21
+        "at": 19
       },
       {
         "id": "level15-2",
         "type": "dog",
-        "at": 27
+        "at": 26
       },
       {
         "id": "level15-3",
         "type": "penguin",
-        "at": 0
+        "at": 32
       }
     ],
     "weights": [
@@ -1643,20 +1557,12 @@ const LEVELS = [
     "limit": 16,
     "solution": [
       [
-        20,
-        26
+        14,
+        20
       ],
       [
-        18,
-        19
-      ],
-      [
-        24,
-        25
-      ],
-      [
-        16,
-        22
+        32,
+        33
       ]
     ],
     "refill": []
@@ -1665,52 +1571,52 @@ const LEVELS = [
     "id": 16,
     "title": "三座小屋的约定",
     "region": "星光海域",
-    "description": "救出所有玩伴，并完成 1 座救援中心。",
+    "description": "从海面接回分散的玩伴，再完成T8救援中心的建造目标。",
     "n": 5,
-    "seed": 156467,
+    "seed": 27176549,
     "mode": "house",
     "layout": [
-      4,
+      2,
       5,
       5,
       3,
-      5,
+      7,
       2,
       4,
-      6,
-      5,
       4,
-      4,
-      4,
+      2,
+      7,
+      0,
+      3,
+      3,
       1,
+      6,
+      1,
+      2,
+      2,
       1,
       6,
       0,
       1,
-      7,
-      5,
-      3,
-      7,
-      7,
-      4,
       1,
-      0
+      0,
+      1
     ],
     "animals": [
       {
         "id": "level16-0",
         "type": "rabbit",
-        "at": 1
+        "at": 21
       },
       {
         "id": "level16-1",
         "type": "cat",
-        "at": 2
+        "at": 22
       },
       {
         "id": "level16-2",
         "type": "penguin",
-        "at": 4
+        "at": 24
       }
     ],
     "weights": [
@@ -1728,12 +1634,12 @@ const LEVELS = [
     },
     "solution": [
       [
-        3,
-        8
+        24,
+        23
       ],
       [
-        17,
-        22
+        23,
+        24
       ]
     ],
     "refill": []
@@ -1742,52 +1648,52 @@ const LEVELS = [
     "id": 17,
     "title": "第三座小屋",
     "region": "星光海域",
-    "description": "救出所有玩伴，并完成 1 座救援中心。",
+    "description": "从海面接回分散的玩伴，再完成T8救援中心的建造目标。",
     "n": 5,
-    "seed": 159996,
+    "seed": 369454,
     "mode": "house",
     "layout": [
-      3,
-      3,
+      1,
       5,
+      5,
+      4,
+      7,
+      0,
+      4,
+      4,
+      1,
+      7,
+      0,
+      3,
+      3,
+      1,
+      6,
       4,
       2,
-      4,
-      1,
-      5,
-      6,
-      3,
-      5,
-      6,
-      6,
-      3,
-      4,
-      4,
-      1,
-      6,
-      5,
+      2,
       0,
-      7,
-      7,
-      3,
       6,
+      2,
+      1,
+      1,
+      0,
       1
     ],
     "animals": [
       {
         "id": "level17-0",
         "type": "dog",
-        "at": 2
+        "at": 21
       },
       {
         "id": "level17-1",
         "type": "cat",
-        "at": 7
+        "at": 22
       },
       {
         "id": "level17-2",
         "type": "rabbit",
-        "at": 10
+        "at": 24
       }
     ],
     "weights": [
@@ -1805,16 +1711,12 @@ const LEVELS = [
     },
     "solution": [
       [
-        22,
+        24,
         23
       ],
       [
-        2,
-        3
-      ],
-      [
-        13,
-        14
+        23,
+        24
       ]
     ],
     "refill": []
@@ -1823,68 +1725,68 @@ const LEVELS = [
     "id": 18,
     "title": "礁岩间的灯塔",
     "region": "星光海域",
-    "description": "救出所有玩伴，并完成 1 座救援中心。",
+    "description": "从海面接回分散的玩伴，再完成T8救援中心的建造目标。",
     "n": 6,
-    "seed": 163525,
+    "seed": 3619582,
     "mode": "house",
     "layout": [
-      4,
       5,
-      4,
-      4,
-      6,
-      3,
+      5,
       2,
-      -1,
-      7,
-      1,
-      5,
-      1,
-      4,
-      6,
-      7,
-      4,
       0,
-      5,
+      4,
+      4,
+      4,
+      4,
       5,
       7,
+      5,
+      5,
+      3,
+      3,
+      0,
+      7,
+      5,
+      0,
+      0,
+      0,
+      1,
       6,
-      1,
-      1,
       3,
       4,
+      2,
+      2,
+      0,
+      6,
+      5,
+      3,
+      1,
       1,
       0,
-      4,
-      -1,
-      4,
-      5,
       0,
       5,
-      4,
-      3,
-      1
+      5
     ],
     "animals": [
       {
         "id": "level18-0",
         "type": "penguin",
-        "at": 1
+        "at": 18
       },
       {
         "id": "level18-1",
         "type": "dog",
-        "at": 10
+        "at": 19
       },
       {
         "id": "level18-2",
         "type": "cat",
-        "at": 17
+        "at": 26
       },
       {
         "id": "level18-3",
         "type": "rabbit",
-        "at": 18
+        "at": 32
       }
     ],
     "weights": [
@@ -1902,44 +1804,12 @@ const LEVELS = [
     },
     "solution": [
       [
-        15,
-        21
-      ],
-      [
-        19,
+        14,
         20
       ],
       [
-        12,
-        13
-      ],
-      [
-        12,
-        18
-      ],
-      [
-        15,
-        16
-      ],
-      [
-        14,
-        15
-      ],
-      [
-        30,
-        31
-      ],
-      [
-        25,
-        31
-      ],
-      [
-        26,
-        27
-      ],
-      [
-        9,
-        15
+        32,
+        33
       ]
     ],
     "refill": []
@@ -1948,64 +1818,64 @@ const LEVELS = [
     "id": 19,
     "title": "风雨前的中心",
     "region": "星光海域",
-    "description": "救出所有玩伴，并完成 1 座救援中心。",
+    "description": "从海面接回分散的玩伴，再完成T8救援中心的建造目标。",
     "n": 6,
-    "seed": 183135,
+    "seed": 1020967,
     "mode": "house",
     "layout": [
-      3,
+      5,
+      5,
       2,
-      4,
+      2,
       3,
-      1,
-      6,
-      5,
-      -1,
-      3,
-      5,
-      6,
-      3,
-      5,
-      6,
       0,
       4,
-      0,
-      5,
       4,
-      6,
-      6,
+      0,
+      7,
       1,
       5,
+      3,
+      3,
       0,
-      3,
-      5,
-      6,
-      5,
-      3,
-      6,
       7,
-      7,
-      3,
-      6,
+      1,
+      4,
       0,
-      3
+      0,
+      1,
+      6,
+      4,
+      0,
+      2,
+      2,
+      0,
+      6,
+      2,
+      3,
+      1,
+      1,
+      0,
+      0,
+      2,
+      0
     ],
     "animals": [
       {
         "id": "level19-0",
         "type": "penguin",
-        "at": 6,
+        "at": 18,
         "timer": 12
       },
       {
         "id": "level19-1",
         "type": "rabbit",
-        "at": 9
+        "at": 19
       },
       {
         "id": "level19-2",
         "type": "dog",
-        "at": 12
+        "at": 26
       }
     ],
     "weights": [
@@ -2023,16 +1893,12 @@ const LEVELS = [
     },
     "solution": [
       [
+        14,
+        20
+      ],
+      [
         32,
         33
-      ],
-      [
-        0,
-        6
-      ],
-      [
-        21,
-        22
       ]
     ],
     "refill": []
@@ -2041,68 +1907,68 @@ const LEVELS = [
     "id": 20,
     "title": "双星救援港",
     "region": "星光海域",
-    "description": "救出所有玩伴，并完成 2 座救援中心。",
+    "description": "从海面接回分散的玩伴，再完成T8救援中心的建造目标。",
     "n": 6,
-    "seed": 170583,
+    "seed": 380041,
     "mode": "house",
     "layout": [
+      5,
+      5,
+      0,
+      1,
       2,
-      3,
-      3,
-      7,
-      7,
+      4,
+      4,
+      4,
       1,
-      5,
-      5,
-      4,
-      4,
+      7,
+      0,
+      7,
+      3,
+      3,
+      0,
+      7,
+      0,
+      7,
+      0,
+      0,
+      1,
       6,
       7,
+      0,
+      2,
+      2,
+      0,
+      6,
       5,
-      -1,
-      4,
+      0,
       1,
       1,
-      4,
-      4,
-      3,
-      7,
-      1,
-      4,
-      6,
-      7,
-      7,
-      4,
-      3,
-      6,
-      4,
+      0,
+      0,
       5,
-      3,
-      4,
-      6,
-      1,
-      3
+      4
     ],
     "animals": [
       {
         "id": "level20-0",
         "type": "rabbit",
-        "at": 6
+        "at": 18
       },
       {
         "id": "level20-1",
         "type": "cat",
-        "at": 7
+        "at": 19
       },
       {
         "id": "level20-2",
         "type": "dog",
-        "at": 12
+        "at": 26
       },
       {
         "id": "level20-3",
         "type": "penguin",
-        "at": 30
+        "at": 32
       }
     ],
     "weights": [
@@ -2121,20 +1987,16 @@ const LEVELS = [
     "limit": 18,
     "solution": [
       [
-        5,
-        11
+        14,
+        20
       ],
       [
-        20,
-        26
+        32,
+        33
       ],
       [
-        24,
-        30
-      ],
-      [
-        8,
-        14
+        22,
+        23
       ]
     ],
     "refill": []
@@ -2391,7 +2253,7 @@ function renderTile(t,i,{n,selected=null,hint=[]}){
  if(!t)return `<div class="tile blank" aria-hidden="true"></div>`;
  const animals=t.animals||[],residents=t.camp?.occupants||[],all=[...animals,...residents],layout=animalLayout(all.length),urgent=animals.filter(a=>a.timer!==null),timer=urgent.length?Math.min(...urgent.map(a=>a.timer)):null;
  const onWater=t.level>=0&&t.level<=2,shelter=t.level===MIN_SAFE_TIER&&all.length>0,house=isHouse(t),label=`第 ${Math.floor(i/n)+1} 行第 ${i%n+1} 列，${t.level<0?'岩石':TERRAIN[t.level]}${all.length?'，'+all.map(a=>ANIMALS[a.type].label).join('、'):''}${residents.length?'，已救援 '+residents.length+' 只':''}${house?'，安全区域':''}${timer!==null?'，紧急剩余 '+timer+' 步':''}`;
- return `<button class="tile level-${t.level} ${t.camp?'has-camp camp-'+t.camp.kind:''} ${onWater?'on-water':''} ${shelter?'has-shelter':''} ${i===selected?'selected':''} ${hint.includes(i)?'hinted':''}" data-id="${t.id}" data-action="tile" data-index="${i}" aria-label="${label}" ${t.level<0||t.level===MAX_TIER?'aria-disabled="true"':''}>${terrainArt(t.level)}${t.level>=0&&t.level<2&&all.length?`<div class="float-art">${floatArt()}</div>`:''}${t.level>=0&&t.level<=1&&!all.length&&(t.id+i)%4===0?`<span class="sea-fish">${fishArt()}</span>`:''}${shelter||t.camp?.kind==='tent'?`<div class="camp-art">${tentArt()}</div>`:''}<div class="tile-animals" data-animal-count="${all.length}" data-animal-scale="${layout[0]?.scale||1}">${all.map((a,k)=>`<span class="tile-animal ${all.length>4?'portrait-mini':''} ${k>=animals.length?'resident':''}" data-${k>=animals.length?'resident':'animal'}-id="${a.id}" style="left:${layout[k].x}%;top:${layout[k].y}%;width:${layout[k].size}%;height:${layout[k].size}%">${all.length>4?animalArt(a.type).replace('viewBox="0 0 100 110"','viewBox="0 0 100 82"'):animalArt(a.type)}</span>`).join('')}</div>${residents.length?`<span class="camp-count">${icon('check')}${residents.length}</span>`:''}${timer!==null?`<span class="timer-badge">${timer}</span>`:''}</button>`;
+ return `<button class="tile level-${t.level} ${t.camp?'has-camp camp-'+t.camp.kind:''} ${onWater?'on-water':''} ${shelter?'has-shelter':''} ${i===selected?'selected':''} ${hint.includes(i)?'hinted':''}" data-id="${t.id}" data-action="tile" data-index="${i}" aria-label="${label}" ${t.level<0?'aria-disabled="true"':''}>${terrainArt(t.level)}${t.level>=0&&t.level<2&&all.length?`<div class="float-art">${floatArt()}</div>`:''}${t.level>=0&&t.level<=1&&!all.length&&(t.id+i)%4===0?`<span class="sea-fish">${fishArt()}</span>`:''}${shelter||t.camp?.kind==='tent'?`<div class="camp-art">${tentArt()}</div>`:''}<div class="tile-animals" data-animal-count="${all.length}" data-animal-scale="${layout[0]?.scale||1}">${all.map((a,k)=>`<span class="tile-animal ${all.length>4?'portrait-mini':''} ${k>=animals.length?'resident':''}" data-${k>=animals.length?'resident':'animal'}-id="${a.id}" style="left:${layout[k].x}%;top:${layout[k].y}%;width:${layout[k].size}%;height:${layout[k].size}%">${all.length>4?animalArt(a.type).replace('viewBox="0 0 100 110"','viewBox="0 0 100 82"'):animalArt(a.type)}</span>`).join('')}</div>${residents.length?`<span class="camp-count">${icon('check')}${residents.length}</span>`:''}${timer!==null?`<span class="timer-badge">${timer}</span>`:''}</button>`;
 }
 
 
@@ -2651,7 +2513,7 @@ function goalAnimalsHTML(){
 }
 function gamePage(){
  const level=activeLevel(),timers=game.board.flatMap(t=>t.animals).filter(a=>a.timer!==null).map(a=>a.timer);
- return `<div class="play-header"><button class="round-button" data-action="nav" data-route="home" aria-label="返回主岛">${icon('back')}</button><h1>海岛救援</h1><button class="round-button" data-action="rules" aria-label="查看玩法">${icon('help')}</button></div><div class="play-layout"><div class="play-aside"><section class="level-badge"><div>第 <strong>${level.id}</strong> 关</div><small>${game.building?'自由建设':timers.length||game.limit?'剩余步数':'轻松救援'}</small><span class="move-label ${timers.length?'urgent':''}" id="moves" ${!timers.length&&!game.limit?'hidden':''}>${moveText(timers)}</span>${!timers.length&&!game.limit?'<span class="level-status">一起慢慢来</span>':''}</section><section class="card rescue-goal"><div class="goal-copy"><strong class="goal-label">${game.building?'建造目标':'关卡目标'}</strong><div class="goal-number">${goalNumber()}</div><p class="goal-title">${ART_COPY(goalTitle())}</p></div><div class="animal-goals">${goalAnimalsHTML()}</div><div id="terrain-objective" class="terrain-objective" ${!game.terrainGoal||game.building?'hidden':''}>${terrainObjectiveContent()}</div></section></div><section class="game-sea"><div class="puzzle-surface"><div class="board" id="board" style="--n:${game.n}" role="group" aria-label="${game.n} 乘 ${game.n} 救援棋盘" aria-busy="${busy}">${boardHTML()}</div><div id="feedback" class="game-feedback" role="status">${ART_COPY(playFeedback())}</div><div class="swipe-guide">${icon('swipe')}<p>拖动相邻地块，让相同地形合并升级<br><strong>合成树林营地，接玩伴平安回家</strong></p></div></div><div class="board-tools"><button class="tool-button" id="continue-building" data-action="build-terrain" ${game.status!=='won'?'hidden':''}>${icon('build')}继续建设</button><button class="tool-button" data-action="hint">${icon('hint-color')}<span>提示</span></button><button class="tool-button" data-action="retry">${icon('retry-color')}<span>重试</span></button><button class="tool-button" data-action="nav" data-route="home">${icon('boat')}<span>回小岛</span></button><button class="tool-button" data-action="rules">${icon('book-color')}<span>玩法</span></button></div>${legend()}<p class="control-help">进度自动保存 · 点击左上角返回小岛</p></section></div>`;
+ return `<div class="play-header"><button class="round-button" data-action="nav" data-route="home" aria-label="返回主岛">${icon('back')}</button><h1>海岛救援</h1><button class="round-button" data-action="rules" aria-label="查看玩法">${icon('help')}</button></div><div class="play-layout"><div class="play-aside"><section class="level-badge"><div>第 <strong>${level.id}</strong> 关</div><small>${game.building?'自由建设':timers.length||game.limit?'剩余步数':'轻松救援'}</small><span class="move-label ${timers.length?'urgent':''}" id="moves" ${!timers.length&&!game.limit?'hidden':''}>${moveText(timers)}</span>${!timers.length&&!game.limit?'<span class="level-status">一起慢慢来</span>':''}</section><section class="card rescue-goal"><div class="goal-copy"><strong class="goal-label">${game.building?'建造目标':'关卡目标'}</strong><div class="goal-number">${goalNumber()}</div><p class="goal-title">${ART_COPY(goalTitle())}</p></div><div class="animal-goals">${goalAnimalsHTML()}</div><div id="terrain-objective" class="terrain-objective" ${!game.terrainGoal||game.building?'hidden':''}>${terrainObjectiveContent()}</div></section></div><section class="game-sea"><div class="puzzle-surface"><div class="board" id="board" style="--n:${game.n}" role="group" aria-label="${game.n} 乘 ${game.n} 救援棋盘" aria-busy="${busy}">${boardHTML()}</div><div id="feedback" class="game-feedback" role="status">${ART_COPY(playFeedback())}</div><div class="swipe-guide">${icon('swipe')}<p>拖动相邻地块，让相同地形合并升级<br><strong>合成树林营地，接玩伴平安回家</strong></p></div></div><div class="board-tools"><button class="tool-button" data-action="hint">${icon('hint-color')}<span>提示</span></button><button class="tool-button" data-action="retry">${icon('retry-color')}<span>重试</span></button><button class="tool-button" data-action="nav" data-route="home">${icon('boat')}<span>回小岛</span></button><button class="tool-button" data-action="rules">${icon('book-color')}<span>玩法</span></button></div>${legend()}<p class="control-help">进度自动保存 · 点击左上角返回小岛</p></section></div>`;
 }
 
 function mapPage(){return `${sectionHeading('ISLAND JOURNAL · 02','沿着海风，寻找新朋友。','二十次出航，从第一次靠岸到共同建起救援中心。')}<div class="map-layout"><section class="map-sea"><div class="map-region">浅 湾 → 海 风 群 岛 → 灯 塔 海 域 → 晨 光 群 岛</div><div class="level-route">${LEVELS.map(l=>{const open=l.id<=unlocked(),completed=save.completed[l.id];return `<button class="level-node ${completed?'completed':l.id===unlocked()?'current':''}" data-action="start" data-level="${l.id}" ${!open?'disabled':''} aria-label="第 ${l.id} 关 ${l.title}${completed?'，已通关':''}"><span class="level-islet">${open?`<span class="node-number">${String(l.id).padStart(2,'0')}</span>`:icon('lock')}${completed?`<span class="node-stars">${'★'.repeat(completed)}</span>`:''}</span><small>${l.title}</small>${l.terrainGoal?`<span class="map-goal">T${l.terrainGoal.level} × ${l.terrainGoal.count}</span>`:''}</button>`;}).join('')}</div><div class="route-counter">已经留下 ${done()} 段平安回家的故事 / 共 ${LEVELS.length} 段</div></section><aside class="card"><div class="card-heading"><h2>我们的航海手记</h2><span>海岛版 0.10</span></div><p class="subtext">01—05 · 搭建营地，一起平安获救<br><br>06—10 · 海岛建设与紧急救援<br><br>11—15 · 搭建营地，建成更多 T7 小屋<br><br>16—20 · 三连小屋，挑战 T8 救援中心</p><div class="small-empty" style="margin-top:25px">新十关同时需要营救和建造。<br>每步都会保存，可以随时回来继续。</div></aside></div>${footer()}`;}
@@ -2707,7 +2569,7 @@ function navigate(to){if(!['home','map','friends','build','play','work'].include
 function showModal(html){clearIdleHint();hint=[];document.querySelectorAll('#board .hinted').forEach(node=>node.classList.remove('hinted'));previousFocus=document.activeElement;modalRoot.innerHTML=`<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">${html}</section></div>`;document.body.style.overflow='hidden';app.inert=true;modalRoot.querySelector('button')?.focus();}
 function closeModal(){modalRoot.innerHTML='';document.body.style.overflow='';app.inert=false;previousFocus?.isConnected&&previousFocus.focus();armIdleHint();}
 const closeButton=()=>`<button class="round-button" data-action="close-modal" aria-label="关闭">${icon('close')}</button>`;
-function rulesModal(tutorial=false){showModal(`${closeButton()}<div class="modal-animal">${animalArt('rabbit')}</div><div class="modal-eyebrow">给玩伴一个安心的家</div><h2 id="modal-title">建设小岛，一起回家。</h2><div class="tutorial-demo"><div>${terrainArt(GRASS_TIER)}</div><div>${terrainArt(GRASS_TIER)}</div><div>${terrainArt(GRASS_TIER)}</div><span>→</span><div>${terrainArt(MIN_SAFE_TIER)}</div></div><ol class="rules-list"><li>拖动相邻地块，横向或纵向连成至少 <b>3 个相同地形</b>，合并升级。</li><li>玩伴随地块移动，合并时所有玩伴都会保留。地形共有 <b>9 个升级阶段</b>。</li><li>动物所在的地块达到 <b>树林（T6）</b>后，会搭起营地，入住后才算完全安全。低级地形上的玩伴还需要帮助。</li><li>同一地块的玩伴会<b>一起获救，没有人数上限</b>，获救后会留在原处。同种玩伴也会分别计数。</li><li>小屋需要参与同级三连升级才能移动；救援中心固定。紧急倒计时只在有效交换后减少。</li></ol><p class="modal-small">重玩不会重复增加累计玩伴和首次通关奖励。<br>没有可用交换时，会先提示再整理棋盘。</p><button class="primary" data-action="close-modal">${tutorial?'准备好啦，出发！':'知道啦，继续救援'} ${icon('play')}</button>`);}
+function rulesModal(tutorial=false){showModal(`${closeButton()}<div class="modal-animal">${animalArt('rabbit')}</div><div class="modal-eyebrow">给玩伴一个安心的家</div><h2 id="modal-title">建设小岛，一起回家。</h2><div class="tutorial-demo"><div>${terrainArt(GRASS_TIER)}</div><div>${terrainArt(GRASS_TIER)}</div><div>${terrainArt(GRASS_TIER)}</div><span>→</span><div>${terrainArt(MIN_SAFE_TIER)}</div></div><ol class="rules-list"><li>拖动相邻地块，横向或纵向连成至少 <b>3 个相同地形</b>，合并升级。</li><li>玩伴随地块移动，合并时所有玩伴都会保留。地形共有 <b>9 个升级阶段</b>。每关开局，玩伴分散在深海（T0）与浅海（T1），每格一只。</li><li>动物所在的地块达到 <b>树林（T6）</b>后，会搭起营地，入住后才算完全安全。低级地形上的玩伴还需要帮助。</li><li>同一地块的玩伴会<b>一起获救，没有人数上限</b>，获救后会留在原处。同种玩伴也会分别计数。</li><li>救援小屋、救援中心和满级地块都能移动，只要交换后能让周围地块合成。T8不再升级。紧急倒计时只在有效交换后减少。</li></ol><p class="modal-small">重玩不会重复增加累计玩伴和首次通关奖励。<br>没有可用交换时，会先提示再整理棋盘。</p><button class="primary" data-action="close-modal">${tutorial?'准备好啦，出发！':'知道啦，继续救援'} ${icon('play')}</button>`);}
 function startLevel(id,force=false){
  if(id<1||id>unlocked())return;
  cancelPendingRescue();
@@ -2724,7 +2586,6 @@ function refreshPlayStatus(){
  document.querySelector('.goal-number').innerHTML=goalNumber();
  document.querySelector('.goal-title').textContent=ART_COPY(goalTitle());
  const objective=document.querySelector('#terrain-objective');objective.hidden=!game.terrainGoal||!!game.building;objective.innerHTML=terrainObjectiveContent();
- document.querySelector('#continue-building').hidden=game.status!=='won';
  document.querySelector('.animal-goals').innerHTML=goalAnimalsHTML();
  for(const [key,cls]of [['coins','gold'],['wood','timber'],['food','food']])document.querySelector(`.resource.${cls} span`).textContent=save[key];
  document.querySelector('#feedback').textContent=ART_COPY(playFeedback());
@@ -2732,7 +2593,6 @@ function refreshPlayStatus(){
 function selectTile(index){
  if(busy||modalRoot.children.length||game.status!=='playing')return;
  if(game.board[index].level<0){toast('岩石不可移动，可以从旁边绕过去');return;}
- if(game.board[index].level===MAX_TIER){toast('T8 救援中心已满级，固定在原位照顾玩伴');return;}
  if(selected===null){selected=index;hint=[];updateBoard();return;}
  if(index===selected){selected=null;updateBoard();return;}
  const n=game.n,adjacent=Math.abs(index-selected)===n||(Math.floor(index/n)===Math.floor(selected/n)&&Math.abs(index-selected)===1);
@@ -2751,7 +2611,7 @@ async function runMove(a,b){
  for(const frame of result.frames){
   if(token!==runToken)return;
   const feedback=document.querySelector('#feedback');
-  if(frame.kind==='swap'&&frame.houseMove)feedback.textContent='同级小屋连成一线，准备建起救援中心…';
+  if(frame.kind==='swap'&&frame.houseMove)feedback.textContent='移动救援设施，让周围地块继续升级…';
   if(frame.kind==='merge'){sound('merge');feedback.textContent=frame.upgrades.some(u=>u.level===MAX_TIER)?'T8 救援中心建成！玩伴们一起搬进新家':frame.upgrades.some(u=>u.level===HOUSE_TIER)?'一盏新灯亮了 · T7 救援小屋建成！':frame.chain>1?`${frame.chain} 次连锁 · 陆地慢慢长大了`:'合并成功 · 离家更近一步';}
   if(frame.kind==='shelter-ready')feedback.textContent='树林营地搭好了，玩伴们安全啦…';
   if(frame.kind==='camp-enter')feedback.textContent='跟着海风，走进我们的营地…';
@@ -2773,18 +2633,8 @@ async function runMove(a,b){
  if(game.status==='won'){sound('win');await view.wait(900);if(token===runToken&&route==='play'&&!modalRoot.children.length)winModal();}
  if(game.status==='lost')lostModal();
 }
-function winModal(){const level=activeLevel(),groups=Object.keys(ANIMALS).map(type=>({type,count:game.rescued.filter(a=>a.type===type).length})).filter(a=>a.count);showModal(`${closeButton()}<div class="win-ribbon">成功救出玩伴！</div><div class="win-stage">${groups.map(a=>animalArt(a.type)).join('')}<span class="celebrate-spark one">✦</span><span class="celebrate-spark two">✧</span></div><h2 id="modal-title">成功救出 ${game.rescued.length} 只小动物</h2><p>第 ${level.id} 关完成，新的相逢正等着你。</p><section class="win-rewards"><h3>本关收获</h3><div class="win-animal-list">${groups.map(a=>`<span>${animalArt(a.type)}<b>${ANIMALS[a.type].label} ×${a.count}</b></span>`).join('')}</div><div class="reward-row"><span>${icon('coin')}<b>+${reward?.coins||0}</b><small>金币</small></span><span>${icon('wood')}<b>+${reward?.wood||0}</b><small>木材</small></span></div><p class="reward-note">${reward?.first?'首次通关奖励已收好':'重玩关卡，玩伴和首次奖励不会重复累计'}</p></section><div class="win-actions"><button class="secondary" data-action="return-home">${icon('home')}返回主岛</button><button class="primary" data-action="${level.id<LEVELS.length?'start':'nav'}" ${level.id<LEVELS.length?`data-level="${level.id+1}"`:'data-route="map"'}>${icon('play')}${level.id<LEVELS.length?'下一关':'查看关卡'}</button></div><button class="text-button win-stay" data-action="close-modal">留在营地看看</button>`);modalRoot.querySelector('.modal').classList.add('victory-modal');}
+function winModal(){const level=activeLevel(),groups=Object.keys(ANIMALS).map(type=>({type,count:game.rescued.filter(a=>a.type===type).length})).filter(a=>a.count);showModal(`<div class="win-ribbon">成功救出玩伴！</div><div class="win-stage">${groups.map(a=>animalArt(a.type)).join('')}<span class="celebrate-spark one">✦</span><span class="celebrate-spark two">✧</span></div><h2 id="modal-title">成功救出 ${game.rescued.length} 只小动物</h2><p>第 ${level.id} 关完成，新的相逢正等着你。</p><section class="win-rewards"><h3>本关收获</h3><div class="win-animal-list">${groups.map(a=>`<span>${animalArt(a.type)}<b>${ANIMALS[a.type].label} ×${a.count}</b></span>`).join('')}</div><div class="reward-row"><span>${icon('coin')}<b>+${reward?.coins||0}</b><small>金币</small></span><span>${icon('wood')}<b>+${reward?.wood||0}</b><small>木材</small></span></div><p class="reward-note">${reward?.first?'首次通关奖励已收好':'重玩关卡，玩伴和首次奖励不会重复累计'}</p></section><div class="win-actions"><button class="secondary" data-action="return-home">${icon('home')}返回主岛</button><button class="primary" data-action="${level.id<LEVELS.length?'start':'nav'}" ${level.id<LEVELS.length?`data-level="${level.id+1}"`:'data-route="map"'}>${icon('play')}${level.id<LEVELS.length?'下一关':'查看关卡'}</button></div>`);modalRoot.querySelector('.modal').classList.add('victory-modal');}
 
-async function buildTerrain(){
- const next=continueBuilding(game);if(!next||next===game)return;
- const prepared=prepareBoard(next,{frames:true});
- cancelPendingRescue();const token=++runToken;busy=!!prepared.frames.length;game=next;history=[];selected=null;hint=[];closeModal();render();
- const view=boardView;game=prepared.state;
- for(const frame of prepared.frames){if(token!==runToken)return;await view.transition(frame);}
- if(token!==runToken)return;
- saveRun();busy=false;refreshPlayStatus();armIdleHint();
- if(game.status==='lost')lostModal();else toast('继续自由合成吧，营地和玩伴都会保留');
-}
 function lostModal(){showModal(`<div class="modal-animal">${animalArt('penguin')}</div><div class="modal-eyebrow">再 给 海 风 一 点 时 间</div><h2 id="modal-title">我们再试一次。</h2><p>${game.failure}<br>可以先观察带玩伴的地块，优先把它升级。</p><button class="primary warm" data-action="force-start" data-level="${game.levelId}">重新出发 ${icon('reset')}</button><button class="secondary" data-action="nav" data-route="home">先回小岛歇一会儿</button>`);}
 function suggestedMove(plan=true){
  const moves=legalMoves(game),canonical=activeLevel().solution;
@@ -2813,9 +2663,6 @@ document.addEventListener('click',event=>{
  if(action==='nav'){navigate(button.dataset.route);return;}
  if(action==='start'||action==='force-start'){startLevel(Number(button.dataset.level),action==='force-start');return;}
  if(action==='close-modal'){closeModal();return;}
- if(action==='build-terrain'){
-  buildTerrain();return;
- }
  if(action==='sound'){save.sound=!save.sound;store();button.innerHTML=icon(save.sound?'sound':'mute');button.setAttribute('aria-label',`${save.sound?'关闭':'开启'}音效`);if(save.sound)sound();return;}
  if(action==='resume'){closeModal();navigate('play');if(game?.status==='won')winModal();else if(game?.status==='lost')lostModal();return;}
  if(action==='supplies'){navigate('build');document.querySelector('#supply-orders')?.scrollIntoView({block:'start',behavior:reduceMotion?'instant':'smooth'});return;}
