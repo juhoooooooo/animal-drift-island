@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta name="app-version" content="0.16.0">
+<meta name="app-version" content="0.16.1">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#1d2d67">
@@ -25,6 +25,8 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 /* Sprite windows must clip their atlas, including inside a moving character. */
 .animal-art>svg,.tile-animal .animal-art>svg{overflow:hidden}
+/* Keep the actual three-in-a-row visible before it upgrades. */
+.tile.match-ready:before{content:"";position:absolute;inset:4%;z-index:5;border:2px solid #ffe4a1;border-radius:17%;background:#ffe49818;pointer-events:none}
 </style>
 </head>
 <body>
@@ -139,6 +141,9 @@ function areAdjacent(board,n,a,b) {
 }
 function canExchange(board,n,a,b) {
   if(!areAdjacent(board,n,a,b))return false;
+  // Swapping two identical terrains cannot create a new match, even if an
+  // unfinished/corrupt board already contains a line through these cells.
+  if(board[a].level===board[b].level)return false;
   const next=board.slice();[next[a],next[b]]=[next[b],next[a]];
   return groups(next,n).some(group=>group.includes(a)||group.includes(b));
 }
@@ -4373,6 +4378,12 @@ class BoardView {
       }
     }
     await Promise.all(tasks);
+    if(frame.kind==='swap'&&!this.disposed){
+      const matches=[...new Set(groups(frame.board,this.n).flat())],nodes=matches.map(i=>this.nodes.get(frame.board[i].id)).filter(Boolean);
+      for(const node of nodes)node.classList.add('match-ready');
+      try{await Promise.all(nodes.map(node=>this.animate(node,[{filter:'brightness(1)'},{filter:'brightness(1.16)',offset:.5},{filter:'brightness(1)'}],{duration:180})));}
+      finally{for(const node of nodes)node.classList.remove('match-ready');}
+    }
     if(!this.disposed)board.dataset.phase='idle';
   }
   previewDrag(index,to,progress) {
@@ -4382,7 +4393,9 @@ class BoardView {
     if(!fromTile||!toTile||[fromTile,toTile].some(t=>t.level<0))return;
     if(!areAdjacent(this.board,this.n,index,to))return;
     const a=this.nodes.get(fromTile.id),b=this.nodes.get(toTile.id),ar=this.slots[index].getBoundingClientRect(),br=this.slots[to].getBoundingClientRect();
-    const dx=(br.left-ar.left)*Math.min(1,Math.max(0,progress)),dy=(br.top-ar.top)*Math.min(1,Math.max(0,progress));
+    const allowed=canExchange(this.board,this.n,index,to),amount=Math.min(1,Math.max(0,progress))*(allowed?1:.14);
+    this.element.dataset.dragAllowed=String(allowed);
+    const dx=(br.left-ar.left)*amount,dy=(br.top-ar.top)*amount;
     for(const [node,x,y]of [[a,dx,dy],[b,-dx,-dy]]) {
       node.classList.add('tile-dragging');node.style.transform=`translate(${x}px,${y}px)`;this.dragged.add(node);
     }
@@ -4390,16 +4403,22 @@ class BoardView {
   resetDrag() {
     for(const node of this.dragged){node.style.removeProperty('transform');node.classList.remove('tile-dragging');}
     this.dragged.clear();
+    delete this.element.dataset.dragAllowed;
   }
   async rejectExchange(a,b){
-    if(this.dragged.size){await this.returnDrag();return;}
-    if(!areAdjacent(this.board,this.n,a,b))return;
-    const ar=this.slots[a].getBoundingClientRect(),br=this.slots[b].getBoundingClientRect();
-    await Promise.all([[a,1],[b,-1]].map(async([index,sign])=>{
-      const node=this.nodes.get(this.board[index].id);node.classList.add('tile-in-flight');
-      await this.animate(node,[{transform:'translate(0,0)'},{transform:`translate(${(br.left-ar.left)*sign*.48}px,${(br.top-ar.top)*sign*.48}px)`,offset:.48},{transform:'translate(0,0)'}],{duration:340,easing:'ease-in-out'});
-      node.classList.remove('tile-in-flight');
-    }));
+    try{
+      if(this.dragged.size){await this.returnDrag();return;}
+      if(!areAdjacent(this.board,this.n,a,b))return;
+      const ar=this.slots[a].getBoundingClientRect(),br=this.slots[b].getBoundingClientRect();
+      await Promise.all([[a,1],[b,-1]].map(async([index,sign])=>{
+        const node=this.nodes.get(this.board[index].id);node.classList.add('tile-in-flight');
+        try{await this.animate(node,[{transform:'translate(0,0)'},{transform:`translate(${(br.left-ar.left)*sign*.14}px,${(br.top-ar.top)*sign*.14}px)`,offset:.45},{transform:'translate(0,0)'}],{duration:260,easing:'ease-in-out'});}
+        finally{node.classList.remove('tile-in-flight');node.style.removeProperty('transform');}
+      }));
+    }finally{
+      this.resetDrag();
+      if(!this.disposed)this.reconcile(this.board);
+    }
   }
   async returnDrag() {
     const positions=this.rects();this.resetDrag();const tasks=[];
@@ -4506,7 +4525,7 @@ function speciesModal(type){
 }
 function settingsModal(){showModal(`${closeButton()}<h2 id="modal-title">基地设置</h2><p>救援进度会保存在当前浏览器。</p><button class="secondary setting-sound" data-action="sound" aria-label="${save.sound?'关闭':'开启'}音效">${icon(save.sound?'sound':'mute')}音效：${save.sound?'已开启':'已关闭'}</button><button class="secondary" data-action="rules">查看玩法 ${icon('help')}</button>`);}
 function render(){
- clearIdleHint();pointerStart=null;boardView?.destroy();boardView=null;
+ clearIdleHint();const oldPointer=pointerStart;pointerStart=null;releasePointer(oldPointer);boardView?.destroy();boardView=null;
  app.innerHTML=shell(route==='home'?homePage():route==='play'?gamePage():route==='map'?mapPage():friendsPage());
  if(route==='play')boardView=new BoardView(document.querySelector('#board'),{board:game.board,n:game.cols,rows:game.rows,tileHTML,reducedMotion:reduceMotion});
  if(route==='home'&&arrivalIds.length)document.querySelectorAll('[data-island-animal-id]').forEach(node=>{if(arrivalIds.includes(node.dataset.islandAnimalId)){const p=node.getAttribute('transform').match(/translate\(([-.\d]+) ([-.\d]+)/);node.style.setProperty('--arrival-x',(320-Number(p[1]))+'px');node.style.setProperty('--arrival-y',(355-Number(p[2]))+'px');node.classList.add('just-arrived');}});
@@ -4576,11 +4595,18 @@ function selectTile(index){
 async function runMove(a,b){
  if(busy||route!=='play'||game.status!=='playing'||modalRoot.children.length)return;
  const token=++runToken;playerActivity();selected=null;hint=[];
- pointerStart=null;
+ const oldPointer=pointerStart;pointerStart=null;releasePointer(oldPointer);
  const before=game;
  const result=swap(game,a,b,{frames:true});
  const view=boardView;
- if(!result.valid){document.querySelector('#feedback').textContent=result.reason;busy=true;clearIdleHint();view.element.setAttribute('aria-busy','true');await view.rejectExchange(a,b);if(token!==runToken)return;busy=false;updateBoard();armIdleHint();return;}
+ if(!result.valid){
+  document.querySelector('#feedback').textContent=result.reason;busy=true;clearIdleHint();view.element.setAttribute('aria-busy','true');
+  try{await view.rejectExchange(a,b);}
+  finally{
+   if(token===runToken&&view===boardView){game=before;busy=false;updateBoard(before.board);document.querySelector('#feedback').textContent=result.reason;armIdleHint();}
+  }
+  return;
+ }
  busy=true;clearIdleHint();view.element.setAttribute('aria-busy','true');game=result.state;history.push([a,b,before.cols]);
  if(result.rescued.length)pendingRescue={before};
  for(const frame of result.frames){
@@ -4657,17 +4683,26 @@ async function settleDrag(){
  if(token!==runToken||view!==boardView)return;
  busy=false;updateBoard();armIdleHint();
 }
+function releasePointer(p){
+ try{if(p?.capture?.hasPointerCapture(p.id))p.capture.releasePointerCapture(p.id);}catch{}
+}
+function cancelPointerGesture(){
+ const p=pointerStart;pointerStart=null;releasePointer(p);
+ if(p?.moved){ignoreClick=true;setTimeout(()=>ignoreClick=false,350);}
+ settleDrag();
+}
 document.addEventListener('pointerdown',event=>{
  playerActivity();const cell=event.target.closest('.tile[data-index]');
  if(!cell||event.button>0||route!=='play'||!boardView||busy||game.status!=='playing'||modalRoot.children.length||pointerStart)return;
  const index=Number(cell.dataset.index);if(game.board[index].level<0)return;
  const rect=boardView.slots[index].getBoundingClientRect();
- pointerStart={index,x:event.clientX,y:event.clientY,id:event.pointerId,view:boardView,token:runToken,width:rect.width,height:rect.height,axis:null,moved:false};
+ pointerStart={index,x:event.clientX,y:event.clientY,id:event.pointerId,view:boardView,token:runToken,width:rect.width,height:rect.height,axis:null,moved:false,capture:cell};
+ try{cell.setPointerCapture(event.pointerId);}catch{}
  clearIdleHint();ignoreClick=false;
 });
 document.addEventListener('pointermove',event=>{
  if(!pointerStart||event.pointerId!==pointerStart.id||busy)return;
- const p=pointerStart;if(route!=='play'||p.view!==boardView||p.token!==runToken){pointerStart=null;return;}
+ const p=pointerStart;if(route!=='play'||p.view!==boardView||p.token!==runToken){cancelPointerGesture();return;}
  const dx=event.clientX-p.x,dy=event.clientY-p.y;
  if(Math.hypot(dx,dy)<8)return;p.moved=true;
  const drag=adjacentDrag(p.index,game.cols,game.rows,dx,dy,p.width,p.height,p.axis);
@@ -4676,14 +4711,15 @@ document.addEventListener('pointermove',event=>{
 });
 document.addEventListener('pointerup',event=>{
  if(!pointerStart||event.pointerId!==pointerStart.id)return;
- const p=pointerStart;pointerStart=null;
+ const p=pointerStart;pointerStart=null;releasePointer(p);
  if(route!=='play'||p.view!==boardView||p.token!==runToken)return;
  const drag=adjacentDrag(p.index,game.cols,game.rows,event.clientX-p.x,event.clientY-p.y,p.width,p.height,p.axis);
  if(p.moved||drag){ignoreClick=true;setTimeout(()=>ignoreClick=false,350);}
  if(!drag?.commit){settleDrag();armIdleHint();return;}
  runMove(p.index,drag.to);
 });
-document.addEventListener('pointercancel',()=>{pointerStart=null;settleDrag();armIdleHint();});
+document.addEventListener('pointercancel',event=>{if(pointerStart?.id===event.pointerId)cancelPointerGesture();armIdleHint();});
+document.addEventListener('lostpointercapture',event=>{if(pointerStart?.id===event.pointerId)cancelPointerGesture();});
 document.addEventListener('keydown',event=>{
  playerActivity();
  if((event.key==='Enter'||event.key===' ')&&event.target.matches('.scene-label')){event.preventDefault();event.target.dispatchEvent(new MouseEvent('click',{bubbles:true}));return;}
@@ -4701,8 +4737,8 @@ document.addEventListener('keydown',event=>{
  }
  if(event.key==='Escape'&&!busy){selected=null;hint=[];updateBoard();}
 });
-document.addEventListener('visibilitychange',()=>{pointerStart=null;playerActivity();if(document.hidden){clearIdleHint();boardView?.finish();}else settleDrag();});
-window.addEventListener('blur',()=>{pointerStart=null;clearIdleHint();settleDrag();});
+document.addEventListener('visibilitychange',()=>{cancelPointerGesture();playerActivity();if(document.hidden){clearIdleHint();boardView?.finish();}else settleDrag();});
+window.addEventListener('blur',()=>{cancelPointerGesture();clearIdleHint();});
 window.addEventListener('focus',()=>playerActivity());
 persist(storage,save);
 const restoredRun=loadSession(storage);
